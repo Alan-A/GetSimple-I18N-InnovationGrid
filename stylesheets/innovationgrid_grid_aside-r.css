@@ -1,6 +1,10 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
-/* GRID (header & footer are outside of grid)      */
-/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* GRID (header & footer are outside of grid)	 	 */
+/* 												     */
+/* In this version the sidebar has 3 aside elements	 */
+/* and is positioned to the right.					 */
+/* 													 */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
 /* Small screens (mobil) */
@@ -12,6 +16,9 @@
 			"aside1"  	minmax(100px, auto)
 			"aside2"  	minmax(100px, auto)
 			/ 1fr ;
+}
+header .main-nav li {
+	white-space: normal;	/* Allow Links in main menu to wrap */
 }
 nav.menu-tree {
 	height: 0;				/* is replaced by 'burger-menu' */
@@ -26,7 +33,7 @@ div #socialmedia .icons {
 
 /* Medium screens (tablets) */
 
-@media only screen and (min-width: 40em) {				/* ~480px */
+@media only screen and (min-width: 30em) {				/* ~480px */
 	.main-container {
 		display: grid;
 		grid:	"nav	nav"  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
@@ -34,16 +41,15 @@ div #socialmedia .icons {
 				"aside1 aside2"	minmax(100px, auto)
 				/ 1fr 1fr;
 	}
-	div.mobil-nav-icon,
-	div.mobil-nav {
-/*		display: none;	/* show no 'Burger Menu' */
+	header .main-nav li {
+		white-space: nowrap;	/* Stop Links in main menu from wrapping */
 	}
 }
 
 
 /* Large screens (notebooks landscape, desktops) */
 
-@media only screen and (min-width: 60em) {				/* ~770px */
+@media only screen and (min-width: 45em) {				/* ~640px */
 	.main-container {
 		grid:	"nav  aside1 aside2"  	minmax(100px, auto)
 				"main main   main"  	minmax(100px, auto)
@@ -53,8 +59,8 @@ div #socialmedia .icons {
 		height: auto;				/* is no longer replaced by 'burger-menu' */
 	}
 
-header div.mobile-nav-icon {
-/*		display: none;				/* Do not show 'Burger Menu' */
+	header div.section {
+		padding: 0;	
 	}
 	div.mobile-nav-icon,
 	div.mobile-nav {
@@ -65,7 +71,7 @@ header div.mobile-nav-icon {
 
 /* Large screens (notebooks, desktops) */
 
-@media only screen and (min-width: 80em) {				/* ~980px */
+@media only screen and (min-width: 60em) {				/* ~980px */
 	.main-container {
 		grid:	" main main nav" 	minmax(100px, auto) 
 				" main main aside1" minmax(100px, auto) 

@@ -68,8 +68,8 @@ header .lang {
 	color: #bbb;
 	text-shadow: 1px 1px 0px rgba(0,0,0, .3);
 }
-header .lang a {
-}	
+/*	header .lang a {
+} */	
 header .lang a:link, 
 header .lang a:visited {
 	color:#ddd;
@@ -168,7 +168,7 @@ header div.section {		/* container for mobile burger nav */
 	display: inline-block;			/*  */
 	vertical-align: middle;
 	margin: 0;
-	padding: 0px 10px 10px 10px;
+	padding: 0px 15px 5px 10px;
 	text-align: right;
 	border: 0px solid yellow;	/*  */
 }
@@ -205,21 +205,21 @@ header div.section {		/* container for mobile burger nav */
 	padding-left:10px;			/* Padding in .breadcrumbs hat nicht funktioniert */
 } 
 
-#index .breadcrumbs {
-/*	display:none; /* no reason to have breadcrumbs on homepage */
-} 
+/*	#index .breadcrumbs {
+	display:none; 			/* no reason to have breadcrumbs on homepage * /
+} */
 
 
 /*	For home/index page - Suppress first 'home' element and separator */
 #index .breadcrumbs .wrapper {
-/*	visibility: hidden;	*/
+	visibility: hidden;	
 } 
 #index header .breadcrumbs .wrapper>:first-child {
-/*	display:none;			/*  */
+	display:none;			/*  */
 } 
 #index header .breadcrumbs .wrapper>:nth-child(2) {
-/*	margin-left:-0.7em;
-	visibility: visible;*/
+	margin-left:-0.7em;
+	visibility: visible; 	/*  */
 }
 
 /* BODY CONTENT */
@@ -356,11 +356,6 @@ article section .footer p {
 	margin:40px 0 0 0;
 }
 
-nav {
-/*float:right;			/*  */
-/*width:100%;				/*  
-	margin:40px 0 0 0; */
-}
 div.section {
 	margin:40px 0 40px 0;
 	padding:0 0 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
@@ -409,16 +404,10 @@ div.section h3 {				/* See also Media Query (below) */
 	-khtml-border-radius:4px 4px 4px 4px;
 	-webkit-border-radius:4px 4px 4px 4px;
 }
-@media (max-width: 480px) {
-	div.section h2,
-	div.section h3,
-	div.section #socialmedia {
-/*		width: 90%;		/* looks better without (and h2 & h3 align) */
-	}
-}
-div.page nth-child(2) {
+
+div.page:nth-child(2) {
 	border: 2px solid green;
-	background-color: pink:
+	background-color: pink;
 }
 
 div.section p {
@@ -464,7 +453,7 @@ footer .footer {
 	align-items: top;					/* vertically center child items */
 	padding: 10px;
 	font-size:11px;
-	line-height:25px;
+	line-height:15px;
 	color:#666;
 	text-transform:uppercase;
 	text-shadow: 1px 1px 0px rgba(255,255,255,.5);
@@ -477,49 +466,53 @@ footer .footer {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D5D5D5', endColorstr='#EDEDED',GradientType=0 ); */
 	background: linear-gradient(to top, #D5D5D5, #EDEDED);
 }
-footer .container {
+.footer .container {
 	display: flex;
 	flex-wrap: nowrap;			/*  */
 	box-sizing: border-box;		/*  */
 	align-items: top;			/* vertically center child items */
 }
-footer .left {
+.footer .left {
 	flex-grow: 1;				/*  */
 	text-align: left;
 	border: 0px solid grey;
 /*background-color: pink;		/*  */
 }
-footer .right {
+.footer .right {
 	flex-grow: 2;				/*  */
 	text-align: right;
 	border: 0px solid gray;
 /*background-color: skyblue;	/*  */
 }
 
-/*footer  div {
+/*.footer  div {
 	padding:20px 0;
 	text-shadow: 1px 1px 0px rgba(255,255,255,.8);
 	color:#888;
 	font-size:11px;
 	background-color:#ddd;
 }*/
-/*footer .left {
+/*.footer .left {
 	float:left;
 	width:30%;
 	padding: 10px;
 	text-align:left;
 }
-footer .right {
+.footer .right {
 	float:right;
 	width:70%;
 	padding: 10px;
-	text-align:right;		*/
+	text-align:right;
+}							*/
+
+.footer p {
+	padding: 5px 0;
 }
-footer a:link, footer a:visited {
+.footer a:link, .footer a:visited {
 	color:#888;
 	text-decoration:underline;
 }
-footer a:hover, footer a:focus {
+.footer a:hover, .footer a:focus {
 	color:#555;
 	text-decoration:underline;
 }
