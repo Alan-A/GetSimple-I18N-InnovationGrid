@@ -35,7 +35,8 @@ $innov_settings = Innovation_Settings();
 
 	<link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_base.css">
-	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-r.css">
+	<!--<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-2r.css">-->
+<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-3r.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/mobile-nav.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/aa-de.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/assets/css/reset.css">

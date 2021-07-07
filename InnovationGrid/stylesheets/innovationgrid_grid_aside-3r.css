@@ -8,6 +8,7 @@
 
 
 /* Small screens (mobil) */
+/*************************/
 
 .main-container {
 	display: grid;
@@ -32,8 +33,9 @@ div #socialmedia .icons {
 
 
 /* Medium screens (tablets) */
+/****************************/
 
-@media only screen and (min-width: 30em) {				/* ~480px */
+@media only screen and (min-width: 40em) {				/* ~520px */
 	.main-container {
 		display: grid;
 		grid:	"nav	nav"  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
@@ -42,14 +44,15 @@ div #socialmedia .icons {
 				/ 1fr 1fr;
 	}
 	header .main-nav li {
-		white-space: nowrap;	/* Stop Links in main menu from wrapping */
+		white-space: nowrap;		/* Stop Links in main menu from wrapping */
 	}
 }
 
 
 /* Large screens (notebooks landscape, desktops) */
+/*************************************************/
 
-@media only screen and (min-width: 45em) {				/* ~640px */
+@media only screen and (min-width: 45em) {				/* ~720px */
 	.main-container {
 		grid:	"nav  aside1 aside2"  	minmax(100px, auto)
 				"main main   main"  	minmax(100px, auto)
@@ -70,8 +73,9 @@ div #socialmedia .icons {
 
 
 /* Large screens (notebooks, desktops) */
+/***************************************/
 
-@media only screen and (min-width: 60em) {				/* ~980px */
+@media only screen and (min-width: 80em) {				/* ~960px */
 	.main-container {
 		grid:	" main main nav" 	minmax(100px, auto) 
 				" main main aside1" minmax(100px, auto) 
@@ -79,12 +83,15 @@ div #socialmedia .icons {
 				/ 1fr  1fr  1fr;
 	}
 	div.section h2,
-	div #socialmedia .icons {	/* 'aside' sections are now in sidebar right */
+	div #socialmedia .icons {		/* 'aside' sections are now in sidebar right */
 		margin-left: -21px;
 		margin-right: 10px;
 		border-radius: 0px 4px 4px 0px;
 	}
 }
+
+
+/***************************************/
 
 
 header { grid-area: head; }
