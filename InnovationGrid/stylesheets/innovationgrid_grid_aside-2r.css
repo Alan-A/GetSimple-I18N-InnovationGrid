@@ -14,7 +14,6 @@
 	display: grid;
 	grid:	"nav"	  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
 			"main"  	minmax(100px, auto)
-			"aside1"  	minmax(100px, auto)
 			"aside2"  	minmax(100px, auto)
 			/ 1fr ;
 }
@@ -38,10 +37,10 @@ div #socialmedia .icons {
 @media only screen and (min-width: 40em) {				/* ~520px */
 	.main-container {
 		display: grid;
-		grid:	"nav	nav"  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
-				"main   main"  	minmax(100px, auto)
-				"aside1 aside2"	minmax(100px, auto)
-				/ 1fr 1fr;
+		grid:	"nav"  	    minmax(0px, auto)		/* 0px to allow nav to be hidden  */
+				"main"  	minmax(100px, auto)
+				"aside2"	minmax(100px, auto)
+				/ 1fr;
 	}
 	header .main-nav li {
 		white-space: nowrap;		/* Stop Links in main menu from wrapping */
@@ -54,9 +53,9 @@ div #socialmedia .icons {
 
 @media only screen and (min-width: 45em) {				/* ~720px */
 	.main-container {
-		grid:	"nav  aside1 aside2"  	minmax(100px, auto)
-				"main main   main"  	minmax(100px, auto)
-				/ 1fr  1fr  1fr;
+		grid:	"nav  aside2"  	minmax(100px, auto)
+				"main  main"  	minmax(100px, auto)
+				/ 1fr  1fr;
 	}
 	nav.menu-tree {
 		height: auto;				/* is no longer replaced by 'burger-menu' */
@@ -78,7 +77,6 @@ div #socialmedia .icons {
 @media only screen and (min-width: 60em) {				/* ~960px */
 	.main-container {
 		grid:	" main main nav" 	minmax(100px, auto) 
-				" main main aside1" minmax(100px, auto) 
 				" main main aside2" minmax(100px, auto) 
 				/ 1fr  1fr  1fr;
 	}
@@ -99,8 +97,6 @@ header { grid-area: head; }
 nav { grid-area: nav; }
 
 main { grid-area: main; }
-
-#news { grid-area: aside1; }
 
 #tags { grid-area: aside2; }
 

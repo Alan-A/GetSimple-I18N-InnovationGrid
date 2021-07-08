@@ -85,12 +85,16 @@
 		<div class="breadcrumbs"><!-- Set to full page width. Contains background image info (not for header). -->
 			
 			<div class="container"><!-- Contains width restriction. -->
+
+				<div class="wrapper">
 				
-				<a href="<?php get_site_url(); ?>">Home</a> &nbsp;&nbsp;&#149;&nbsp;&nbsp; 
-				<?php Innovation_Parent_Link(get_parent(FALSE)); ?> <b><?php get_page_clean_title(); ?></b>
+					<a href="<?php get_site_url(); ?>">Home</a> &nbsp;&nbsp;&#149;&nbsp;&nbsp; 
+					<?php Innovation_Parent_Link(get_parent(FALSE)); ?> <b><?php get_page_clean_title(); ?></b>
 				
-			</div><!-- End .container -->
+				</div><!-- End .wrapper -->
 			
-		</div><!-- End .breadcrumbs -->
+				</div><!-- End .container -->
+			
+			</div><!-- End .breadcrumbs -->
 		
 	</header>

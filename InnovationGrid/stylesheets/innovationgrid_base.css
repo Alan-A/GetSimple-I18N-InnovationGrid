@@ -54,7 +54,6 @@ footer{
 .header .container {
 	display: flex;
 	flex-flow: row wrap;			/*  */
-	margin: 0px auto;				/*  */
 	box-sizing: border-box;			/*  */
 	align-items: flex-start;		/* vertically position child items */
 }
@@ -85,6 +84,7 @@ header .lang a:focus {
 	flex-grow: 1;					/*  */
 	text-align: left;
 	padding-top: 5px;
+	padding-left: 10px;
 	border: 0px solid silver;
 /*	background-color: pink;			/*  */
 }
@@ -173,6 +173,7 @@ header div.section {		/* container for mobile burger nav */
 	border: 0px solid yellow;	/*  */
 }
 
+
 /* HEADER: breadcrumbs */
 .breadcrumbs {
 	text-shadow: 1px 1px 0px rgba(255,255,255,.5);
@@ -181,16 +182,15 @@ header div.section {		/* container for mobile burger nav */
 	font-size:11px;
 	height:25px;
 	line-height:25px;
-/*overflow: hidden; /* hat nicht funktioniert */
 	color:#666;
 	text-transform:uppercase;
-/*	width:100%;		/*  */
 	background: #eee;
 	background: -moz-linear-gradient(top, #EDEDED 0%, #D5D5D5 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDEDED), color-stop(100%,#D5D5D5));
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDEDED', endColorstr='#D5D5D5',GradientType=0 ); 
-/*border: 2px solid yellow;*/
+/*border: 2px solid yellow;		/*  */
 }
+
 .breadcrumbs .container a:link, 
 .breadcrumbs a:visited {
 	color:#666;
@@ -201,14 +201,6 @@ header div.section {		/* container for mobile burger nav */
 	color:#316594;
 	text-decoration:underline;
 }
-.breadcrumbs {
-	padding-left:10px;			/* Padding in .breadcrumbs hat nicht funktioniert */
-} 
-
-/*	#index .breadcrumbs {
-	display:none; 			/* no reason to have breadcrumbs on homepage * /
-} */
-
 
 /*	For home/index page - Suppress first 'home' element and separator */
 #index .breadcrumbs .wrapper {
@@ -221,6 +213,7 @@ header div.section {		/* container for mobile burger nav */
 	margin-left:-0.7em;
 	visibility: visible; 	/*  */
 }
+
 
 /* BODY CONTENT */
 main {
@@ -358,7 +351,7 @@ article section .footer p {
 
 div.section {
 	margin:40px 0 40px 0;
-	padding:0 0 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
+	padding:0 10px 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
 	font-size:11px;
 	line-height:16px;		/* AADE - sehe unten  */
 	color:#555;
