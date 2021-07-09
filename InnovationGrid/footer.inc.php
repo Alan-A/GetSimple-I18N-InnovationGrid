@@ -29,8 +29,11 @@
 					</p>
 				</div>
 				<div class="right">
-					<p>
+				<!--<p>
 						ResponsiveInnovation Theme by <a href="http://timbowgs.bplaced.net/" >Timbow's GS Site</a> 
+					</p>-->
+					<p>
+						InnovationGrid Theme on <a href="https://github.com/Alan-A/InnovationGrid-Theme" >GitHub</a> 
 					</p>
 					<p>
 						Innovation Theme by <a href="http://www.cagintranet.com" >Cagintranet</a>

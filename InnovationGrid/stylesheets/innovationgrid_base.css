@@ -331,6 +331,10 @@ article section blockquote {
 	padding:0 0 0 15px;
 	border-left:1px solid #ccc;
 }
+article section img {
+	border-radius:4px;
+	box-shadow: 2px 1px 10px rgba(0,0,0, .2);
+}
 article section .footer {
 	color:#888;
 	font-size:11px;
@@ -340,6 +344,11 @@ article section .footer {
 }
 article section .footer p {
 	margin:0 0 10px 0;
+}
+
+article .float-right {
+	float: right;
+	margin: 5px 0  5px 10px;
 }
 
 
