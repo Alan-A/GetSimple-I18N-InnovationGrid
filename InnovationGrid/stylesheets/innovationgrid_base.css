@@ -436,6 +436,11 @@ div.section > ul,
 div.section > ul > li {		/* Only top level elements */
 	list-style: disc;
 }
+div.section > ul ul {		/* Submenus */
+	margin-bottom: 0px;
+}
+
+
 
 /* SIDEBAR: socialmedia */
 div #socialmedia {
