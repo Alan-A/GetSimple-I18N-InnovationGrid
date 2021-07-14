@@ -37,11 +37,13 @@ The following theme features require GetSimple components:
   * SearchResultRenderer
 * 'TagCloud' aside element  
   * TagCloud_de
-    ```<h2>Tags</h2>
+    ```
+<h2>Tags</h2>
 <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
     ```
   * TagCloud_en
-    ```<h2>Tags</h2>
+    ```
+<h2>Tags</h2>
 <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
     ```
 
