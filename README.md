@@ -31,7 +31,34 @@ The following GetSimple plugins are used in the theme:
 The following theme features require GetSimple components:
 * BurgerMenu for navigation on devices with narrow screens
   * BurgerIcon
+```
+<!-- Called in pageheader.inc.php -->
+<script>
+    function myFunction(x) {
+        x.classList.toggle("show-menu");
+        document.querySelector(".mobile-nav").classList.toggle("hide-mobile-nav");
+        document.querySelector(".mobile-nav-menu").classList.toggle("hide-menu");
+    }
+</script>
+
+<div class="mobile-nav-icon" onclick="myFunction(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+</div>
+```
   * BurgerMenu
+```
+<!-- Called in pageheader.inc.php -->
+<div  class="mobile-nav hide-mobile-nav" >
+    <nav class="mobile-nav-menu hide-menu" >
+        <ul>
+<?php get_i18n_navigation('index',0,99,I18N_SHOW_MENU); ?><!-- Only show pages in menu, not all pages -->
+        </ul>
+    </nav>
+</div>
+```
+
 * Site Search
   * SearchQueryRenderer
 ```php
@@ -68,9 +95,9 @@ The following theme features require GetSimple components:
 <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
 ```
   * TagCloud_en
-```
-<h2>Tags</h2>
-<?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
-```
+    ```
+    <h2>Tags</h2>
+    <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
+    ```
 
 
