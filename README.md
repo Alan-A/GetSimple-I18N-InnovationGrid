@@ -95,9 +95,16 @@ The following theme features require GetSimple components:
 <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
 ```
   * TagCloud_en
+<<<<<<< HEAD
     ```
     <h2>Tags</h2>
     <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
     ```
+=======
+```
+<h2>Tags</h2>
+<?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
+```
+>>>>>>> 04a1c067cbe7e9e0c298434ded922e0cf9ee6382
 
 
