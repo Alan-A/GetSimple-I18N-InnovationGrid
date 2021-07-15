@@ -47,7 +47,7 @@ The following theme features require GetSimple components:
     <div class="bar3"></div>
 </div>
 ```
-  * BurgerMenu
+* BurgerMenu
 ```php
 <!-- Called in pageheader.inc.php -->
 <div  class="mobile-nav hide-mobile-nav" >
@@ -66,7 +66,7 @@ The following theme features require GetSimple components:
 <p><?php  echo htmlspecialchars('Ihre Anfrage:');  ?></p>
 <ul><li><?php  echo htmlspecialchars($_REQUEST['words']); ?>
 <?php  } ?></li></ul>
-```
+``` 
   * SearchResultRenderer
 ```php
 <h3 class="search-entry-title">
@@ -88,13 +88,22 @@ The following theme features require GetSimple components:
   <?php echo $item->getExcerpt($item->content, $numWords); ?>
 </div>
 ```
+* 'SidebarNav' Navigation Menu
+```php
+<!-- Called in sidebar.inc.php -->
+<h2>Navigation</h2>
+<ul>
+<!-- Only show pages in menu, not all pages -->
+<?php get_i18n_navigation('index',0,99,I18N_SHOW_MENU); ?>
+</ul>
+```
 * 'TagCloud' aside element  
 Seperate TagCloud components are required for each language as GetSimple does not pass variables (hier it would be $lang) to components.
   * TagCloud_de
 ```
 <h2>Tags</h2>
 <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
-```
+``` 
   * TagCloud_en
 ```
 <h2>Tags</h2>
