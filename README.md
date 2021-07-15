@@ -12,13 +12,13 @@ A 'burger menu' is active in smaller screens instead of the standard fixed displ
 
 ## Installation
 
-This theme is installed in the GetSimple themes folder in the standard manner: upload, unzip, select the Theme in the admin themes tab.
+This theme is installed in the GetSimple themes folder in the standard manner: upload, unzip, select the theme in the admin themes tab.
 
 ### Aside Elements
 
 The default sidebar contains three aside elements. 
 
-If only two aside elements are to be included in the page, open the Default Template file (template.php) and change the active innovationgrid_grid_aside-*r.css file.
+If only two aside elements are to be included in the page, open the default template file (template.php) and change the active `innovationgrid_grid_aside-*r.css` file.
 
 ### Plugins
 The following GetSimple plugins are used in the theme:
@@ -31,7 +31,7 @@ The following GetSimple plugins are used in the theme:
 The following theme features require GetSimple components:
 * BurgerMenu for navigation on devices with narrow screens
   * BurgerIcon
-```
+```php
 <!-- Called in pageheader.inc.php -->
 <script>
     function myFunction(x) {
@@ -48,7 +48,7 @@ The following theme features require GetSimple components:
 </div>
 ```
   * BurgerMenu
-```
+```php
 <!-- Called in pageheader.inc.php -->
 <div  class="mobile-nav hide-mobile-nav" >
     <nav class="mobile-nav-menu hide-menu" >
@@ -89,22 +89,16 @@ The following theme features require GetSimple components:
 </div>
 ```
 * 'TagCloud' aside element  
+Seperate TagCloud components are required for each language as GetSimple does not pass variables (hier it would be $lang) to components.
   * TagCloud_de
 ```
 <h2>Tags</h2>
 <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
 ```
   * TagCloud_en
-<<<<<<< HEAD
-    ```
-    <h2>Tags</h2>
-    <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
-    ```
-=======
 ```
 <h2>Tags</h2>
 <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
 ```
->>>>>>> 04a1c067cbe7e9e0c298434ded922e0cf9ee6382
 
 
