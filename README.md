@@ -100,14 +100,14 @@ The following theme features require GetSimple components:
 * 'TagCloud' aside element  
 Seperate TagCloud components are required for each language as GetSimple does not pass variables (hier it would be $lang) to components.
   * TagCloud_de
-```
-<h2>Tags</h2>
-<?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
-``` 
+    ```
+    <h2>Tags</h2>
+    <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
+    ``` 
   * TagCloud_en
-```
-<h2>Tags</h2>
-<?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
-```
+    ```
+    <h2>Tags</h2>
+    <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
+    ```
 
 
