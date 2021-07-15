@@ -34,7 +34,33 @@ The following theme features require GetSimple components:
   * BurgerMenu
 * Site Search
   * SearchQueryRenderer
+```php
+<?php if (@$_REQUEST['words']) {?>
+<p><?php  echo htmlspecialchars('Ihre Anfrage:');  ?></p>
+<ul><li><?php  echo htmlspecialchars($_REQUEST['words']); ?>
+<?php  } ?></li></ul>
+```
   * SearchResultRenderer
+```php
+<h3 class="search-entry-title">
+  <?php if ($showLanguage) { ?>
+  <span class="search-entry-language">
+    <?php echo htmlspecialchars($item->language, ENT_NOQUOTES); ?>
+  </span>
+  <?php } ?>
+  <a href="<?php echo $item->link; ?>">
+    <?php echo htmlspecialchars($item->title, ENT_NOQUOTES); ?>
+  </a>
+</h3>
+<?php if ($showDate) { ?>
+<div class="search-entry-date">
+  <?php echo strftime($dateFormat, $item->pubDate); ?>
+</div>
+<?php } ?>
+<div class="search-entry-excerpt">
+  <?php echo $item->getExcerpt($item->content, $numWords); ?>
+</div>
+```
 * 'TagCloud' aside element  
   * TagCloud_de
 ```
