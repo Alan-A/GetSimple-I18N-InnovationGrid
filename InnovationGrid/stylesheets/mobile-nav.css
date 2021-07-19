@@ -5,8 +5,8 @@
 /* Used for Mobile Devices           */
 /*************************************/
 
-/* Burger-Menu Icon Container 
-Container is set to display: none; in file innovationgrid_2col_grid_aside-r.css using media query
+/* BURGER MENU ICON CONTAINER 
+Container is set to display: none; in file innovationgrid_2col_grid_aside-*r.css using media query
 */
 
 .mobile-nav-icon {
@@ -77,4 +77,10 @@ div.mobile-nav .hide-menu {
 	transform: translateX(calc(100% + 10px));		/*  */
 }
 
+
+/* BURGER MENU LISTS */
+
+div.mobile-nav li a {
+	font-size: 1.2em;		/* Make text larger for smaller devices */
+}
 

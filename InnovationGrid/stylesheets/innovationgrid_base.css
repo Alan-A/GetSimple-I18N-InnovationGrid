@@ -1,5 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * */
-/* INNOVATION GRID */
+/* INNOVATION GRID THEME               */
+/*                                     */
 /* * * * * * * * * * * * * * * * * * * */
 
 body {
@@ -433,11 +434,11 @@ div.section li {					/* All list elements */
 	list-style: circle;
 }
 div.section > ul, 
-div.section > ul > li {		/* Only top level elements */
+div.section > ul > li {				/* Only top level elements */
 	list-style: disc;
 }
-div.section > ul ul {		/* Submenus */
-	margin-bottom: 0px;
+div.section ul ul {					/* Submenus */
+	margin-bottom: 2px;
 }
 
 
