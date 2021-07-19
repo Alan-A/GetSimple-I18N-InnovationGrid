@@ -31,7 +31,7 @@ The following GetSimple plugins are used in the theme:
 The following theme features require GetSimple components:
 * BurgerMenu for navigation on devices with narrow screens
   * BurgerIcon
-```php
+    ```php
 <!-- Called in pageheader.inc.php -->
 <script>
     function myFunction(x) {
@@ -46,7 +46,7 @@ The following theme features require GetSimple components:
     <div class="bar2"></div>
     <div class="bar3"></div>
 </div>
-```
+    ```
 * BurgerMenu
 ```php
 <!-- Called in pageheader.inc.php -->
@@ -97,7 +97,7 @@ The following theme features require GetSimple components:
 <?php get_i18n_navigation('index',0,99,I18N_SHOW_MENU); ?>
 </ul>
 ```
-* 'TagCloud' aside element  
+* 'TagCloud' aside elements  
 Seperate TagCloud components are required for each language as GetSimple does not pass variables (hier it would be $lang) to components.
   * TagCloud_de
     ```
