@@ -235,7 +235,7 @@ article {
 }
 article h1 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin:0 0 45px 0;
+	margin:0 0 30px 0;
 	color: #275176;
 	font-size:37px;
 	line-height: 37px;
@@ -245,12 +245,14 @@ article h2 {
 	margin:0 0 10px 0;
 	color: #222222;
 	font-size:30px;
+	line-height: 30px;
 }
 article h3 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
 	margin:0 0 15px 0;
 	color: #275176;
 	font-size:25px;
+	line-height: 25px;
 }
 article h4 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
@@ -264,12 +266,14 @@ article h5 {
 	margin:0 0 10px 0;
 	color: #333;
 	font-size:15px;
+	line-height: 15px;
 }
 article h6 {
 	font-family: arial, serif;
 	margin:0 0 10px 0;
 	color: #666;
 	font-size:14px;
+	line-height: 14px;
 }
 article section {
 	padding: 30px 40px 40px 40px;

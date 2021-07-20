@@ -80,7 +80,17 @@ div.mobile-nav .hide-menu {
 
 /* BURGER MENU LISTS */
 
+div.mobile-nav ul ul {
+	padding-top: 5px;		/* For sub-menus, which are within parent li element */
+}
+div.mobile-nav li {
+	padding-bottom: 5px;	/*  */
+}
+div.mobile-nav ul li:last-child {
+	padding-bottom: 0px;	/*  */
+}
 div.mobile-nav li a {
-	font-size: 1.2em;		/* Make text larger for smaller devices */
+	font-size: 1.0rem;		/* Make text larger for smaller devices */
+	font-weight: bolder;	/* To improve readability */
 }
 
