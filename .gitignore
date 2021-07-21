@@ -1,7 +1,26 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# CKE configuration
-_config
+# See https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
 
-# Data
-data
+# Do not ignore folder:
+!GetSimpleCMS/
+
+# But ingore all folder content:
+GetSimpleCMS/*
+
+# However do not ignore folder: 
+!GetSimpleCMS/theme/
+
+# Ignore:
+GetSimpleCMS/theme/.git/
+GetSimpleCMS/theme/.gitignore
+
+# Ignore all following files:
+GetSimpleCMS/.htaccess
+GetSimpleCMS/gsconfig.php
+GetSimpleCMS/index.php
+GetSimpleCMS/LICENSE.txt
+GetSimpleCMS/readme.txt
+GetSimpleCMS/robots.txt
+GetSimpleCMS/rss.rss
+GetSimpleCMS/sitemap.xml
