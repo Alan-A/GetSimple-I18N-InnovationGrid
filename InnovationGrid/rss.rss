@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"  xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>My RSS Feed</title>
+<link>http://localhost/_projects/getsimple/gs_3-3-16_i18n__clean/rss.rss</link>
+<description>Welcome to my blog!!</description>
+<lastBuildDate>Mon, 20 Apr 2020 16:18:52 +0200</lastBuildDate>
+<language>en_AU</language>
+<generator>GetSimple CMS : GSBlog Plugin (v3.4.4)</generator>
+<atom:link href="http://localhost/_projects/getsimple/gs_3-3-16_i18n__clean/rss.rss" rel="self" type="application/rss+xml" />
+<item>
+	<title>Test Blog Post 1</title>
+	<pubDate>Mon, 20 Apr 2020 16:18:52 +0200</pubDate>
+	<link>http://localhost/_projects/getsimple/gs_3-3-16_i18n__clean/index.php?post=test-blog-post-1</link>
+	<guid>http://localhost/_projects/getsimple/gs_3-3-16_i18n__clean/index.php?post=test-blog-post-1</guid>
+	<description>Test Blog Post</description>
+	<content:encoded>Test Blog Post 1</content:encoded>
+	  <category>test</category>
+</item>
+</channel>
+</rss>

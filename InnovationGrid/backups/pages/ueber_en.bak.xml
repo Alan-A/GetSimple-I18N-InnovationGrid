@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item><pubDate>Tue, 15 Jun 2021 10:14:40 +0200</pubDate><title><![CDATA[About]]></title><url><![CDATA[ueber_en]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[]]></menuStatus><template><![CDATA[template.php]]></template><content><![CDATA[&lt;h2&gt;About this Installation&lt;/h2&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;This is a cleaned-up version of the template-test installation with the following templates tested:
+		&lt;ul&gt;
+			&lt;li&gt;2col_grid_aside-r&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+]]></content><author><![CDATA[admin]]></author><creDate>Tue, 15 Jun 2021 10:02:03 +0200</creDate><user><![CDATA[admin]]></user><parent><![CDATA[]]></parent><private><![CDATA[]]></private><menu><![CDATA[]]></menu></item>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item><pubDate>Thu, 14 May 2020 13:47:32 +0200</pubDate><title><![CDATA[Search Results]]></title><url><![CDATA[suchergebnisse_en]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[]]></menuStatus><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;{% searchqueryrenderer %}&lt;/p&gt;
+
+&lt;p&gt;Your results are:&lt;/p&gt;
+
+&lt;p&gt;(% searchresults numWords:15 showLanguage:0 HEADER:&#039;Header&#039; component:searchresultrenderer lang:en %)&lt;/p&gt;
+
+&lt;p&gt;:&lt;/p&gt;
+]]></content><author><![CDATA[admin]]></author><creDate>Wed, 22 Apr 2020 16:26:16 +0200</creDate><user><![CDATA[admin]]></user><parent><![CDATA[]]></parent><private><![CDATA[]]></private><menu><![CDATA[]]></menu></item>

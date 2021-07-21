@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item><pubDate>Mon, 20 Apr 2020 14:38:42 +0200</pubDate><title><![CDATA[Standard Page]]></title><url><![CDATA[standard-seite_en]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Standard Page]]></menu><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><content><![CDATA[&lt;div class=&quot;simplebox&quot;&gt;
+	&lt;h2 class=&quot;simplebox-title&quot;&gt;MyBox&lt;/h2&gt;
+
+	&lt;div class=&quot;simplebox-content&quot;&gt;
+		&lt;p&gt;This is myBox Content...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;span style=&quot;background-color:#FFD700;&quot;&gt;Standard Page&lt;/span&gt;&lt;/p&gt;
+
+&lt;div class=&quot;simplebox align-right&quot; style=&quot;width: 50%;&quot;&gt;
+	&lt;h2 class=&quot;simplebox-title&quot;&gt;Title&lt;/h2&gt;
+
+	&lt;div class=&quot;simplebox-content&quot;&gt;
+		&lt;p&gt;Content...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+]]></content><author><![CDATA[admin]]></author><parent><![CDATA[]]></parent><private><![CDATA[]]></private></item>

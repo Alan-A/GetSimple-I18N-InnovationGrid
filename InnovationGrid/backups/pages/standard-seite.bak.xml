@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item><pubDate>Mon, 20 Apr 2020 14:39:44 +0200</pubDate><title><![CDATA[Standard Seite]]></title><url><![CDATA[standard-seite]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Standard Seite]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;div class=&quot;mermaid align-left&quot;&gt;
+	&lt;h2 class=&quot;mermaid-title&quot;&gt;Title&lt;/h2&gt;
+
+	&lt;div class=&quot;mermaid-content&quot;&gt;
+		&lt;p&gt;Inhalt ...&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Standard Seite&lt;/p&gt;
+]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><menuOrder><![CDATA[1]]></menuOrder></item>
