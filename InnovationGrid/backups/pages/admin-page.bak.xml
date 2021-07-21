@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Thu, 23 Apr 2020 14:18:45 +0200</pubDate><title><![CDATA[Admin Seite]]></title><url><![CDATA[admin-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Admin Page]]></menu><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;h2&gt;ToDos&lt;/h2&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;Test Private Setting&lt;/li&gt;
-	&lt;li&gt;Add Search&lt;/li&gt;
-&lt;/ul&gt;
-]]></content><private><![CDATA[Y]]></private><author><![CDATA[admin]]></author><creDate>Thu, 23 Apr 2020 11:07:30 +0200</creDate><user><![CDATA[admin]]></user></item>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channel><item><title><![CDATA[homeimg]]></title><slug>homeimg</slug><value><![CDATA[&lt;img src=&quot;&lt;?php get_site_url(); ?&gt;data/uploads/images/im1.jpg&quot; class=&quot;scale-with-grid one-third column&quot; style=&quot;margin-bottom:10px;&quot;/&gt;
+&lt;img src=&quot;&lt;?php get_site_url(); ?&gt;data/uploads/images/im2.jpg&quot; class=&quot;scale-with-grid one-third column&quot; style=&quot;margin-bottom:10px;&quot;/&gt;
+&lt;img src=&quot;&lt;?php get_site_url(); ?&gt;data/uploads/images/im3.jpg&quot; class=&quot;scale-with-grid one-third column&quot; style=&quot;margin-bottom:10px;&quot;/&gt;
+&lt;div class=&quot;ghost&quot;&gt;
+            &lt;img src=&quot;&lt;?php get_site_url(); ?&gt;data/uploads/images/im4.jpg&quot; class=&quot;scale-with-grid one-third column&quot; style=&quot;margin-bottom:10px;&quot;/&gt;
+            &lt;img src=&quot;&lt;?php get_site_url(); ?&gt;data/uploads/images/im5.jpg&quot; class=&quot;scale-with-grid one-third column&quot; style=&quot;margin-bottom:10px;&quot;/&gt;
+            &lt;img src=&quot;&lt;?php get_site_url(); ?&gt;data/uploads/images/im0.jpg&quot; class=&quot;scale-with-grid one-third column&quot; style=&quot;margin-bottom:10px;&quot;/&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[Sidebar]]></title><slug>sidebar</slug><value><![CDATA[&lt;h4&gt;GetSimple Features&lt;/h4&gt;
+&lt;ul&gt; 
+&lt;li&gt;XML based data storage&lt;/li&gt; 
+&lt;li&gt;Best-in-Class User Interface&lt;/li&gt; 
+&lt;li&gt;&#039;Undo&#039; protection &amp;amp; backups&lt;/li&gt; 
+&lt;li&gt;Easy to theme&lt;/li&gt; 
+&lt;li&gt;Great documentation&lt;/li&gt; 
+&lt;li&gt;Growing community&lt;/li&gt; 
+&lt;/ul&gt;
+&lt;p&gt;This is your sidebar text. Please change me in &lt;em&gt;Theme -&gt; Edit Components&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://get-simple.info/download/&quot;&gt;Download the Latest GetSimple&lt;/a&gt;&lt;/p&gt;]]></value></item><item><title><![CDATA[Tagline]]></title><slug>tagline</slug><value><![CDATA[Luca Musolesi]]></value></item></channel>

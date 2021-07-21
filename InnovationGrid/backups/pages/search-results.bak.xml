@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Wed, 22 Apr 2020 16:23:29 +0200</pubDate><title><![CDATA[Search Results]]></title><url><![CDATA[search-results]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[]]></menu><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;p&gt;Your results are:&lt;/p&gt;
-
-&lt;p&gt;(% searchresults HEADER=&#039;&#039; component=searchrenderer %)&lt;/p&gt;
-
-&lt;p&gt;:&lt;/p&gt;
-]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author></item>
