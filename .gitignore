@@ -9,8 +9,18 @@
 GetSimpleCMS/*
 
 # However do not ignore folder: 
-!GetSimpleCMS/theme/
+!GetSimpleCMS/data/
+# Ignore all folder content: 
+GetSimpleCMS/data/*
+# ...with the exception of:
+!GetSimpleCMS/data/other/
+# Here, ignore everything:
+GetSimpleCMS/data/other/*
+#... except:
+!GetSimpleCMS/data/other/components.xml
 
+# However do not ignore folder: 
+!GetSimpleCMS/theme/
 # Ignore:
 GetSimpleCMS/theme/.git/
 GetSimpleCMS/theme/.gitignore
