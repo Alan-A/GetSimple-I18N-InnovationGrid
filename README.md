@@ -1,10 +1,9 @@
-# InnovationGrid-Theme
+# GEtSimple I18N InnovationGrid
 
-This theme is a reworking of the default [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/) for the [GetSimple CMS](http://get-simple.info).
 
-The Theme is responsive and uses Grid and Flex CSS techniques instead of the skeleton CSS used by the [Responsive Innovation](http://get-simple.info/extend/theme/responsive-innovation/615/) theme.
+This repository contains a set of files for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several of the i18n series of multi-language plugins for GetSimple and are based on an updated version the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), which I have named InnovationGrid.
 
-As provided here, the InnovationGrid theme uses several of the GetSimple i18n plugins for developing multi-language sites. 
+The InnovationGrid theme is responsive and uses Grid and Flex CSS3 techniques.(This is instead of the Skeleton CSS used by the [Responsive Innovation](http://get-simple.info/extend/theme/responsive-innovation/615/) theme.)
 
 The theme has four different layouts according to the width of the browser window and the widest has a right-hand sidebar as in the default Innovation theme. Two layout - i.e. grid - files are provided, one for two aside elements in the sidebar and one for three. The grid file which is active is specified by commenting in/out the relevant .css file in the default template.php template file.
 
