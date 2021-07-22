@@ -22,6 +22,7 @@ body {
 	max-width: 981px;			/*  */
 	margin: 0 auto;
 	padding: 0 10px 0 10px;		/* See .main-container (below) */
+/*	background: #ddd;		/*  */
 }
 
 .main-container {
@@ -32,11 +33,11 @@ body {
 
 main, aside, footer{
 	padding: 10px;
-	background: #ddd;
+/*	background: #ddd;			/*  */
 }
 footer{
 	padding: 10px;
-	background: #ddd;
+/*	background: #ddd;			/*  */
 }
 
 /* HEADER */
@@ -493,13 +494,13 @@ footer .footer {
 	flex-grow: 1;				/*  */
 	text-align: left;
 	border: 0px solid grey;
-/*background-color: pink;		/*  */
+/*	background-color: pink;		/*  */
 }
 .footer .right {
 	flex-grow: 2;				/*  */
 	text-align: right;
 	border: 0px solid gray;
-/*background-color: skyblue;	/*  */
+/*	background-color: skyblue;	/*  */
 }
 
 /*.footer  div {
