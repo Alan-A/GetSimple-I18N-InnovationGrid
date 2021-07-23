@@ -447,6 +447,14 @@ div.section ul ul {					/* Submenus */
 }
 
 
+/* SEARCH RESULTS */
+li.search-entry {
+	padding-bottom: 10px;
+}
+h3.search-entry-title {
+	margin-bottom: 10px;
+}
+
 
 /* SIDEBAR: socialmedia */
 div #socialmedia {

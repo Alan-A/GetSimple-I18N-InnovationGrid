@@ -37,11 +37,11 @@
 					<div class="sitename">
 					<!--<a href="<?php get_site_url(); ?>" id="logo" ><?php get_site_name(); ?></a> --><!-- Original Logo Text -->
 						<a href="<?php get_site_url(); ?>" id="logo" >
-							<?php if ($language == 'de') {
-								get_custom_field('logo_de'); // AA: i18n 
-							} ?>
 							<?php if ($language == 'en') {
 								get_custom_field('logo_en'); // AA: i18n
+							} ?>
+							<?php if ($language == 'de') {
+								get_custom_field('logo_de'); // AA: i18n 
 							} ?>
 							</a>
 					</div><!-- End .sitename -->
@@ -60,11 +60,11 @@
 					
 					<!-- i18n Search form -->
 					<div class="search">
-						<?php if ($language == 'de') {
-							get_i18n_search_form(array('slug'=>'suchergebnisse','showTags'=>'0')); 
-						} ?><!-- AA: i18n -->
 						<?php if ($language == 'en') {
-							get_i18n_search_form(array('slug'=>'suchergebnisse','showTags'=>'0')); 
+							get_i18n_search_form(array('slug'=>'searchresults','showTags'=>'0')); 
+						} ?><!-- AA: i18n -->
+						<?php if ($language == 'de') {
+							get_i18n_search_form(array('slug'=>'searchresults','showTags'=>'0')); 
 						} ?><!-- AA: i18n -->
 					</div>
 				
