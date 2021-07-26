@@ -18,16 +18,16 @@
 				
 				<!-- set language -->
 				<div class="lang">
-					<?php if ($language == 'de') { ?>
-						Deutsch
-					<?php } else { ?>
-						<a href="<?php echo htmlspecialchars(return_i18n_setlang_url('de')); ?>">Deutsch</a><!-- AA i18n -->
-					<?php } ?>
-					&nbsp;
 					<?php if ($language == 'en') { ?>
 						English
 					<?php } else { ?>
 						<a href="<?php echo htmlspecialchars(return_i18n_setlang_url('en')); ?>">English</a><!-- AA i18n -->
+					<?php } ?>
+					&nbsp;
+					<?php if ($language == 'de') { ?>
+						Deutsch
+					<?php } else { ?>
+						<a href="<?php echo htmlspecialchars(return_i18n_setlang_url('de')); ?>">Deutsch</a><!-- AA i18n -->
 					<?php } ?>
 				</div><!-- End .lang -->
 				
@@ -93,8 +93,8 @@
 				
 				</div><!-- End .wrapper -->
 			
-				</div><!-- End .container -->
+			</div><!-- End .container -->
 			
-			</div><!-- End .breadcrumbs -->
+		</div><!-- End .breadcrumbs -->
 		
 	</header>

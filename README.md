@@ -1,21 +1,41 @@
-# GEtSimple I18N InnovationGrid
+# GetSimple I18N InnovationGrid
 
 
-This repository contains a set of files for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several of the i18n series of multi-language plugins for GetSimple and are based on an updated version the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), which I have named InnovationGrid.
+The files provided in this repository are intended to provide a starting point for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several of the i18n series of multi-language plugins for GetSimple and include a new theme, InnovationGrid. This theme is based on the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), using CSS3 techniques.
+
+## Features
+
+### Theme
 
 The InnovationGrid theme is responsive and uses Grid and Flex CSS3 techniques. (This is instead of the Skeleton CSS used by the [Responsive Innovation](http://get-simple.info/extend/theme/responsive-innovation/615/) theme.)
 
-The theme has four different layouts according to the width of the browser window and the widest has a right-hand sidebar as in the default Innovation theme. Two layout - i.e. grid - files are provided, one for two aside elements in the sidebar and one for three. The grid file which is active is specified by commenting in/out the relevant .css file in the default template.php template file.
+The theme has four different layouts according to the width of the browser window and the widest has a right-hand sidebar as in the default Innovation theme. Two layout - i.e. grid - files are provided, one for two aside elements in the sidebar and one for three. The grid file which is active is specified by commenting in/out the relevant `.css` file in the default `template.php` template file.
 
 A 'burger menu' is active in smaller screens instead of the standard fixed display.
 
-The repository also includes a `components.xml` file, which us used to a number of page elements such as the search fields and navigation.
+The repository also includes a `components.xml` file, which contains a number of page elements such as the search fields and navigation.
+
+### Custom Page Headers 
+
+The i18n Custom Fields plugin is used to provide custom page Text Headers in the Header part of each page, allowing this text to be varied according to the page language. 
+
+### Tag Cloud
+
+All tags in the cloud are searched by the i18n Search Plugin along with page content.
+
+### Language-Specific Search
+
+A search field is included in the page header element. This field uses the i18n Search plugin and both page content and page tags - as shown in the optional tag cloud are searched. 
+
+### Breadcrumbs
+
+A breadcrumb bar is included btween the Page Header element and the main part of pages. 
 
 ## Installation
 
 This theme is installed in the GetSimple themes folder in the standard manner: upload, unzip, select the theme in the admin themes tab.
 
-In addition the components.xlm file has to be copied into the folder:
+In addition the components.xml file has to be copied into the folder:
 * `Site_Installation_Folder\data\other\`
 
 ### Aside Elements
@@ -28,6 +48,7 @@ If only two aside elements are to be included in the page, open the default temp
 The following GetSimple plugins are used in the theme:
 * [DynPages](http://get-simple.info/extend/plugin/dynpages/81/)
 * [i18n](http://get-simple.info/extend/plugin/i18n/69/)
+* [i18n Custom Fields](http://get-simple.info/extend/plugin/i18n-custom-fields/100/)
 * [i18n Search](http://get-simple.info/extend/plugin/i18n-search/82/)
 * [i18n Special Pages](http://get-simple.info/extend/plugin/i18n-special-pages/319/)
 

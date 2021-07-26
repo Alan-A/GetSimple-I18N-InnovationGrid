@@ -41,8 +41,8 @@ $innov_settings = Innovation_Settings();
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/aa-de.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/assets/css/reset.css">
 		
-	<script src="pfad-zur-jquery/jquery-3.4.1.js" type="text/javascript"></script>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--><!-- AA: i18n search tags -->	
+<!--<script src="pfad-zur-jquery/jquery-3.4.1.js" type="text/javascript"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Required for i18n search -->	
 	
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,7 +55,7 @@ $innov_settings = Innovation_Settings();
 
 	<?php get_header(); ?>
 	
-</head> 
+</head>
 <body id="<?php get_page_slug(); ?>" >
 	
 	<div class="page">

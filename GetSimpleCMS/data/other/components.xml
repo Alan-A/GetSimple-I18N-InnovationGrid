@@ -20,7 +20,6 @@
         &lt;/ul&gt;
     &lt;/nav&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[SearchQueryRenderer]]></title><slug>searchqueryrenderer</slug><value><![CDATA[&lt;?php if (@$_REQUEST[&#039;words&#039;]) {?&gt;
-&lt;p&gt;&lt;?php  echo htmlspecialchars(&#039;Ihre Anfrage:&#039;);  ?&gt;&lt;/p&gt;
 &lt;ul&gt;
     &lt;li&gt;
         &lt;?php  echo htmlspecialchars($_REQUEST[&#039;words&#039;]); ?&gt;
@@ -69,6 +68,6 @@
 		&lt;/div&gt;
 		&lt;script type=&quot;text/javascript&quot; src=&quot;//s7.addthis.com/js/250/addthis_widget.js&quot;&gt;&lt;/script&gt;
 	&lt;/div&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[TagCloud_de]]></title><slug>tagcloud_de</slug><value><![CDATA[&lt;h2&gt;Tags&lt;/h2&gt;
-&lt;?php get_i18n_tags(array(&#039;lang&#039;=&gt;&#039;de&#039;, &#039;slug&#039;=&gt;&#039;suchergebnisse&#039;)); ?&gt;]]></value></item><item><title><![CDATA[TagCloud_en]]></title><slug>tagcloud_en</slug><value><![CDATA[&lt;h2&gt;Tags&lt;/h2&gt;
-&lt;?php get_i18n_tags(array(&#039;lang&#039;=&gt;&#039;en&#039;, &#039;showlang&#039;=&gt;&#039;0&#039;, &#039;slug&#039;=&gt;&#039;suchergebnisse_en&#039;)); ?&gt;]]></value></item><item><title><![CDATA[Tagline]]></title><slug>tagline</slug><value><![CDATA[Just Another GetSimple Website]]></value></item></channel>
+&lt;/div&gt;]]></value></item><item><title><![CDATA[TagCloud_de]]></title><slug>tagcloud_de</slug><value><![CDATA[&lt;h2&gt;TagsDE&lt;/h2&gt;
+&lt;?php get_i18n_tags(array(&#039;lang&#039;=&gt;&#039;de&#039;, &#039;showlang&#039;=&gt;&#039;1&#039;, &#039;slug&#039;=&gt;&#039;searchresults_de&#039;)); ?&gt;]]></value></item><item><title><![CDATA[TagCloud_en]]></title><slug>tagcloud_en</slug><value><![CDATA[&lt;h2&gt;TagsEN&lt;/h2&gt;
+&lt;?php get_i18n_tags(array(&#039;lang&#039;=&gt;&#039;en&#039;, &#039;showlang&#039;=&gt;&#039;1&#039;, &#039;slug&#039;=&gt;&#039;searchresults&#039;)); ?&gt;]]></value></item><item><title><![CDATA[Tagline]]></title><slug>tagline</slug><value><![CDATA[Just Another GetSimple Website]]></value></item></channel>

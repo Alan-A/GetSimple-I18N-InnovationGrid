@@ -55,9 +55,10 @@ footer{
 }
 .header .container {
 	display: flex;
-	flex-flow: row wrap;			/*  */
-	box-sizing: border-box;			/*  */
-	align-items: flex-start;		/* vertically position child items */
+	flex-flow: row wrap;		/*  */
+	box-sizing: content-box;	/* Position of .left child div varies with window size 
+									when 'border-box' is used */
+	align-items: flex-start;	/* Vertically position child items */
 }
 
 /* HEADER: language */	/* AA i18n */
