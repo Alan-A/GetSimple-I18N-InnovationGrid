@@ -18,9 +18,10 @@ In addition, GetSimple provides editors with a very clean and easy-to-use interf
 
 The InnovationGrid theme is responsive and uses Grid and Flex CSS3 techniques. (This is instead of the Skeleton CSS used by the [Responsive Innovation](http://get-simple.info/extend/theme/responsive-innovation/615/) theme.)
 
-The theme has four different layouts according to the width of the browser window and the widest has a right-hand sidebar as in the default Innovation theme. Two layout - i.e. grid - files are provided, one for two aside elements in the sidebar and one for three. The grid file which is active is specified by commenting in/out the relevant `.css` file in the default `template.php` template file.
+The theme has four different layouts according to the width of the browser window and the widest has a right-hand sidebar as in the default Innovation theme. 
+Two layout - i.e. grid - files are provided, one for two aside elements in the sidebar and one for three. The grid file which is active is specified by commenting in/out the relevant `.css` file in the default `template.php` template file.
 
-A 'burger menu' is active in smaller screens instead of the standard fixed display.
+A 'burger menu' is active in smaller screens instead of the standard 'fixed' display in an aside element.
 
 The repository also includes a `components.xml` file, which contains a number of page elements such as the search fields and navigation.
 
