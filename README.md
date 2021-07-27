@@ -1,7 +1,16 @@
 # GetSimple I18N InnovationGrid
 
-
 The files provided in this repository are intended to provide a starting point for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several of the i18n series of multi-language plugins for GetSimple and include a new theme, InnovationGrid. This theme is based on the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), using CSS3 techniques.
+
+## Why use GetSimple?
+
+There are three basic reasons that I became intereste in using GetSimple:
+* it is Open Source - so, if necessary I could update the code myself;
+* it is free - with a good selection of free themes and plugins;
+* it has an active communnity;
+* a feature-rich set of plugins is available for creating multi-language sites; 
+* it uses flat-file storage instead of a database, simplifying installation and potentially speeding up response times.
+In addition, GetSimple provides editors with a very clean and easy-to-use interface.  
 
 ## Features
 
@@ -33,10 +42,14 @@ A breadcrumb bar is included btween the Page Header element and the main part of
 
 ## Installation
 
-This theme is installed in the GetSimple themes folder in the standard manner: upload, unzip, select the theme in the admin themes tab.
+This theme is installed in the GetSimple themes folder in the standard manner: 
+* upload, unzip, select the theme in the admin themes tab.
 
-In addition the components.xml file has to be copied into the folder:
+In addition the `components.xml` file has to be copied into the folder:
 * `Site_Installation_Folder\data\other\`
+
+... and the pages files should be copied into the folder:
+* `Site_Installation_Folder\data\pages\`
 
 ### Aside Elements
 
