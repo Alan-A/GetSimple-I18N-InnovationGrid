@@ -35,15 +35,7 @@
 					
 					<!-- logo/sitename -->
 					<div class="sitename">
-					<!--<a href="<?php get_site_url(); ?>" id="logo" ><?php get_site_name(); ?></a> --><!-- Original Logo Text -->
-						<a href="<?php get_site_url(); ?>" id="logo" >
-							<?php if ($language == 'en') {
-								get_custom_field('logo_en'); // AA: i18n
-							} ?>
-							<?php if ($language == 'de') {
-								get_custom_field('logo_de'); // AA: i18n 
-							} ?>
-							</a>
+						<a href="<?php get_site_url(); ?>" id="logo" ><?php get_custom_field('logo_text'); ?></a>
 					</div><!-- End .sitename -->
 					
 				</div><!-- End .left -->

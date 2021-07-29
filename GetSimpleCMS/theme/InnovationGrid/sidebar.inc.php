@@ -16,7 +16,7 @@
 	</div>
 	
 	<div class="section">
-		<?php echo "Language is: ", $language;?>
+		<?php //echo "Language is: ", $language;?>
 		<?php 
 			if ($language == 'de') { get_component('tagcloud_de'); };
 			if ($language == 'en') { get_component('tagcloud_en'); };
