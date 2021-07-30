@@ -7,12 +7,13 @@ Users have to install the plugins listed [below](#plugins) before the Web-Site w
 
 ## Why use GetSimple?
 
-There are three basic reasons that I became intereste in using GetSimple:
+There are a number of reasons that I became interested in using GetSimple:
 * it is Open Source - so, if necessary I could update the code myself;
 * it is free - with a good selection of free themes and plugins;
 * it has an active communnity;
 * a feature-rich set of plugins is available for creating multi-language sites; 
 * it uses flat-file storage instead of a database, simplifying installation and potentially speeding up response times.
+
 In addition, GetSimple provides editors with a very clean and easy-to-use interface.  
 
 ## Features
@@ -46,14 +47,17 @@ A breadcrumb bar is included btween the Page Header element and the main part of
 
 ## Installation
 
+Install the [GetSimple CMS](http://get-simple.info/download).
+
+Install the plugins listed [below](#plugins).
+
 This theme is installed in the GetSimple themes folder in the standard manner: 
-* upload, unzip, select the theme in the admin themes tab.
-
-In addition the `components.xml` file has to be copied into the folder:
-* `Site_Installation_Folder\data\other\`
-
-... and the pages files should be copied into the folder:
-* `Site_Installation_Folder\data\pages\`
+* Copy the contents of the theme folder of this repository to the theme folder of your CMS installation.
+* Copy the `components.xml` file into the folder:
+** `Site_Installation_Folder\data\other\`
+* Copy the page files into the folder:
+** `Site_Installation_Folder\data\pages\`
+* Now you can log into the back end of the CMS using your User credentials and select the InnovationGrid theme in the admin Themes tab.
 
 ### Aside Elements
 
