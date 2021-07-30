@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item><pubDate>Wed, 28 Jul 2021 16:47:24 +0200</pubDate><title><![CDATA[Suchergebnisse]]></title><url><![CDATA[searchresults_de]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[]]></menuStatus><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;Ihre Anfrage war:&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;{% searchqueryrenderer %}&lt;/p&gt;
+
+&lt;p&gt;Hier sind Ihre Ergebnisse:&lt;/p&gt;
+
+&lt;p&gt;(% searchresults numWords=15 showLanguage=0 HEADER=&#039;&#039; component=searchresultrenderer lang=de %)&lt;/p&gt;
+]]></content><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><creDate>Fri, 23 Jul 2021 10:35:20 +0200</creDate><user><![CDATA[admin]]></user><parent><![CDATA[]]></parent><private><![CDATA[]]></private><menu><![CDATA[]]></menu></item>
