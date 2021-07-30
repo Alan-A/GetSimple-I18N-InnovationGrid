@@ -21,6 +21,11 @@ GetSimpleCMS/data/*
 GetSimpleCMS/data/other/*
 #... except:
 !GetSimpleCMS/data/other/components.xml
+# In addition, do not ignore
+!GetSimpleCMS/data/pages/
+# ... but ignore this folder:
+GetSimpleCMS/data/other/autosave/
+
 
 # However do not ignore folder: 
 !GetSimpleCMS/theme/
