@@ -49,15 +49,16 @@ A breadcrumb bar is included btween the Page Header element and the main part of
 
 Install the [GetSimple CMS](http://get-simple.info/download).
 
-Install the plugins listed [below](#plugins).
+Install and activte the plugins listed [below](#plugins).
 
 This theme is installed in the GetSimple themes folder in the standard manner: 
 * Copy the contents of the theme folder of this repository to the theme folder of your CMS installation.
-* Copy the `components.xml` file into the folder:
-** `Site_Installation_Folder\data\other\`
-* Copy the page files into the folder:
-** `Site_Installation_Folder\data\pages\`
-* Now you can log into the back end of the CMS using your User credentials and select the InnovationGrid theme in the admin Themes tab.
+* Overwrite the original `components.xml` file by copying the `components.xml` file in the `.zip` file into the folder:
+  * `Site_Installation_Folder\data\other\`
+* Copy the page files the `.zip` file into the folder, overwriting the original `index.xml` file:
+  * `Site_Installation_Folder\data\pages\`
+* Log into the back end of the CMS using your User credentials and select and activate the InnovationGrid theme in the admin Themes tab.
+* You should now have a web-site with two languages, the default being English and the second language German. 
 
 ### Aside Elements
 
@@ -71,7 +72,7 @@ The following GetSimple plugins are used in the theme:
 * [i18n](http://get-simple.info/extend/plugin/i18n/69/)
 * [i18n Custom Fields](http://get-simple.info/extend/plugin/i18n-custom-fields/100/)
 * [i18n Search](http://get-simple.info/extend/plugin/i18n-search/82/)
-* [i18n Special Pages](http://get-simple.info/extend/plugin/i18n-special-pages/319/)
+
 In addition I recommend making life slightly easier by using the GetSimple [PluginInstaller](http://get-simple.info/extend/plugin/gs-plugin-installer/955/) plugin.
 
 ### Components
