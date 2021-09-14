@@ -447,6 +447,10 @@ div.section ul ul {					/* Submenus */
 	margin-bottom: 2px;
 }
 
+a.tag {								/* Links in Tag Cloud */
+	padding: 2px 5px;
+}
+
 
 /* SEARCH RESULTS */
 li.search-entry {
@@ -544,3 +548,13 @@ footer .footer {
 	text-decoration:underline;
 }
 
+
+/* PLUGIN - CBCOOKIES */
+.footer #cbcookies-bottom{	/* Overwrite values set in .css in Plugin folder */
+	max-width: 981px;			/*  */
+	box-sizing: border-box;		/*  */
+	margin: 0 auto;				/*  */
+	padding: 15px;				/*  */
+	left: 0;				/*  */
+	right: 0;				/*  */
+}
