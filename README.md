@@ -2,6 +2,12 @@
 
 The files provided in this repository are intended to provide a starting point for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several plugins for GetSimple and include a new theme, InnovationGrid. This theme is based on the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), using CSS3 techniques.
 
+## Example Web-Site
+
+I use this package as the basis for [my own web-site](http://www.alan-amos.de) with only minor changes to CSS and a number of additional features to meet my own requirements.
+
+## Download Description
+
 This repository contains template, style and component files required for the InnovationGrid theme as well as a number of page files that demonstrate and describe the site.
 Users have to install the plugins listed [below](#plugins) before the Web-Site will function fully.
 
