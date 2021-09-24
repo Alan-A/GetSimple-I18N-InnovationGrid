@@ -9,9 +9,7 @@ body {
 
 .page {
 	margin: 0px auto;
-/*	max-width: 981px;		/*  */
 	min-height: 100vh;
-/*	overflow: hidden;		/*  */
 }
 
 /* Set max width of contents (as opposed to backgrounds) */
@@ -25,13 +23,14 @@ body {
 
 .main-container,
 footer{
-	background: #def;
-	border-bottom:#ddd 1px solid;
+	background: #eaeaea;
+	border-bottom: #ddd 1px solid;
 }
 
 main, aside{
 	padding: 10px;
 }
+
 
 /* HEADER */
 
