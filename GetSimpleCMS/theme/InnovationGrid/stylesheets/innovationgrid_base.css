@@ -24,9 +24,9 @@ body {
 }
 
 .main-container,
-footer {
-	background-color: #def;
-	border-bottom: #ddd 1px solid;
+footer{
+	background: #def;
+	border-bottom:#ddd 1px solid;
 }
 
 main, aside{
@@ -231,21 +231,21 @@ article {
 }
 article h1 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin:0 0 30px 0;
+	margin:0 0 25px 0;
 	color: #275176;
 	font-size:37px;
 	line-height: 37px;
 }
 article h2 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin:0 0 10px 0;
+	margin:0 0 15px 0;
 	color: #222222;
 	font-size:30px;
 	line-height: 30px;
 }
 article h3 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin:0 0 15px 0;
+	margin-bottom: 10px;
 	color: #275176;
 	font-size:25px;
 	line-height: 25px;
@@ -297,6 +297,12 @@ article section ol ol,
 article section ul ol, 
 article section ol ul {
 	margin:0 0 0 25px;
+}
+li.search-entry {
+	margin-bottom: 15px;
+}
+li.search-entry h3 {
+	margin-bottom: 5px;
 }
 article section code {
 	border:1px solid #ccc;
@@ -360,15 +366,11 @@ article .float-left {
 
 /* SIDEBARS */
 
-.sidebar {
-	margin:40px 0 0 0;
-}
-
 div.section {
-	margin:40px 0 40px 0;
-	padding:0 10px 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
+	margin:40px 0 0px 0;
+	padding:0 10px 0 20px;		/* Compare with margin on child h elments and padding in breadcrumbs*/
 	font-size:11px;
-	line-height:16px;		/* AADE - sehe unten  */
+	line-height:16px;			/* AADE - sehe unten  */
 	color:#555;
 	text-shadow: 1px 1px 0px #fff;
 }

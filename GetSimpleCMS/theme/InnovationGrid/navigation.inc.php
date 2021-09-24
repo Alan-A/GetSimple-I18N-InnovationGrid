@@ -8,7 +8,6 @@
 *****************************************************/
 ?>
 
-<!--<aside id="sidebar">-->
 <nav class="menu-tree">
 	
 	<!-- wrap each sidebar section like this -->
@@ -17,4 +16,3 @@
 	</div>
 	
 </nav>
-<!--</aside>-->

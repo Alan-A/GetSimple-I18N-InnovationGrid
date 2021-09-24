@@ -12,15 +12,16 @@
 
 .main-container {
 	display: grid;
-	grid:	"main"  	minmax(100px, auto)
+	grid:	"nav"	  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
+			"main"  	minmax(100px, auto)
 			"aside"  	minmax(100px, auto)
 			/ 1fr ;
 }
 header .main-nav li {
 	white-space: normal;		/* Allow Links in main menu to wrap */
 }
-aside nav {
-	display: none;				/* is replaced by 'burger-menu' */
+nav.menu-tree {
+	display: none;				/* Is replaced by 'burger-menu' */
 }
 div.section h2,
 div.section h3,
@@ -35,9 +36,7 @@ div #socialmedia .icons {
 
 @media only screen and (min-width: 40em) {				/* ~520px */
 	.main-container {
-		display: grid;
-		grid:	"nav"  	    minmax(0px, auto)		/* 0px to allow nav to be hidden  */
-				"main"  	minmax(100px, auto)
+		grid:	"main"  	minmax(100px, auto)
 				"aside"		minmax(100px, auto)
 				/ 1fr;
 	}
@@ -47,26 +46,26 @@ div #socialmedia .icons {
 }
 
 
-/* Large screens (notebooks landscape, desktops) */
+/* Large screens (notebooks portrait, desktops) */
 /*************************************************/
 
 @media only screen and (min-width: 45em) {				/* ~720px */
 	.main-container {
-		grid:	"aside "  minmax(100px, auto)
-				"main "  	minmax(100px, auto)
-				/ 1fr ;
+		grid:	"nav aside "  minmax(100px, auto)
+				"main main "  	minmax(100px, auto)
+				/ 1fr  1fr ;
 	}
 	
-	aside nav,
-	.tagcloud {
-		display: inline-block;
-		width: 49%;					/*  */
-		vertical-align: top;		/* is no longer replaced by 'burger-menu' */
+	nav.menu-tree,
+	aside {
+		display: inline-block;			/* is no longer replaced by 'burger-menu' */	
+		vertical-align: top;			/*  */
+		/*background-color: skyblue;	/*  */
 	}
 
-	aside nav .section,
-	.tagcloud .section {
-		margin-top: 20px;
+	nav.menu-tree .section,
+	div .section {
+		margin-top: 30px;
 	}
 
 	nav.menu-tree {
@@ -83,24 +82,25 @@ div #socialmedia .icons {
 }
 
 
-/* Large screens (notebooks, desktops) */
+/* Large screens (notebooks landscape, desktops) */
 /***************************************/
 
 @media only screen and (min-width: 55em) {				/* ~960px */
 	.main-container {
-		grid:	"  main aside " 	  	minmax(100px, auto)
-				/   2fr  1fr;
+		grid:	" main main nav " 	 minmax(10px, auto)
+				" main main aside "	 minmax(10px, auto)
+				" main main . "	 	 minmax(10px, auto)
+				/ 1fr  1fr  1fr;
 	}
-	
-	aside nav,
-	.tagcloud {
+	nav.menu-tree .section,
+	div .section {
 		display: block;
-		width: 100%;					/*  */
+	/*	width: 100%;				/*  */
+	/*	vertical-align: top;		/* is no longer replaced by 'burger-menu' */
 	}
 
-	aside nav .section,
-	.tagcloud .section {
-		margin-top: 20px;
+	nav.menu-tree .section{
+		margin-top: 50px;			/*  */
 	}
 
 
@@ -120,7 +120,7 @@ header { grid-area: head; }
 
 main { grid-area: main; }
 
-<!-- nav { grid-area: nav; } -->
+nav { grid-area: nav; } 
 
 <!-- .tagcloud { grid-area: tagcloud; } -->
 

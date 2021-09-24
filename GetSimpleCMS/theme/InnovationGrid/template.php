@@ -66,6 +66,9 @@ $innov_settings = Innovation_Settings();
 		<!-- Container to restrict width of  -->
 		<div class="main-container">
 			
+			<!-- Include the navigation template - 'sidebar/menu-tree' menu -->
+			<?php include('navigation.inc.php'); ?>
+		
 			<!-- page content -->
 			<main>
 			
@@ -90,8 +93,8 @@ $innov_settings = Innovation_Settings();
 		
 			<aside class="sidebar">
 	
-				<!-- include the sidebar template -->
-				<?php include('sidebar.inc.php'); ?>
+				<!-- include the sidebar2 template - 'tagcloud' & 'socialmedia' component -->
+				<?php include('sidebar2.inc.php'); ?>
 		
 			</aside>
 		
@@ -102,7 +105,7 @@ $innov_settings = Innovation_Settings();
 		
 	</div><!-- End #page -->
 	
-	<script src="<?php get_theme_url(); ?>/js/aa-de.js"></script><!-- AA-DE Custom Script -->
+	<script src="<?php get_theme_url(); ?>/js/aa-de.js"></script><!-- Custom Script -->
 	
 </body>
 </html>
