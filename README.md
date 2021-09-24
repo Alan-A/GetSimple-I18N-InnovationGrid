@@ -43,7 +43,7 @@ A search field is included in the page header element. This field uses the i18n 
 
 ### Breadcrumbs
 
-A breadcrumb bar is included btween the Page Header element and the main part of pages. 
+A breadcrumb bar is included between the Page Header element and the main part of pages. 
 
 ## Installation
 

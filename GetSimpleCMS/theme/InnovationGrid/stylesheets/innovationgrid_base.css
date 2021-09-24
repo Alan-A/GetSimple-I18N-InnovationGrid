@@ -18,26 +18,19 @@ body {
 .header .container, 
 .breadcrumbs .container, 
 .main-container, 
-.footer .container {
+.footer {
 	max-width: 981px;			/*  */
 	margin: 0 auto;
-	padding: 0 10px 0 10px;		/* See .main-container (below) */
-/*	background: #ddd;		/*  */
 }
 
-.main-container {
-	padding: 0px;				/* See .main-container (above) */
-	background: #ddd;
-	border-bottom:#DDD 1px solid;
+.main-container,
+footer {
+	background-color: #def;
+	border-bottom: #ddd 1px solid;
 }
 
-main, aside, footer{
+main, aside{
 	padding: 10px;
-/*	background: #ddd;			/*  */
-}
-footer{
-	padding: 10px;
-/*	background: #ddd;			/*  */
 }
 
 /* HEADER */
@@ -55,10 +48,9 @@ footer{
 }
 .header .container {
 	display: flex;
-	flex-flow: row wrap;		/*  */
-	box-sizing: content-box;	/* Position of .left child div varies with window size 
-									when 'border-box' is used */
-	align-items: flex-start;	/* Vertically position child items */
+	flex-flow: row wrap;			/*  */
+	box-sizing: border-box;			/*  */
+	align-items: flex-start;		/* vertically position child items */
 }
 
 /* HEADER: language */	/* AA i18n */
@@ -87,16 +79,14 @@ header .lang a:focus {
 	flex-grow: 1;					/*  */
 	text-align: left;
 	padding-top: 5px;
-	padding-left: 10px;
+	padding-left: 10px;				/* Keep aligned with '.breadcrumbs .wrapper' & '.footer .container' (below)  */
 	border: 0px solid silver;
-/*	background-color: pink;			/*  */
 }
 
 .header .right {
 	flex-grow: 2;					/*  */
 	text-align: right;				/* Overwritten for mobil-nav */
 	border: 0px solid gray;
-/*	background-color: skyblue;		/*  */
 }
 
 /* HEADER: logo */
@@ -194,6 +184,10 @@ header div.section {		/* container for mobile burger nav */
 /*border: 2px solid yellow;		/*  */
 }
 
+.breadcrumbs .wrapper {
+	padding-left: 10px;			/* Keep aligned with '.header .left' & '.footer .container' (above, below) */
+}
+
 .breadcrumbs .container a:link, 
 .breadcrumbs a:visited {
 	color:#666;
@@ -278,7 +272,7 @@ article h6 {
 	line-height: 14px;
 }
 article section {
-	padding: 30px 40px 40px 40px;
+	padding: 40px;
 	line-height:22px;
 	font-size:14px;
 	color:#333;	
@@ -421,7 +415,7 @@ div.section h3 {				/* See also Media Query (below) */
 
 div.page:nth-child(2) {
 	border: 2px solid green;
-	background-color: pink;
+/*	background-color: pink;		/*  */
 }
 
 div.section p {
@@ -443,22 +437,15 @@ div.section > ul,
 div.section > ul > li {				/* Only top level elements */
 	list-style: disc;
 }
+
 div.section ul ul {					/* Submenus */
 	margin-bottom: 2px;
 }
 
 a.tag {								/* Links in Tag Cloud */
-	padding: 2px 5px;
+	padding: 2px 5px 2px 0px;
 }
 
-
-/* SEARCH RESULTS */
-li.search-entry {
-	padding-bottom: 10px;
-}
-h3.search-entry-title {
-	margin-bottom: 10px;
-}
 
 
 /* SIDEBAR: socialmedia */
@@ -482,7 +469,6 @@ div #socialmedia .icons {
 /* FOOTER */
 footer .footer {
 	align-items: top;					/* vertically center child items */
-	padding: 10px;
 	font-size:11px;
 	line-height:15px;
 	color:#666;
@@ -490,7 +476,6 @@ footer .footer {
 	text-shadow: 1px 1px 0px rgba(255,255,255,.5);
 /*	border-top:#CCC 1px solid;			/* Now on .main-container */
 	border-bottom:#FFF 1px solid;
-/*overflow: hidden; 					/* hat nicht funktioniert */
 	background: #eee;
 /*	background: -moz-linear-gradient(top, #D5D5D5 100%, #EDEDED 0%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,#D5D5D5), color-stop(0%,#EDEDED));
@@ -501,19 +486,20 @@ footer .footer {
 	display: flex;
 	flex-wrap: nowrap;			/*  */
 	box-sizing: border-box;		/*  */
+	padding: 10px;				/* Keep aligned with '.header .left' & '.breadcrumbs .wrapper' (above)*/
 	align-items: top;			/* vertically center child items */
 }
 .footer .left {
 	flex-grow: 1;				/*  */
 	text-align: left;
 	border: 0px solid grey;
-/*	background-color: pink;		/*  */
+/*background-color: pink;		/*  */
 }
 .footer .right {
 	flex-grow: 2;				/*  */
 	text-align: right;
 	border: 0px solid gray;
-/*	background-color: skyblue;	/*  */
+/*background-color: skyblue;	/*  */
 }
 
 /*.footer  div {
@@ -555,6 +541,7 @@ footer .footer {
 	box-sizing: border-box;		/*  */
 	margin: 0 auto;				/*  */
 	padding: 15px;				/*  */
-	left: 0;				/*  */
-	right: 0;				/*  */
+	left: 0;					/*  */
+	right: 0;					/*  */
 }
+

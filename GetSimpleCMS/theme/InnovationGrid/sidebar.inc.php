@@ -8,13 +8,20 @@
 *****************************************************/
 ?>
 
-<aside id="sidebar">
+<nav class="menu-tree">
 	
 	<!-- wrap each sidebar section like this -->
 	<div class="section">
-		<?php //get_i18n_component('sidebarnav');	?>
+		
+		<?php get_i18n_component('sidebarnav');	?>
+		
 	</div>
 	
+</nav>
+
+<div class="tagcloud">
+	
+	<!-- wrap each sidebar section like this -->
 	<div class="section">
 		<?php //echo "Language is: ", $language;?>
 		<?php 
@@ -25,7 +32,7 @@
 	
 	<!-- wrap each sidebar section like this -->
 	<div class="section">
-		<?php //get_component('socialmedia');	?><!-- Commented out so as Component contains HTML comments -->
+		<?php get_component('socialmedia');	?><!-- Commented out so as Component contains HTML comments -->
 	</div>
 	
-</aside>
+</div>

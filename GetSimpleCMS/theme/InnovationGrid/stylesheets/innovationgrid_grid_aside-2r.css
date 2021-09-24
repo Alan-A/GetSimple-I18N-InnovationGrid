@@ -1,6 +1,4 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* INNOVATION GRID THEME                             */
-/* 												     */
 /* GRID (header & footer are outside of grid)	 	 */
 /* 												     */
 /* In this version the sidebar has 2 aside elements	 */
@@ -14,16 +12,15 @@
 
 .main-container {
 	display: grid;
-	grid:	"nav"	  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
-			"main"  	minmax(100px, auto)
-			"aside2"  	minmax(100px, auto)
+	grid:	"main"  	minmax(100px, auto)
+			"aside"  	minmax(100px, auto)
 			/ 1fr ;
 }
 header .main-nav li {
-	white-space: normal;	/* Allow Links in main menu to wrap */
+	white-space: normal;		/* Allow Links in main menu to wrap */
 }
-nav.menu-tree {
-	height: 0;				/* is replaced by 'burger-menu' */
+aside nav {
+	display: none;				/* is replaced by 'burger-menu' */
 }
 div.section h2,
 div.section h3,
@@ -41,7 +38,7 @@ div #socialmedia .icons {
 		display: grid;
 		grid:	"nav"  	    minmax(0px, auto)		/* 0px to allow nav to be hidden  */
 				"main"  	minmax(100px, auto)
-				"aside2"	minmax(100px, auto)
+				"aside"		minmax(100px, auto)
 				/ 1fr;
 	}
 	header .main-nav li {
@@ -55,10 +52,23 @@ div #socialmedia .icons {
 
 @media only screen and (min-width: 45em) {				/* ~720px */
 	.main-container {
-		grid:	"nav  aside2"  	minmax(100px, auto)
-				"main  main"  	minmax(100px, auto)
-				/ 1fr  1fr;
+		grid:	"aside "  minmax(100px, auto)
+				"main "  	minmax(100px, auto)
+				/ 1fr ;
 	}
+	
+	aside nav,
+	.tagcloud {
+		display: inline-block;
+		width: 49%;					/*  */
+		vertical-align: top;		/* is no longer replaced by 'burger-menu' */
+	}
+
+	aside nav .section,
+	.tagcloud .section {
+		margin-top: 20px;
+	}
+
 	nav.menu-tree {
 		height: auto;				/* is no longer replaced by 'burger-menu' */
 	}
@@ -76,12 +86,24 @@ div #socialmedia .icons {
 /* Large screens (notebooks, desktops) */
 /***************************************/
 
-@media only screen and (min-width: 60em) {				/* ~960px */
+@media only screen and (min-width: 55em) {				/* ~960px */
 	.main-container {
-		grid:	" main main nav" 	minmax(100px, auto) 
-				" main main aside2" minmax(100px, auto) 
-				/ 1fr  1fr  1fr;
+		grid:	"  main aside " 	  	minmax(100px, auto)
+				/   2fr  1fr;
 	}
+	
+	aside nav,
+	.tagcloud {
+		display: block;
+		width: 100%;					/*  */
+	}
+
+	aside nav .section,
+	.tagcloud .section {
+		margin-top: 20px;
+	}
+
+
 	div.section h2,
 	div #socialmedia .icons {		/* 'aside' sections are now in sidebar right */
 		margin-left: -21px;
@@ -96,11 +118,13 @@ div #socialmedia .icons {
 
 header { grid-area: head; }
 
-nav { grid-area: nav; }
-
 main { grid-area: main; }
 
-#tags { grid-area: aside2; }
+<!-- nav { grid-area: nav; } -->
+
+<!-- .tagcloud { grid-area: tagcloud; } -->
+
+aside { grid-area: aside; }
 
 footer { grid-area: foot; }
 

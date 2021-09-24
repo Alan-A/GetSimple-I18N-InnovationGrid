@@ -41,8 +41,8 @@ $innov_settings = Innovation_Settings();
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/aa-de.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/assets/css/reset.css">
 		
-<!--<script src="pfad-zur-jquery/jquery-3.4.1.js" type="text/javascript"></script>-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Required for i18n search -->	
+	<script src="pfad-zur-jquery/jquery-3.4.1.js" type="text/javascript"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--><!-- AA: i18n search tags -->	
 	
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -55,7 +55,7 @@ $innov_settings = Innovation_Settings();
 
 	<?php get_header(); ?>
 	
-</head>
+</head> 
 <body id="<?php get_page_slug(); ?>" >
 	
 	<div class="page">
@@ -66,9 +66,6 @@ $innov_settings = Innovation_Settings();
 		<!-- Container to restrict width of  -->
 		<div class="main-container">
 			
-			<!-- Include the navigation template - 'sidebar/menu-tree' menu -->
-			<?php include('navigation.inc.php'); ?>
-		
 			<!-- page content -->
 			<main>
 			
@@ -91,11 +88,12 @@ $innov_settings = Innovation_Settings();
 			
 			</main>
 		
-			<!-- include the sidebar1 template - 'newsandblog' component -->
-			<?php //include('sidebar1.inc.php'); ?>
+			<aside class="sidebar">
+	
+				<!-- include the sidebar template -->
+				<?php include('sidebar.inc.php'); ?>
 		
-			<!-- include the sidebar2 template - 'tagcloud' & 'socialmedia' components -->
-			<?php include('sidebar2.inc.php'); ?>
+			</aside>
 		
 		</div><!-- End .main-container -->
 		
