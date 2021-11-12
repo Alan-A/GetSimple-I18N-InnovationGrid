@@ -55,15 +55,16 @@ A breadcrumb bar is included between the Page Header element and the main part o
 
 Install the [GetSimple CMS](http://get-simple.info/download).
 
-Install and activte the plugins listed [below](#plugins).
+Install and activate the plugins listed [below](#plugins).
 
 This theme is installed in the GetSimple themes folder in the standard manner: 
 * Copy the contents of the theme folder of this repository to the theme folder of your CMS installation.
-* Overwrite the original `components.xml` file by copying the `components.xml` file in the `.zip` file into the folder:
+* Overwrite the original `components.xml` file by copying the `data\other\components.xml` file provided in the `.zip` file into your folder:
   * `Site_Installation_Folder\data\other\`
-* Copy the page files the `.zip` file into the folder, overwriting the original `index.xml` file:
+* Copy the page files provided in the `pages` folder of the `.zip` file into the following folder of your installation, overwriting the original `index.xml` file:
   * `Site_Installation_Folder\data\pages\`
-* Log into the back end of the CMS using your User credentials and select and activate the InnovationGrid theme in the admin Themes tab.
+* Log into the admin section of the CMS using your User credentials and select and activate the InnovationGrid theme in the admin *Themes* tab.
+* Still in the admin section, select the *Pages* tab and then *Edit Navigation Structure* from the menu on the right and click in the *Save Navigation Structure* button.
 * You should now have a web-site with two languages, the default being English and the second language German. 
 
 ### Aside Elements
