@@ -1,6 +1,6 @@
 # GetSimple I18N InnovationGrid
 
-The files provided in this repository are intended to provide a starting point for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several plugins for GetSimple and include a new theme, InnovationGrid. This theme is based on the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), using CSS3 techniques.
+The files provided in this repository are intended to provide a quick and easy to install starting point for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several plugins for GetSimple and include a new theme, InnovationGrid. This theme is based on the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), using CSS3 techniques.
 
 ## Example Web-Site
 
@@ -9,11 +9,11 @@ I use this package as the basis for [my own web-site](http://www.alan-amos.de) w
 ## Download Description
 
 This repository contains template, style and component files required for the InnovationGrid theme as well as a number of page files that demonstrate and describe the site.
-Users have to install the plugins listed [below](#plugins) before the Web-Site will function fully.
+Users have to install a) the [GetSimple CMS](http://get-simple.info/download), b) the plugins listed [below](#plugins) and c) the InnovationGrid theme itself before the Web-Site will function fully.
 
 ## Why use GetSimple?
 
-There are a number of reasons that I became interested in using GetSimple:
+There are a number of reasons that I became interested in using the GetSimple CMS:
 * it is Open Source - so, if necessary I could update the code myself;
 * it is free - with a good selection of free themes and plugins;
 * it has an active communnity;
@@ -78,8 +78,9 @@ The following GetSimple plugins are used in the theme:
 * [i18n](http://get-simple.info/extend/plugin/i18n/69/)
 * [i18n Custom Fields](http://get-simple.info/extend/plugin/i18n-custom-fields/100/)
 * [i18n Search](http://get-simple.info/extend/plugin/i18n-search/82/)
+* [i18n language menu](http://get-simple.info/extend/plugin/i18n-language-menu/366/)
 
-In addition I recommend making life slightly easier by using the GetSimple [PluginInstaller](http://get-simple.info/extend/plugin/gs-plugin-installer/955/) plugin.
+In addition I recommend making life slightly easier by using the GetSimple [PluginInstaller](http://get-simple.info/extend/plugin/gs-plugin-installer/955/) plugin instead of manually downloading and installing the plugins individually.
 
 ### Components
 The following theme features require GetSimple components, which are saved here in the components.xml file:

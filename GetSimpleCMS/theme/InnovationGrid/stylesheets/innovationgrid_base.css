@@ -52,24 +52,31 @@ main, aside{
 	align-items: flex-start;		/* vertically position child items */
 }
 
-/* HEADER: language */	/* AA i18n */
-header .lang {
+/* HEADER: language-menu */
+header .language-menu {
 	flex: 1 100%;				/* flex-grow, width */
 	padding: 10px 15px 0px 0px;
 	text-align: right;
 	font-weight: bold;
-	color: #bbb;
+	color: #ddd;
 	text-shadow: 1px 1px 0px rgba(0,0,0, .3);
 }
-/*	header .lang a {
-} */	
-header .lang a:link, 
-header .lang a:visited {
+header .language-menu li {
+	display: inline-block;
+	padding-left: 15px;
+}
+header .language-menu a:link, 
+header .language-menu a:visited {
 	color:#ddd;
 	text-decoration:none;
 }	
-header .lang a:hover, 
-header .lang a:focus {
+header .language-menu .curr a:link, 
+header .language-menu .curr a:visited {
+	color:#bbb;
+	text-decoration:none;
+}	
+header .language-menu a:hover, 
+header .language-menu a:focus {
 	color:#fff;
 	text-decoration:none;
 }	

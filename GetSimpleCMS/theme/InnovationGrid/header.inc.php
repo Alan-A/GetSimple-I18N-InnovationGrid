@@ -16,20 +16,13 @@
 			
 			<div class="container"><!-- Contains width restrictions -->
 				
-				<!-- set language -->
-				<div class="lang">
-					<?php if ($language == 'en') { ?>
-						English
-					<?php } else { ?>
-						<a href="<?php echo htmlspecialchars(return_i18n_setlang_url('en')); ?>">English</a><!-- AA i18n -->
-					<?php } ?>
-					&nbsp;
-					<?php if ($language == 'de') { ?>
-						Deutsch
-					<?php } else { ?>
-						<a href="<?php echo htmlspecialchars(return_i18n_setlang_url('de')); ?>">Deutsch</a><!-- AA i18n -->
-					<?php } ?>
-				</div><!-- End .lang -->
+				<!-- language menu (uses i18n language menu plugin) -->
+				<!-- '$language' is inserted for use by scripts in components -->
+				<?php 
+					echo '<ul id="language-menu" class="language-menu '. $language .'">';
+					get_i18n_lang_menu();
+					echo '</ul>';
+				?>
 				
 				<div class="left">
 					
