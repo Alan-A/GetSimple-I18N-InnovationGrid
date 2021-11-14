@@ -1,19 +1,12 @@
 # GetSimple I18N InnovationGrid
 
-The files provided in this repository are intended to provide a quick and easy to install starting point for developing a responsive multi-language Web-Site with the [GetSimple CMS](http://get-simple.info). The files require the use of several plugins for GetSimple and include a new theme, InnovationGrid. This theme is based on the default GetSimple [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/), using CSS3 techniques.
+The files provided in this repository are intended to provide a quick and easy-to-install starting point for a responsive, multi-language Web-Site. The intention is that users can get a functional web site up and running in a matter of minutes.  
+The files are to be used with the [GetSimple CMS](http://get-simple.info and include a new version of the default [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/). The new theme uses CSS3 Grid techniques, hence the name, InnovationGrid. 
+Important features such as a language menu and search functions are integrated into the theme files so that users can get a functional web site up and running in a matter of minutes.
 
-## Example Web-Site
+## Why use the GetSimple CMS?
 
-I use this package as the basis for [my own web-site](http://www.alan-amos.de) with only minor changes to CSS and a number of additional features to meet my own requirements.
-
-## Download Description
-
-This repository contains template, style and component files required for the InnovationGrid theme as well as a number of page files that demonstrate and describe the site.
-Users have to install a) the [GetSimple CMS](http://get-simple.info/download), b) the plugins listed [below](#plugins) and c) the InnovationGrid theme itself before the Web-Site will function fully.
-
-## Why use GetSimple?
-
-There are a number of reasons that I became interested in using the GetSimple CMS:
+There are a number of reasons that I became interested in using GetSimple:
 * it is Open Source - so, if necessary I could update the code myself;
 * it is free - with a good selection of free themes and plugins;
 * it has an active communnity;
@@ -22,38 +15,54 @@ There are a number of reasons that I became interested in using the GetSimple CM
 
 In addition, GetSimple provides editors with a very clean and easy-to-use interface.  
 
+## Example Web-Site
+
+I use this package as the basis for [my own web-site](http://www.alan-amos.de) with only minor changes to the CSS and a number of additional features to meet my own requirements.
+
+## Download Description
+
+This repository contains template, style and component files required for the InnovationGrid theme as well as a number of page files that demonstrate and describe the site.
+Users have to install a) the [GetSimple CMS](http://get-simple.info/download), b) the plugins listed [below](#plugins) and c) the InnovationGrid theme itself before the Web-Site will function fully.
+
 ## Features
 
 ### Theme
 
 The InnovationGrid theme is responsive and uses Grid and Flex CSS3 techniques. (This is instead of the Skeleton CSS used by the [Responsive Innovation](http://get-simple.info/extend/theme/responsive-innovation/615/) theme.)
 
+#### Theme Layout
+
 The theme has four different layouts according to the width of the browser window and the widest has a right-hand sidebar as in the default Innovation theme. 
 Two layout - i.e. grid - files are provided, one for two aside elements in the sidebar and one for three. The grid file which is active is specified by commenting in/out the relevant `.css` file in the default `template.php` template file.
 
+#### Theme Menus
+
 A 'burger menu' is active in smaller screens instead of the standard 'fixed' display in an aside element.
 
-The repository also includes a `components.xml` file, which contains a number of page elements such as the search fields and navigation.
+### Functions 
 
-### Custom Page Headers 
+Many of the functions provided by the plugins, such as language-specific menus and search, are integrated into the theme files using components, which are stored in a `components.xml` file. These components then generate a number of page elements such as the search fields and the menus.
+
+#### Custom Page Headers 
 
 The i18n Custom Fields plugin is used to provide custom page Text Headers in the Header part of each page, allowing this text to be varied according to the page language. 
 
-### Tag Cloud
+#### Tag Cloud
 
 All tags in the cloud are searched by the i18n Search Plugin along with page content.
 
-### Language-Specific Search
+#### Language-Specific Search
 
 A search field is included in the page header element. This field uses the i18n Search plugin and both page content and page tags - as shown in the optional tag cloud are searched. 
 
-### Breadcrumbs
+#### Breadcrumbs
 
 A breadcrumb bar is included between the Page Header element and the main part of pages. 
 
 ## Installation
 
 Install the [GetSimple CMS](http://get-simple.info/download).
+Instructions are available on the [GetSimple Wiki](http://get-simple.info/wiki/quick_install) site.
 
 Install and activate the plugins listed [below](#plugins).
 
