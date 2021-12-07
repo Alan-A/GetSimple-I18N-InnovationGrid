@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item><pubDate>Tue, 07 Dec 2021 15:57:48 +0100</pubDate><title><![CDATA[User Page]]></title><url><![CDATA[user-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[User Page]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[user-pages]]></parent><content><![CDATA[&lt;p&gt;User Pages - shown by default to registered and authorized users.&lt;/p&gt;
+]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><creDate>Tue, 07 Dec 2021 15:54:06 +0100</creDate><user><![CDATA[admin]]></user><menuOrder><![CDATA[1]]></menuOrder></item>

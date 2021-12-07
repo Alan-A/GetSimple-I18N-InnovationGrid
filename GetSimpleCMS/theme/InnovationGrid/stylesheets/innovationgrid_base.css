@@ -488,7 +488,7 @@ footer .footer {
 /*	background: -moz-linear-gradient(top, #D5D5D5 100%, #EDEDED 0%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,#D5D5D5), color-stop(0%,#EDEDED));
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D5D5D5', endColorstr='#EDEDED',GradientType=0 ); */
-	background: linear-gradient(to top, #D5D5D5, #EDEDED);
+	background: linear-gradient(to top, #D5D5D5, #EEEEEE);
 }
 .footer .container {
 	display: flex;
