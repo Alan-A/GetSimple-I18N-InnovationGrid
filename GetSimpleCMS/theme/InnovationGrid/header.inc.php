@@ -56,8 +56,11 @@
 					<!-- burger navigation -->
 					<div class="section">
 					<!--<h3>nav</h3>-->
-						<?php get_component('burgericon'); ?>
-						<?php get_component('burgermenu'); ?>
+						<?php //get_component('burgericon'); ?>	<!-- 'Standard' version -->
+						<?php //get_component('burgermenu'); ?>	<!-- 'Standard' version -->
+						<?php get_component('feue_menuicon'); ?>					<!-- 'FEUE' version -->
+						<?php get_i18n_component('feue_menumobile', $language); ?>	<!-- 'FEUE' version -->
+
 					</div>
 										
 				</div><!-- End .right -->

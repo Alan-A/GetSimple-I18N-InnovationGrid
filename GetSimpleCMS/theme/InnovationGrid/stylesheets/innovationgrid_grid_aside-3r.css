@@ -1,10 +1,8 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* INNOVATION GRID THEME                             */
-/*                                                   */
 /* GRID (header & footer are outside of grid)	 	 */
 /* 												     */
 /* In this version the sidebar has 3 aside elements	 */
-/* and is positioned to the right.					 */
+/* on wide screens and is positioned to the right.	 */
 /* 													 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * */
 
@@ -16,15 +14,15 @@
 	display: grid;
 	grid:	"nav"	  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
 			"main"  	minmax(100px, auto)
-			"aside1"  	minmax(100px, auto)
-			"aside2"  	minmax(100px, auto)
+			"tagcloud"  minmax(100px, auto)
+			"feu"  		minmax(100px, auto)
 			/ 1fr ;
 }
 header .main-nav li {
 	white-space: normal;	/* Allow Links in main menu to wrap */
 }
 nav.menu-tree {
-	height: 0;				/* is replaced by 'burger-menu' */
+	display: none;				/* Is replaced by 'burger-menu' */
 }
 div.section h2,
 div.section h3,
@@ -40,10 +38,9 @@ div #socialmedia .icons {
 @media only screen and (min-width: 40em) {				/* ~520px */
 	.main-container {
 		display: grid;
-		grid:	"nav	nav"  	minmax(0px, auto)		/* 0px to allow nav to be hidden  */
-				"main   main"  	minmax(100px, auto)
-				"aside1 aside2"	minmax(100px, auto)
-				/ 1fr 1fr;
+		grid:	" main		main"  	minmax(100px, auto)
+				" tagcloud	feu"  	minmax(100px, auto)
+				/  1fr		1fr;
 	}
 	header .main-nav li {
 		white-space: nowrap;		/* Stop Links in main menu from wrapping */
@@ -56,20 +53,9 @@ div #socialmedia .icons {
 
 @media only screen and (min-width: 45em) {				/* ~720px */
 	.main-container {
-		grid:	"nav  aside1 aside2"  	minmax(100px, auto)
-				"main main   main"  	minmax(100px, auto)
-				/ 1fr  1fr  1fr;
-	}
-	nav.menu-tree {
-		height: auto;				/* is no longer replaced by 'burger-menu' */
-	}
-
-	header div.section {
-		padding: 0;	
-	}
-	div.mobile-nav-icon,
-	div.mobile-nav {
-		display: none;				/* Do not show 'Burger Menu' */
+		grid:	" main		main"  	minmax(100px, auto)
+				" tagcloud	feu"  	minmax(100px, auto)
+				/  1fr		1fr;
 	}
 }
 
@@ -79,10 +65,22 @@ div #socialmedia .icons {
 
 @media only screen and (min-width: 60em) {				/* ~960px */
 	.main-container {
-		grid:	" main main nav" 	minmax(100px, auto) 
-				" main main aside1" minmax(100px, auto) 
-				" main main aside2" minmax(100px, auto) 
-				/ 1fr  1fr  1fr;
+		grid:	" main nav" 		minmax(100px, auto) 
+				" main tagcloud"	minmax(100px, auto) 
+				" main feu"			minmax(100px, auto) 
+				/ 2fr  1fr;
+	}
+	nav.menu-tree {					/* is no longer replaced by 'burger-menu' */
+		display: block;
+		height: auto;
+	}
+
+	header div.section {
+		padding: 0;	
+	}
+	div.mobile-nav-icon,
+	div.mobile-nav {
+		display: none;				/* Do not show 'Burger Menu' */
 	}
 	div.section h2,
 	div #socialmedia .icons {		/* 'aside' sections are now in sidebar right */
@@ -102,9 +100,11 @@ nav { grid-area: nav; }
 
 main { grid-area: main; }
 
-#news { grid-area: aside1; }
+#news { grid-area: news; }
 
-#tags { grid-area: aside2; }
+#feu { grid-area: feu; }
+
+#tagcloud { grid-area: tagcloud; }
 
 footer { grid-area: foot; }
 

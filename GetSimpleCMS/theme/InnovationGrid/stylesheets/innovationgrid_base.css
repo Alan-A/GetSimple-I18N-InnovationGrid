@@ -3,32 +3,42 @@
 /*                                     */
 /* * * * * * * * * * * * * * * * * * * */
 
+
 body {
 	background: #eee;
 }
 
 .page {
 	margin: 0px auto;
+/*	max-width: 981px;		/*  */
 	min-height: 100vh;
+/*	overflow: hidden;		/*  */
 }
 
 /* Set max width of contents (as opposed to backgrounds) */
 .header .container, 
 .breadcrumbs .container, 
 .main-container, 
-.footer {
+.footer .container {
 	max-width: 981px;			/*  */
 	margin: 0 auto;
+	padding: 0 10px 0 10px;		/* See .main-container (below) */
+/*	background: #ddd;		/*  */
 }
 
-.main-container,
-footer{
-	background: #eaeaea;
-	border-bottom: #ddd 1px solid;
+.main-container {
+	padding: 0px;				/* See .main-container (above) */
+	background: #ddd;
+	border-bottom:#DDD 1px solid;
 }
 
-main, aside{
+main, aside, footer{
 	padding: 10px;
+/*	background: #ddd;			/*  */
+}
+footer{
+	padding: 10px;
+/*	background: #ddd;			/*  */
 }
 
 
@@ -47,12 +57,15 @@ main, aside{
 }
 .header .container {
 	display: flex;
-	flex-flow: row wrap;			/*  */
-	box-sizing: border-box;			/*  */
-	align-items: flex-start;		/* vertically position child items */
+	flex-flow: row wrap;		/*  */
+	box-sizing: content-box;	/* Position of .left child div varies with window size 
+									when 'border-box' is used */
+	align-items: flex-start;	/* Vertically position child items */
 }
 
-/* HEADER: language-menu */
+
+/* HEADER: language */
+
 header .language-menu {
 	flex: 1 100%;				/* flex-grow, width */
 	padding: 10px 15px 0px 0px;
@@ -80,22 +93,29 @@ header .language-menu a:focus {
 	color:#fff;
 	text-decoration:none;
 }	
+	
+
+/* HEADER:  */
 
 .header .left {						/* vertical alignment provided by align-items in .header .container (above) */
 	flex-grow: 1;					/*  */
 	text-align: left;
 	padding-top: 5px;
-	padding-left: 10px;				/* Keep aligned with '.breadcrumbs .wrapper' & '.footer .container' (below)  */
+	padding-left: 10px;
 	border: 0px solid silver;
+/*	background-color: pink;			/*  */
 }
 
 .header .right {
 	flex-grow: 2;					/*  */
 	text-align: right;				/* Overwritten for mobil-nav */
 	border: 0px solid gray;
+/*	background-color: skyblue;		/*  */
 }
 
+
 /* HEADER: logo */
+
 header #logo {
 	font-size:35px;
 	color:#fff;
@@ -110,7 +130,9 @@ header #logo:focus {
 	text-decoration:none;
 }
 
+
 /* HEADER: navigation */
+
 header .main-nav {
 	width: 100%;
 	text-shadow: 1px 1px 0px rgba(0,0,0, .3);
@@ -154,7 +176,9 @@ header .main-nav li.current a {
 	-webkit-border-radius:40px;
 }
 
-/* HEADER: search */			/* AA: added */
+
+/* HEADER: search */
+
 header div.search {
 	vertical-align: middle;
 	display: inline-block;			/*  */
@@ -190,10 +214,6 @@ header div.section {		/* container for mobile burger nav */
 /*border: 2px solid yellow;		/*  */
 }
 
-.breadcrumbs .wrapper {
-	padding-left: 10px;			/* Keep aligned with '.header .left' & '.footer .container' (above, below) */
-}
-
 .breadcrumbs .container a:link, 
 .breadcrumbs a:visited {
 	color:#666;
@@ -219,6 +239,7 @@ header div.section {		/* container for mobile burger nav */
 
 
 /* BODY CONTENT */
+
 main {
 	display:block;			/* For IE 11 */
 	background:#fff;
@@ -237,21 +258,21 @@ article {
 }
 article h1 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin:0 0 25px 0;
+	margin:0 0 30px 0;
 	color: #275176;
 	font-size:37px;
 	line-height: 37px;
 }
 article h2 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin:0 0 15px 0;
+	margin:0 0 10px 0;
 	color: #222222;
 	font-size:30px;
 	line-height: 30px;
 }
 article h3 {
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
-	margin-bottom: 10px;
+	margin:0 0 15px 0;
 	color: #275176;
 	font-size:25px;
 	line-height: 25px;
@@ -278,7 +299,7 @@ article h6 {
 	line-height: 14px;
 }
 article section {
-	padding: 40px;
+	padding: 30px 40px 40px 40px;
 	line-height:22px;
 	font-size:14px;
 	color:#333;	
@@ -303,12 +324,6 @@ article section ol ol,
 article section ul ol, 
 article section ol ul {
 	margin:0 0 0 25px;
-}
-li.search-entry {
-	margin-bottom: 15px;
-}
-li.search-entry h3 {
-	margin-bottom: 5px;
 }
 article section code {
 	border:1px solid #ccc;
@@ -370,38 +385,43 @@ article .float-left {
 }
 
 
-/* SIDEBARS */
+/* ASIDES/SIDEBARS */
 
+.sidebar {
+	margin:40px 0 0 0;
+}
 div.section {
-	margin:40px 0 0px 0;
-	padding:0 10px 0 20px;		/* Compare with margin on child h elments and padding in breadcrumbs*/
+	margin:40px 0 20px 0;
+	padding:0 10px 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
 	font-size:11px;
-	line-height:16px;			/* AADE - sehe unten  */
+	line-height:16px;				/* AADE - sehe unten  */
 	color:#555;
 	text-shadow: 1px 1px 0px #fff;
 }
-div.section h2 {				/* See also Media Query (below) */
-	background:#333;
+div.section h2 {					/* See also Media Query (below) */
+	background:#444;
 	border-top:1px solid rgba(255,255,255,.4);
 	text-shadow: 1px 1px 0px rgba(0,0,0,.5);
 	text-transform:uppercase;
 	background: -moz-linear-gradient(top, #444 0%, #222 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444), color-stop(100%,#222));
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#555), color-stop(100%,#333));
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444444', endColorstr='#222222',GradientType=0 ); 
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
 	font-weight:100;
 	color:#fff;
 	font-size:19px;
 	line-height:19px;
-	margin:0 0 20px -21px;		/* Compare with padding on div.section */
-	padding:6px 0 5px 15px;		/* Compare with padding on div.section */
+	margin:0 0 20px -20px;			/* Compare with padding on div.section */
+	padding:6px 0 5px 35px;			/* Compare with padding on div.section */
 	border-radius:4px 4px 4px 4px;
 	-moz-border-radius:4px 4px 4px 4px;
 	-khtml-border-radius:4px 4px 4px 4px;
 	-webkit-border-radius:4px 4px 4px 4px;
 }
-div.section h3 {				/* See also Media Query (below) */
-	background:#555;
+div.section h3,						/* See also Media Query (below) */
+div.section .feue-login h2,			/* So that the hard-coded h2 tags al least look like h3 */
+div.section .feue-register h2 {		/* ditto */
+	background:#666;
 	border-top:1px solid rgba(255,255,255,.4);
 	text-shadow: 1px 1px 0px rgba(0,0,0,.5);
 	text-transform:uppercase;
@@ -423,9 +443,12 @@ div.section h3 {				/* See also Media Query (below) */
 
 div.page:nth-child(2) {
 	border: 2px solid green;
-/*	background-color: pink;		/*  */
+	background-color: pink;
 }
 
+div.section div {
+/*	margin-left: 20px;	/*  */
+}
 div.section p {
 	margin:0 0 15px 0;
 }
@@ -445,18 +468,88 @@ div.section > ul,
 div.section > ul > li {				/* Only top level elements */
 	list-style: disc;
 }
-
 div.section ul ul {					/* Submenus */
 	margin-bottom: 2px;
 }
 
 a.tag {								/* Links in Tag Cloud */
-	padding: 2px 5px 2px 0px;
+	padding: 5px 5px 5px 0px;
 }
 
 
+/* Form Elements */
+
+#feu .section {
+/*	transition: all 1.0s ease-in-out;	/*  */
+}
+.feue-login,
+.feue-register {
+    height: 0px;						/* Forms are not displayed by default */
+	overflow: hidden;					/*  */
+	transition: all 1s ease-in-out;		/* see also '.show-form' below */
+}
+.feue-login > p {
+	display: none;						/*  */
+}
+.feue-login .user_login_welcome_box_container + p {
+	display: block;						/* For the Logout link - see '.feue-login > p' (above) */
+	margin-top: 10px;
+}
+.feue-register {
+    margin: 0 0 10px 0;					/* Reduce spacing compared with 'div.section p' (above) */
+}
+.feue-login a,
+.feue-form-links a {
+/*  display: inline-block;				/* Hides links??? */
+    padding-right: 15px;
+	text-decoration: underline;			/* 'onclick' links are not automatically underlined */
+	cursor: pointer;
+}
+.feue-form-links p .active {
+	text-decoration: none;				/* links are shown as inactive once clicked and form has opened */
+	cursor: auto;						/* Effectively sets cursor to 'no link', 
+	                                       as elements have no href attribute */
+}
+div.feue-login.inactive,
+div.feue-register.inactive,
+div.feue-welcome.inactive {
+/*    height: 20px;						/* Forms are not displayed by default - see 'div.show-form' (below) */
+}
+.feue-login br {
+    display: none;						/* Suppress hard coded new line */
+}
+div.show-form {
+    height: 300px;						/* see also '.feue-login, .feue-register' above */
+/*	transition: all 1s ease-in-out;		/*  */
+}
+.feue-login h2::after,
+.feue-register h2::after {
+    content: 'X'; 
+	float:right;						/*  */
+	padding-right: 1em;
+}
+.feue-register input {
+	width: 66%;
+}
+
+.user_login_welcome_box_container ~ .feue-form-links {	/* Presence/absense of welcome container
+    // is used to trigger css3 sibling combinator to hide 'feue-form-links' container */
+	display: none;
+}
+
+
+/* SEARCH RESULTS */
+
+li.search-entry {
+	padding-bottom: 10px;
+}
+h3.search-entry-title {
+	margin-bottom: 10px;
+}
+
 
 /* SIDEBAR: socialmedia */
+
 div #socialmedia {
 	position:relative;
 }
@@ -475,8 +568,10 @@ div #socialmedia .icons {
 
 
 /* FOOTER */
+
 footer .footer {
 	align-items: top;					/* vertically center child items */
+	padding: 10px;
 	font-size:11px;
 	line-height:15px;
 	color:#666;
@@ -484,6 +579,7 @@ footer .footer {
 	text-shadow: 1px 1px 0px rgba(255,255,255,.5);
 /*	border-top:#CCC 1px solid;			/* Now on .main-container */
 	border-bottom:#FFF 1px solid;
+/*overflow: hidden; 					/* hat nicht funktioniert */
 	background: #eee;
 /*	background: -moz-linear-gradient(top, #D5D5D5 100%, #EDEDED 0%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,#D5D5D5), color-stop(0%,#EDEDED));
@@ -494,20 +590,19 @@ footer .footer {
 	display: flex;
 	flex-wrap: nowrap;			/*  */
 	box-sizing: border-box;		/*  */
-	padding: 10px;				/* Keep aligned with '.header .left' & '.breadcrumbs .wrapper' (above)*/
 	align-items: top;			/* vertically center child items */
 }
 .footer .left {
 	flex-grow: 1;				/*  */
 	text-align: left;
 	border: 0px solid grey;
-/*background-color: pink;		/*  */
+/*	background-color: pink;		/*  */
 }
 .footer .right {
 	flex-grow: 2;				/*  */
 	text-align: right;
 	border: 0px solid gray;
-/*background-color: skyblue;	/*  */
+/*	background-color: skyblue;	/*  */
 }
 
 /*.footer  div {
@@ -543,13 +638,48 @@ footer .footer {
 }
 
 
-/* PLUGIN - CBCOOKIES */
-.footer #cbcookies-bottom{	/* Overwrite values set in .css in Plugin folder */
-	max-width: 981px;			/*  */
-	box-sizing: border-box;		/*  */
-	margin: 0 auto;				/*  */
-	padding: 15px;				/*  */
-	left: 0;					/*  */
-	right: 0;					/*  */
+/* SONSTIGES - FEUE Form Elements */
+
+.feue-login form input,
+.feue-register form input {
+	border-color: lightgrey;
+} 
+.feue-login form input:invalid,
+.feue-register form input:invalid,
+#forgotpassform input,					/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
+											as valid/invalid are not set by plugin for these forms */
+#forgotuserform input {
+	box-shadow: 2px 2px 3px #d3d3d380;	/* lightgrey */
+}
+.feue-login form input:valid,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
+											as valid/invalid are not set by plugin for these forms */
+.feue-register form input:valid,
+/*#forgotpassform input:valid,*/
+/*#forgotuserform input:valid*/ {
+	box-shadow: 2px 2px 3px #00640085;	/* darkgreen */
+}
+.feue-login form input[type="submit"],
+.feue-register form input[type="submit"] {
+	box-shadow: 0px 3px 3px grey;
+}
+.feue-login form input[type="submit"]:active,
+.feue-register form input[type="submit"]:active {
+	box-shadow: 0px 0px 5px green;
+}
+
+/* SONSTIGES - FEUE In-Main  Form Elements */
+
+section .register_h2 {
+	padding-top: 20px;
+	border-top: 1px solid grey;
+}
+#forgotpassform,
+#forgotuserform {
+	margin-bottom: 20px;
+	border-bottom: 1px solid grey;
+}
+#forgotpassform p:last-child, 
+#forgotuserform p:last-child {
+	margin-bottom: 20px;
 }
 

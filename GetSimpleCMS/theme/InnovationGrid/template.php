@@ -35,14 +35,14 @@ $innov_settings = Innovation_Settings();
 
 	<link href='//fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_base.css">
-	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-2r.css">
-<!--<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-3r.css">-->
+<!--<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-2r.css">-->
+	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/innovationgrid_grid_aside-3r.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/mobile-nav.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/stylesheets/aa-de.css">
 	<link rel="stylesheet" href="<?php get_theme_url(); ?>/assets/css/reset.css">
 		
-	<script src="pfad-zur-jquery/jquery-3.4.1.js" type="text/javascript"></script>
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--><!-- AA: i18n search tags -->	
+<!--<script src="pfad-zur-jquery/jquery-3.4.1.js" type="text/javascript"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- AA: i18n search tags -->	
 	
 	<!--[if lt IE 9]>
 		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,7 +66,7 @@ $innov_settings = Innovation_Settings();
 		<!-- Container to restrict width of  -->
 		<div class="main-container">
 			
-			<!-- Include the navigation template - 'sidebar/menu-tree' menu -->
+			<!-- Include the navigation template - 'aside/menu-tree' menu -->
 			<?php include('navigation.inc.php'); ?>
 		
 			<!-- page content -->
@@ -91,12 +91,11 @@ $innov_settings = Innovation_Settings();
 			
 			</main>
 		
-			<aside class="sidebar">
-	
-				<!-- include the sidebar2 template - 'tagcloud' & 'socialmedia' component -->
-				<?php include('sidebar2.inc.php'); ?>
-		
-			</aside>
+			<!-- include the 'tagcloud' & 'socialmedia' components -->
+			<?php include('aside_tagcloud.inc.php'); ?>
+				
+			<!-- include the 'Front End User Area' component -->
+			<?php include('aside_feue_userarea.inc.php'); ?>
 		
 		</div><!-- End .main-container -->
 		
