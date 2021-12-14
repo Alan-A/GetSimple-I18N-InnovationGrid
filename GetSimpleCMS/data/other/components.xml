@@ -663,7 +663,7 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
 ?&gt;
 
     &lt;/nav&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEUE_UserArea]]></title><slug>feue_userarea</slug><value><![CDATA[&lt;h2&gt;FEUE User Area&lt;/h2&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEUE_UserArea]]></title><slug>feue_userarea</slug><value><![CDATA[&lt;h2&gt;User Area&lt;/h2&gt;
 &lt;!--2021-12-06 14:40--&gt;
 
 &lt;script&gt;
@@ -856,12 +856,17 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
     checkSuccess(&quot;feue-login&quot;);
     
 &lt;/script&gt;
-]]></value></item><item><title><![CDATA[SearchQueryRenderer]]></title><slug>searchqueryrenderer</slug><value><![CDATA[&lt;?php if (@$_REQUEST[&#039;words&#039;]) {?&gt;
-&lt;ul&gt;
+]]></value></item><item><title><![CDATA[SearchQueryRenderer]]></title><slug>searchqueryrenderer</slug><value><![CDATA[&lt;ul&gt;
+&lt;?php if (@$_REQUEST[&#039;words&#039;]) {?&gt;&lt;!-- From Search Form --&gt;
     &lt;li&gt;
         &lt;?php  echo htmlspecialchars($_REQUEST[&#039;words&#039;]); ?&gt;
-        &lt;?php  } ?&gt;
     &lt;/li&gt;
+&lt;?php  } ?&gt;
+&lt;?php if (@$_REQUEST[&#039;tags&#039;]) {?&gt;&lt;!-- From Tag Cloud --&gt;
+    &lt;li&gt;
+        &lt;?php  echo htmlspecialchars($_REQUEST[&#039;tags&#039;]); ?&gt;
+    &lt;/li&gt;
+&lt;?php  } ?&gt;
 &lt;/ul&gt;]]></value></item><item><title><![CDATA[SearchResultRenderer]]></title><slug>searchresultrenderer</slug><value><![CDATA[&lt;h3 class=&quot;search-entry-title&quot;&gt;
   &lt;?php if ($showLanguage) { ?&gt;
   &lt;span class=&quot;search-entry-language&quot;&gt;

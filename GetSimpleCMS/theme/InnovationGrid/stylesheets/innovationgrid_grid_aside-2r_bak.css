@@ -1,0 +1,129 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * */
+/* GRID (header & footer are outside of grid)	 	 */
+/* 												     */
+/* In this version the sidebar has 2 aside elements	 */
+/* and is positioned to the right.					 */
+/* 													 */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/* Small screens (mobil) */
+/*************************/
+
+.main-container {
+	
+	display: grid;
+	grid:	"nav"		minmax(0px, auto)		/* 0px to allow nav to be hidden  */
+			"main"  		minmax(100px, auto)
+			"feu"  	minmax(100px, auto)
+			/ 1fr ;
+}
+
+header .main-nav li {
+	white-space: normal;		/* Allow Links in main menu to wrap */
+}
+
+nav.menu-tree {
+	display: none;				/* Is replaced by 'burger-menu' */
+}
+
+div.section h2,
+div.section h3,
+div #socialmedia .icons {
+	margin-left: -11px;
+	margin-right: 10px;
+}
+
+
+/* Medium screens (tablets) */
+/****************************/
+
+@media only screen and (min-width: 40em) {				/* ~520px */
+	
+	.main-container {
+		
+		grid:	"main"  		minmax(100px, auto)
+				"feu"		minmax(100px, auto)
+				/ 1fr;
+	}
+	
+	header .main-nav li {
+		white-space: nowrap;		/* Stop Links in main menu from wrapping */
+	}
+	
+}
+
+
+/* Large screens (notebooks portrait, desktops) */
+/*************************************************/
+
+@media only screen and (min-width: 45em) {				/* ~720px */
+	
+	.main-container {
+		
+		grid:	"main " 		minmax(100px, auto)
+				"feu "  	minmax(100px, auto)
+				/ 1fr ;
+	}
+	
+}
+
+
+/* Large screens (notebooks, desktops) */
+/***************************************/
+
+@media only screen and (min-width: 60em) {				/* ~960px */
+	
+	.main-container {
+		grid:	" main nav" 	minmax(100px, auto) 
+				" main feu"		minmax(100px, auto) 
+				/ 2fr  1fr;
+	}
+	
+	nav.menu-tree,
+	aside {
+		display: inline-block;			/* is no longer replaced by 'burger-menu' */	
+		vertical-align: top;			/*  */
+		/*background-color: skyblue;	/*  */
+	}
+
+	nav.menu-tree .section,
+	div .section {
+		margin-top: 30px;
+	}
+
+	nav.menu-tree {
+		height: auto;				/* is no longer replaced by 'burger-menu' */
+	}
+
+	header div.section {
+		padding: 0;	
+	}
+	div.mobile-nav-icon,
+	div.mobile-nav {
+		display: none;				/* Do not show 'Burger Menu' */
+	}
+	
+	div.section h2,
+	div #socialmedia .icons {		/* 'aside' sections are now in sidebar right */
+/*		margin-left: -21px;			/*  */ 
+		margin-right: 10px;
+		border-radius: 0px 4px 4px 0px;
+	}
+}
+
+
+/***************************************/
+
+
+header { grid-area: head; }
+
+nav { grid-area: nav; }
+
+main { grid-area: main; }
+
+#feu { grid-area: feu; }
+
+footer { grid-area: foot; }
+
+
