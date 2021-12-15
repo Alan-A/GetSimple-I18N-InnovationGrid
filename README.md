@@ -27,8 +27,8 @@ In addition, GetSimple provides editors with a very clean and easy-to-use interf
 This download file contains template, style and component files required for the InnovationGrid theme as well as a number of page files that demonstrate and describe the site.
 Users have to install the following before the Web-Site will function fully:
 * a) the [GetSimple CMS](http://get-simple.info/download), 
-* b) the plugins listed [below](#plugins)  
-* c) the InnovationGrid theme itself and
+* b) the plugins listed [below](#plugins), 
+* c) the InnovationGrid theme itself and 
 * d) copy a small number of files containing the page and component information for the site.
 In addition, a small number of configuration changes are required if user authentication and authorization is required. 
 
@@ -57,7 +57,7 @@ The i18n Custom Fields plugin is used to provide custom page Text Headers in the
 
 #### Tag Cloud
 
-LAnguage-specific tag clouds provided, which are searched by the i18n Search Plugin along with page content.
+Language-specific tag clouds provided, which are searched by the i18n Search Plugin along with page content.
 
 #### Language-Specific Search
 
@@ -82,7 +82,7 @@ Code to show the *Front-End User Login Enhanced* plugin is included in the theme
 Install the [GetSimple CMS](http://get-simple.info/download).
 Instructions are available on the [GetSimple Wiki](http://get-simple.info/wiki/quick_install) site.
 
-(#plugins)
+<a name="plugins"></a>
 ### Install the Plugins 
 
 I recommend making life slightly easier by first installing and [activating](http://get-simple.info/wiki/how_to:plugin_manager) the GetSimple [PluginInstaller](http://get-simple.info/extend/plugin/gs-plugin-installer/955/) plugin instead of manually downloading and installing the plugins individually.
@@ -146,90 +146,4 @@ If you want to include the user authentication and authorization provided by the
    * `get_component('feule_menuicon');`
    * `get_i18n_component('feule_menumobile', $language);` 
    Save the file.
-
----
-
-### Components
-The following theme features require GetSimple components, which are saved here in the components.xml file:
-* BurgerMenu for navigation on devices with narrow screens
-  * BurgerIcon
-    ```php
-    <!-- Called in pageheader.inc.php -->
-    <script>
-        function myFunction(x) {
-            x.classList.toggle("show-menu");
-            document.querySelector(".mobile-nav").classList.toggle("hide-mobile-nav");
-            document.querySelector(".mobile-nav-menu").classList.toggle("hide-menu");
-        }
-    </script>
-
-    <div class="mobile-nav-icon" onclick="myFunction(this)">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </div>
-    ```
-  * BurgerMenu
-    ```php
-    <!-- Called in pageheader.inc.php -->
-    <div  class="mobile-nav hide-mobile-nav" >
-        <nav class="mobile-nav-menu hide-menu" >
-            <ul>
-    <?php get_i18n_navigation('index',0,99,I18N_SHOW_MENU); ?><!-- Only show pages in menu, not all pages -->
-            </ul>
-        </nav>
-    </div>
-    ```
-
-* Site Search
-  * SearchQueryRenderer
-    ```php
-    <?php if (@$_REQUEST['words']) {?>
-    <p><?php  echo htmlspecialchars('Ihre Anfrage:');  ?></p>
-    <ul><li><?php  echo htmlspecialchars($_REQUEST['words']); ?>
-    <?php  } ?></li></ul>
-    ``` 
-  * SearchResultRenderer
-    ```php
-    <h3 class="search-entry-title">
-      <?php if ($showLanguage) { ?>
-      <span class="search-entry-language">
-        <?php echo htmlspecialchars($item->language, ENT_NOQUOTES); ?>
-      </span>
-      <?php } ?>
-      <a href="<?php echo $item->link; ?>">
-        <?php echo htmlspecialchars($item->title, ENT_NOQUOTES); ?>
-      </a>
-    </h3>
-    <?php if ($showDate) { ?>
-    <div class="search-entry-date">
-      <?php echo strftime($dateFormat, $item->pubDate); ?>
-    </div>
-    <?php } ?>
-    <div class="search-entry-excerpt">
-      <?php echo $item->getExcerpt($item->content, $numWords); ?>
-    </div>
-    ```
-* 'SidebarNav' Navigation Menu
-  ```php
-  <!-- Called in sidebar.inc.php -->
-  <h2>Navigation</h2>
-  <ul>
-  <!-- Only show pages in menu, not all pages -->
-  <?php get_i18n_navigation('index',0,99,I18N_SHOW_MENU); ?>
-  </ul>
-  ```
-* 'TagCloud' aside elements  
-Seperate TagCloud components are required for each language as GetSimple does not pass variables (hier it would be $lang) to components:
-  * TagCloud_de
-    ```
-    <h2>Tags</h2>
-    <?php get_i18n_tags(array('lang'=>'de', 'slug'=>'suchergebnisse')); ?>
-    ``` 
-  * TagCloud_en
-    ```
-    <h2>Tags</h2>
-    <?php get_i18n_tags(array('lang'=>'en', 'slug'=>'suchergebnisse')); ?>
-    ```
-
 
