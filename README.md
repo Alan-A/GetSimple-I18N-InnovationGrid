@@ -1,6 +1,6 @@
 # GetSimple I18N InnovationGrid
 
-The files provided in this repository are intended to provide a quick and easy-to-install starting point for a responsive, multi-language Web-Site. The intention is that users can get a functional web site up and running in a matter of minutes. 
+The files provided in this repository are intended to provide a quick and easy-to-install starting point for a responsive, multi-language Web-Site. The intention is that users can get a functional and easy to maintain web site up and running in a matter of minutes. 
 
 The files are to be used with the [GetSimple CMS](http://get-simple.info) and include a new version of the default [Innovation theme](http://get-simple.info/extend/theme/innovation-theme/104/). The new theme uses CSS3 Grid techniques, hence the name, InnovationGrid, and allows more flexibility when designing for different screen withs.
 
@@ -20,7 +20,7 @@ There are a number of reasons that I became interested in using GetSimple:
 * a feature-rich set of plugins is available for creating multi-language sites; 
 * it uses flat-file storage instead of a database, simplifying installation and potentially speeding up response times.
 
-In addition, GetSimple provides editors with a very clean and easy-to-use interface.  
+In addition, GetSimple provides editors with a very clean and easy-to-use interface.  This makes it easier for site owners to learn to add their own content, which is a cost-effective aid for small businesses seeking to improve their site ranking and win new custom.  
 
 ## Download Description
 
