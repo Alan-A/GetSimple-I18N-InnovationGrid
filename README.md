@@ -93,7 +93,9 @@ Then install and activate the following plugins:
 * [i18n Custom Fields](http://get-simple.info/extend/plugin/i18n-custom-fields/100/)
 * [i18n Search](http://get-simple.info/extend/plugin/i18n-search/82/)
 * [i18n language menu](http://get-simple.info/extend/plugin/i18n-language-menu/366/)
-If you want to provide user authentication and authorization, you will also need to install the [Front-End User Login Enhanced](http://get-simple.info/extend/plugin/front-end-user-login-enhanced/809/) plugin.
+
+If you want to provide authentication and authorization for registered users, you will also need to install and activate:
+* the [Front-End User Login Enhanced](http://get-simple.info/extend/plugin/front-end-user-login-enhanced/809/) plugin.
 
 #### Additional Useful Plugins
 
@@ -104,14 +106,15 @@ I have found the following plugins to be useful and have included CSS style info
 ### Install the Theme
 
 This theme is installed in the GetSimple `Theme` folder: 
-* Copy the contents of the theme folder of this download to the *Theme* folder of your CMS installation.
+* Copy the contents of the theme folder of the download to the *Theme* folder of your CMS installation.
 * Overwrite the original `components.xml` file by copying the `data\other\components.xml` file provided in the download into your folder:
   * `Site_Installation_Folder\data\other\`
 * Copy the page files provided in the `pages` folder of the download into the following folder of your installation, overwriting the original `index.xml` file:
   * `Site_Installation_Folder\data\pages\`
 * Log into the *admin* section of the CMS using the user credentials you set when installing the CMS and select and activate the InnovationGrid theme in the admin *Theme* tab.
 * Still in the admin section, select the *Pages* tab and then *Edit Navigation Structure* from the menu on the right and click in the *Save Navigation Structure* button.
-* You should now have a web-site with two languages, the default being English and the second language German. 
+
+You should now have a web-site with two languages, the default being English and the second language German. 
 
 You will find more information about Themes in the GetSimple [http://get-simple.info/wiki/themes:installation](Themes documentation).
 
@@ -120,7 +123,7 @@ You will find more information about Themes in the GetSimple [http://get-simple.
 #### Languages
 
   * You can change the languages used on the site by following the instructions on the *Pages* tab in the site *Admin* section.
-  * You can use the *Edit language menu* link in the sidebar menu of the *Pages* tab to update the texts used in language menu. 
+  * You can use the *Edit language menu* link in the sidebar menu of the *Pages* tab to update the texts used in language menu - for example, to change the default "eng" to "English". 
 
 #### Aside Elements
 
@@ -128,16 +131,19 @@ The default sidebar contains two aside elements - that is, elements that are onl
 
 ##### Activating User Authentication and Authorization
 
-If you want to include the user authentication and authorization provided by the Front-End User Login Enhanced plugin and have already installed and activated it as described above, open the *Theme* tab in the *Admin* Section and select *Edit Theme*:
+If you want to include the user authentication and authorization provided by the *Front-End User Login Enhanced* plugin and have already installed and activated it as described above, open the *Theme* tab in the *Admin* Section and select *Edit Theme*:
 
  * Now  open the *Default Template* file (`template.php`) and change the active `innovationgrid_grid_aside-*r.css` file from `...aside-2r.css` to `...aside-3r.css` in lines 38 and 39.
- * In the same file, comment in the following line by removing the two slashes: `<?php //include('aside_feue_userarea.inc.php'); ?>`. 
+ * In the same file, comment in the code in line 98 by removing the two slashes: `<?php //include('aside_feue_userarea.inc.php'); ?>`. 
  * Save the file.
 
- You will now have three a third, 'User Area', block in the sidebar if you are using a wide browser window. 
+ You will now have a third 'User Area' block, which at this stage will be empty apart froom the title.  This block will be positioned in the sidebar if you are using a wide browser window, or just above the page footer, if you are using a smaller device. 
 
- You will, however, still be using the default mavigation components in the *Menu* and *Burger-Menu*, which do not take account of user authorization. Carry out the following steps in the *Admin* section, *Edit Theme* tab, to activate the custom navigation components:
-
+ You will, however, still be using the default navigation components for the *Navigation* block, which is shown in wider browser windows and the *Burger-Menu*, which is shown with smaller windoe widths. These components do not take account of user authorization and show all pages. To activate the authorization and only show menu links to pages that the user is authorized to see you need to replace the default navigation components with the custom navigation ones provided with the theme. 
+ 
+(Both the default and custom navigation components can be seen in the site *Admin* section, in the *Theme* tab, by clicking the *Edit components* link in the right hand menu. The default components are the *BurgerIcon*, *BurgerMenu* and *SidebarNav*, and the custom components are  *FEULE_MenuIcon*, *FEULE_MenuMobile* and *FEULE_MenuAside*, and *FEULE_UserArea*).
+ 
+ Carry out the following steps in the *Admin* section, *Edit Theme* tab, :
   * In the `navigation.inc.php` file, change the active menu component by commenting out the line containing `get_i18n_component('sidebarnav');` and commenting in the line containg `get_i18n_component('feule_menuaside', $language');`. Save the file.
   * In the *Page Header* file (`header.inc.php`), activate the custom *Burger Menu* components by commenting out the lines containing:
    * `get_component('burgericon');` and 
