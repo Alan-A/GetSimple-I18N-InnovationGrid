@@ -143,18 +143,18 @@ If you want to include the user authentication and authorization provided by the
 
  You will, however, still be using the default navigation components for the *Navigation* block, which is shown in wider browser windows and the *Burger-Menu*, which is shown with smaller windoe widths. These components do not take account of user authorization and show all pages. To activate the authorization and only show menu links to pages that the user is authorized to see you need to replace the default navigation components with the custom navigation ones provided with the theme.
 
-(Both the default and custom navigation components can be seen in the site *Admin* section, in the *Theme* tab, by clicking the *Edit components* link in the right hand menu. The default components are the *BurgerIcon*, *BurgerMenu* and *SidebarNav*, and the custom components are  *FEULE_MenuIcon*, *FEULE_MenuMobile* and *FEULE_MenuAside*, and *FEULE_UserArea*).
+**Note** that both the default and custom navigation components can be seen in the site *Admin* section, in the *Theme* tab, by clicking the *Edit components* link in the right hand menu. The default components are the *BurgerIcon*, *BurgerMenu* and *SidebarNav*, and the custom components are  *FEULE_MenuIcon*, *FEULE_MenuMobile* and *FEULE_MenuAside*, and *FEULE_UserArea*).
 
  Carry out the following steps in the *Admin* section, *Edit Theme* tab, :
   * In the `navigation.inc.php` file, change the active menu component by commenting out the line containing `get_i18n_component('sidebarnav');` and commenting in the line containg `get_i18n_component('feule_menuaside', $language');`. Save the file.
   * In the *Page Header* file (`header.inc.php`), activate the custom *Burger Menu* components by commenting out the lines containing:
-   * `get_component('burgericon');` and 
-   * `get_component('burgermenu');` 
-   and by comment in the two lines containing:
-   * `get_component('feule_menuicon');`
-   * `get_i18n_component('feule_menumobile', $language);` 
-   Save the file.
+    * `get_component('burgericon');` and 
+    * `get_component('burgermenu');` 
+  * and by commenting in the two lines containing:
+    * `get_component('feule_menuicon');`
+    * `get_i18n_component('feule_menumobile', $language);` 
+  * Save the file.
 
 #### Authorization Check
 
-To be done ...
+To be done ....
