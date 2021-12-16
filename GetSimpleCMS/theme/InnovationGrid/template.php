@@ -95,7 +95,7 @@ $innov_settings = Innovation_Settings();
 			<?php include('aside_tagcloud.inc.php'); ?>
 				
 			<!-- include the 'Front End User Area' component -->
-			<?php //include('aside_feue_userarea.inc.php'); ?>
+			<?php //include('aside_feule_userarea.inc.php'); ?>
 		
 		</div><!-- End .main-container -->
 		

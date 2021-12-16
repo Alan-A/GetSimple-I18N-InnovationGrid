@@ -22,7 +22,7 @@
 	 		<div class="container"><!-- Flex Container -->
 				<div class="left">
 					<p>
-						<a href="<?php get_site_url(); ?>./admin/" >Login</a>
+						<a href="<?php get_site_url(); ?>./admin/" >Admin&nbsp;Login</a>
 					</p>
 					<p>
 						&copy;&nbsp;<?php echo date('Y'); ?> <a href="<?php get_site_url(); ?>" ><?php get_site_name(); ?></a>

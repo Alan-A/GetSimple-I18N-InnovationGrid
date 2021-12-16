@@ -19,7 +19,7 @@
 &lt;?php get_i18n_navigation(&#039;index&#039;,0,99,I18N_SHOW_MENU); ?&gt;&lt;!-- Only show pages in menu, not all pages --&gt;
         &lt;/ul&gt;
     &lt;/nav&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEUE_MenuAside]]></title><slug>feue_menuaside</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_MenuAside]]></title><slug>feule_menuaside</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
 &lt;h2&gt;Menu&lt;/h2&gt;
 
 &lt;?php
@@ -335,7 +335,7 @@ $feue_menu_aside = new Feue_menu_aside();
 $feue_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
 
 ?&gt;
-]]></value></item><item><title><![CDATA[FEUE_MenuIcon]]></title><slug>feue_menuicon</slug><value><![CDATA[&lt;!-- Component called in header.inc.php --&gt;
+]]></value></item><item><title><![CDATA[FEULE_MenuIcon]]></title><slug>feule_menuicon</slug><value><![CDATA[&lt;!-- Component called in header.inc.php --&gt;
 
 &lt;script&gt;
     function myFunction(x) {
@@ -350,7 +350,7 @@ $feue_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
     &lt;div class=&quot;bar1&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar2&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar3&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEUE_MenuMobile]]></title><slug>feue_menumobile</slug><value><![CDATA[&lt;!-- Component called in header.inc.php --&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_MenuMobile]]></title><slug>feule_menumobile</slug><value><![CDATA[&lt;!-- Component called in header.inc.php --&gt;
 
 &lt;div  class=&quot;mobile-nav hide-mobile-nav&quot; &gt;
     &lt;nav class=&quot;mobile-nav-menu hide-menu&quot; &gt;
@@ -663,7 +663,7 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
 ?&gt;
 
     &lt;/nav&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEUE_UserArea]]></title><slug>feue_userarea</slug><value><![CDATA[&lt;h2&gt;User Area&lt;/h2&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;h2&gt;User Area&lt;/h2&gt;
 &lt;!--2021-12-06 14:40--&gt;
 
 &lt;script&gt;
