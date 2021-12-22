@@ -82,8 +82,7 @@ Code to show the *Front-End User Login Enhanced* plugin is included in the theme
 Install the [GetSimple CMS](http://get-simple.info/download).
 Instructions are available on the [GetSimple Wiki](http://get-simple.info/wiki/quick_install) site.
 
-(#plugins)
-### Install the Plugins 
+### Install the Plugins <a name="plugins"></a>
 
 I recommend making life slightly easier by first installing and [activating](http://get-simple.info/wiki/how_to:plugin_manager) the GetSimple [PluginInstaller](http://get-simple.info/extend/plugin/gs-plugin-installer/955/) plugin instead of manually downloading and installing the plugins individually.
 
@@ -93,7 +92,8 @@ Then install and activate the following plugins:
 * [i18n Custom Fields](http://get-simple.info/extend/plugin/i18n-custom-fields/100/)
 * [i18n Search](http://get-simple.info/extend/plugin/i18n-search/82/)
 * [i18n language menu](http://get-simple.info/extend/plugin/i18n-language-menu/366/)
-If you want to provide user authentication and authorization, you will also need to install the [Front-End User Login Enhanced](http://get-simple.info/extend/plugin/front-end-user-login-enhanced/809/) plugin.
+
+If you want to provide user authentication and authorization, you will also need to install the *Front-End User Login Enhanced* plugin, which is described [below](#feule). I recommend doing this after installing the theme.
 
 #### Additional Useful Plugins
 
@@ -112,13 +112,15 @@ This theme is installed in the GetSimple `Theme` folder:
 * Log into the *admin* section of the CMS using the user credentials you set when installing the CMS and select and activate the InnovationGrid theme in the admin *Theme* tab.
 * Still in the admin section, select the *Pages* tab and then *Edit Navigation Structure* from the menu on the right and click in the *Save Navigation Structure* button.
 
+The default pages will now be replaced with a number of pages relevant to this theme.
+
 You will find more information about Themes in the GetSimple [Themes documentation](http://get-simple.info/wiki/themes:installation).
 
 ### Review the Site
 
 You should now have a web-site with two languages, the default being English and the second language German. 
 
-Note that in the navigation menus you will see a "*User Pages*" page listed with three subpages. These pages are included to demonstrate the Front End User Login Extended plugin and come preconfigured with authorization settings for the plugin. At this stage of the installation procedure, they are all visible by default and can be deleted if user authentication and authorization is not required.
+Note that in the navigation menus you will see a page  named "*User Pages*" listed with three subpages. These pages are included to demonstrate the *Front End User Login Extended* plugin and come preconfigured with authorization settings for the plugin. At this stage of the installation procedure, they are all visible by default and can be deleted if user authentication and authorization is not required.
 
 ### Configuring Your Site
 
@@ -131,9 +133,16 @@ Note that in the navigation menus you will see a "*User Pages*" page listed with
 
 The default sidebar contains two aside elements - that is, elements that are only indirectly related to the page's main content. That is the Navigation Menu and the Tag Cloud. When viewed in a browser window of more than approximately 950 pixels wide, these elements will be shown in the sidebar to the right. 
 
-##### Activating User Authentication and Authorization
+##### Installing and Activating User Authentication and Authorization  <a name="feule"></a>
 
-If you want to include the user authentication and authorization provided by the Front-End User Login Enhanced plugin and have already installed and activated it as described above, open the *Theme* tab in the *Admin* Section and select *Edit Theme*:
+ * Carry out the following steps if you want to include the user authentication and authorization provided by the *Front-End User Login Enhanced* plugin:
+ 
+ * Install and activate the [plugin](http://get-simple.info/extend/plugin/front-end-user-login-enhanced/809/).
+ * In the *Admin* Section, select the *User Management* tab
+ * Open the *Theme* tab and select *Edit Theme*:
+  * Use the *Click Here to make initial settings* link to open the Plugin Settings tab and: 
+     * in the *Email Settings block* update the *"From" Email Address*.
+     * In the *Edit Protected Message* modify the message as required.
 
  * Now  open the *Default Template* file (`template.php`) and change the active `innovationgrid_grid_aside-*r.css` file from `...aside-2r.css` to `...aside-3r.css` in lines 38 and 39.
   * In the same file, comment in the code in line 98 by removing the two slashes: `<?php //include('aside_feue_userarea.inc.php'); ?>`.
