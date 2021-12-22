@@ -106,7 +106,7 @@ div #socialmedia .icons {
 	
 	div.section h2,
 	div #socialmedia .icons {		/* 'aside' sections are now in sidebar right */
-/*		margin-left: -21px;			/*  */ 
+		margin-left: -21px;			/*  */ 
 		margin-right: 10px;
 		border-radius: 0px 4px 4px 0px;
 	}

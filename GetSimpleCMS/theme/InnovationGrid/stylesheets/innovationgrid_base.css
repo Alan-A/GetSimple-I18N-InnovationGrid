@@ -418,9 +418,9 @@ div.section h2 {					/* See also Media Query (below) */
 	-khtml-border-radius:4px 4px 4px 4px;
 	-webkit-border-radius:4px 4px 4px 4px;
 }
-div.section h3,						/* See also Media Query (below) */
-div.section .feue-login h2,			/* So that the hard-coded h2 tags al least look like h3 */
-div.section .feue-register h2 {		/* ditto */
+div.section h3,						/* See also Media Query in innovationgrid_grid_aside-* files */
+div.section .feule-login h2,			/* So that the hard-coded h2 tags al least look like h3 */
+div.section .feule-register h2 {		/* ditto */
 	background:#666;
 	border-top:1px solid rgba(255,255,255,.4);
 	text-shadow: 1px 1px 0px rgba(0,0,0,.5);
@@ -446,9 +446,6 @@ div.page:nth-child(2) {
 	background-color: pink;
 }
 
-div.section div {
-/*	margin-left: 20px;	/*  */
-}
 div.section p {
 	margin:0 0 15px 0;
 }
@@ -480,60 +477,67 @@ a.tag {								/* Links in Tag Cloud */
 /* Form Elements */
 
 #feu .section {
-/*	transition: all 1.0s ease-in-out;	/*  */
+    padding-left: 0px;				/* Reduced as child elements have overflow hidden (see below) */
 }
-.feue-login,
-.feue-register {
+.feule-login,
+.feule-register {
     height: 0px;						/* Forms are not displayed by default */
-	overflow: hidden;					/*  */
+	margin-left: 20px;					/* Parent '#feu .section' element has no padding-left (see above) */
+	overflow: hidden;					/* Required because of animation */
 	transition: all 1s ease-in-out;		/* see also '.show-form' below */
 }
-.feue-login > p {
+.feule-login h2,
+.feule-register h2 {
+    margin-right: 11px;				/*  */
+    padding-left: 10px;				/*  */
+}
+.feule-login > p {
 	display: none;						/*  */
 }
-.feue-login .user_login_welcome_box_container + p {
-	display: block;						/* For the Logout link - see '.feue-login > p' (above) */
+.feule-login .user_login_welcome_box_container + p {
+	display: block;						/* For the Logout link - see '.feule-login > p' (above) */
 	margin-top: 10px;
 }
-.feue-register {
+.feule-register {
     margin: 0 0 10px 0;					/* Reduce spacing compared with 'div.section p' (above) */
 }
-.feue-login a,
-.feue-form-links a {
+.feule-login a,
+.feule-form-links a {
 /*  display: inline-block;				/* Hides links??? */
     padding-right: 15px;
 	text-decoration: underline;			/* 'onclick' links are not automatically underlined */
 	cursor: pointer;
 }
-.feue-form-links p .active {
+.feule-form-links p .active {
 	text-decoration: none;				/* links are shown as inactive once clicked and form has opened */
 	cursor: auto;						/* Effectively sets cursor to 'no link', 
 	                                       as elements have no href attribute */
 }
-div.feue-login.inactive,
-div.feue-register.inactive,
-div.feue-welcome.inactive {
+div.feule-login.inactive,
+div.feule-register.inactive,
+div.feule-welcome.inactive {
 /*    height: 20px;						/* Forms are not displayed by default - see 'div.show-form' (below) */
 }
-.feue-login br {
+.feule-login br {
     display: none;						/* Suppress hard coded new line */
 }
 div.show-form {
-    height: 300px;						/* see also '.feue-login, .feue-register' above */
+    height: 300px;						/* see also '.feule-login, .feule-register' above */
+	padding-right: 10px;
 /*	transition: all 1s ease-in-out;		/*  */
 }
-.feue-login h2::after,
-.feue-register h2::after {
+.feule-login h2::after,
+.feule-register h2::after {
     content: 'X'; 
 	float:right;						/*  */
 	padding-right: 1em;
 }
-.feue-register input {
+.feule-register input {
 	width: 66%;
 }
 
-.user_login_welcome_box_container ~ .feue-form-links {	/* Presence/absense of welcome container
-    // is used to trigger css3 sibling combinator to hide 'feue-form-links' container */
+.user_login_welcome_box_container ~ .feule-form-links {	/* Presence/absense of welcome container
+    // is used to trigger css3 sibling combinator to hide 'feule-form-links' container */
 	display: none;
 }
 
@@ -638,36 +642,56 @@ footer .footer {
 }
 
 
-/* SONSTIGES - FEUE Form Elements */
+/* SONSTIGES - FEULE Form Elements */
 
-.feue-login form input,
-.feue-register form input {
+.feule-login #loginform,
+.feule-register #registerform {
+    width:90%;
+}
+/* Login Submit Button */
+.user_login_submit {
+	float:none;    						/* Default 'float:left' is not necessary, only reduces spacing */
+    padding:3px;
+}
+
+.feule-login form input,
+.feule-register form input {
 	border-color: lightgrey;
 } 
-.feue-login form input:invalid,
-.feue-register form input:invalid,
+.feule-login form input:invalid,
+.feule-register form input:invalid,
 #forgotpassform input,					/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
 											as valid/invalid are not set by plugin for these forms */
 #forgotuserform input {
 	box-shadow: 2px 2px 3px #d3d3d380;	/* lightgrey */
 }
-.feue-login form input:valid,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
+.feule-login form input:valid,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
 											as valid/invalid are not set by plugin for these forms */
-.feue-register form input:valid,
+.feule-register form input:valid,
 /*#forgotpassform input:valid,*/
 /*#forgotuserform input:valid*/ {
 	box-shadow: 2px 2px 3px #00640085;	/* darkgreen */
 }
-.feue-login form input[type="submit"],
-.feue-register form input[type="submit"] {
+.feule-login form input[type="submit"],
+.feule-register form input[type="submit"] {
 	box-shadow: 0px 3px 3px grey;
 }
-.feue-login form input[type="submit"]:active,
-.feue-register form input[type="submit"]:active {
+.feule-login form input[type="submit"]:active,
+.feule-register form input[type="submit"]:active {
 	box-shadow: 0px 0px 5px green;
 }
+/* Register Form Labels */
+.feule-register #registerform label{
+    display: inline-block; 
+    width: 33%;
+}
+.feule-register #registerform input{
+    width:66%;
+    float:right;
+}
 
-/* SONSTIGES - FEUE In-Main  Form Elements */
+
+/* SONSTIGES - FEULE In-Main  Form Elements */
 
 section .register_h2 {
 	padding-top: 20px;

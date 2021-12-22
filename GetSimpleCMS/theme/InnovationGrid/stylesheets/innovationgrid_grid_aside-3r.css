@@ -88,6 +88,9 @@ div #socialmedia .icons {
 		margin-right: 10px;
 		border-radius: 0px 4px 4px 0px;
 	}
+	#feu .section h2 {
+		margin-left: 0px;			/* '#feu .section' has 'padding-left: 0;' due to 'overflow:hidden' on forms */
+	}
 }
 
 
