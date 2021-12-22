@@ -2,8 +2,11 @@
 
 # See https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder
 
-# Ignore temp backups:
+# Ignore temp backup:
 GetSimpleCMS-Copy
+
+# Ignore testfolder:
+GetSimpleCMS-Test
 
 # Do not ignore folder:
 !GetSimpleCMS/
@@ -33,6 +36,9 @@ GetSimpleCMS/data/other/autosave/
 ReadMe_AA.md
 GetSimpleCMS/theme/.git/
 GetSimpleCMS/theme/.gitignore
+GetSimpleCMS/theme/InnovationGrid/stylesheets/innovationgrid_base_bak.css
+GetSimpleCMS/theme/InnovationGrid/stylesheets/innovationgrid_grid_aside-2r_bak.css
+GetSimpleCMS/theme/InnovationGrid/stylesheets/innovationgrid_grid_aside-3r_bak.css
 
 # Ignore all following files:
 GetSimpleCMS/.htaccess
