@@ -5,8 +5,9 @@
 # Ignore temp backup:
 GetSimpleCMS-Copy
 
-# Ignore testfolder:
+# Ignore test instances:
 GetSimpleCMS-Test
+GetSimpleCMS-Test-FEULE
 
 # Do not ignore folder:
 !GetSimpleCMS/
