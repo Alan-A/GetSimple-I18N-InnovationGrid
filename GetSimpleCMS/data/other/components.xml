@@ -491,7 +491,7 @@ class feule_menu_mobile {
     // Parse each top level page element
     public function parse_elements ($i18n_pages, $langCode){
         
-        echo &quot;langCode&quot; . $langCode . &quot;&lt;br&gt;&quot;;
+        //echo &quot;langCode: &quot; . $langCode . &quot;&lt;br&gt;&quot;;
         
         echo &quot;&lt;ul&gt;&quot;;
         
