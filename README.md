@@ -103,7 +103,7 @@ I have found the following plugins to be useful and have included CSS style info
 
 ### Install the Theme
 
-This theme is installed in the GetSimple `Theme` folder: 
+This theme is installed in the GetSimple *Theme* folder: 
 * Copy the contents of the theme folder of this download to the *Theme* folder of your CMS installation.
 * Overwrite the original `components.xml` file by copying the `data\other\components.xml` file provided in the download into your folder:
   * `Site_Installation_Folder\data\other\`
@@ -132,29 +132,30 @@ Note that in the navigation menus you will see a page  named "*User Pages*" list
 
 #### Aside Elements
 
-The default sidebar contains two aside elements - that is, elements that are only indirectly related to the page's main content. That is the Navigation Menu and the Tag Cloud. When viewed in a browser window of more than approximately 950 pixels wide, these elements will be shown in the sidebar to the right. 
+The default sidebar contains two aside elements - that is, elements that are only indirectly related to the page's main content. These are the Navigation Menu and the Tag Cloud. When viewed in a browser window of more than approximately 950 pixels wide, these elements will be shown in the sidebar to the right. In narrower windows they will be positioned below the page's main content.
 
 ##### Installing and Activating User Authentication and Authorization  <a name="feule"></a>
 
- * Carry out the following steps if you want to include the user authentication and authorization provided by the *Front-End User Login Enhanced* plugin:
+ Carry out the following steps if you want to include the user authentication and authorization provided by the *Front-End User Login Enhanced* plugin:
  
  * Install and activate the [plugin](http://get-simple.info/extend/plugin/front-end-user-login-enhanced/809/).
  * In the *Admin* Section, select the *User Management* tab
  * Use the *Click Here to make initial settings* link to open the Plugin Settings tab and: 
-     * in the *Email Settings block* update the *"From" Email Address*.
+     * In the *Email Settings block* update the *"From" Email Address*.
      * In the *Edit Protected Message* modify the message as required.
+     * Do not modify the CSS edit fields.
 
- * Now  open the *Default Template* file (`template.php`) and change the active `innovationgrid_grid_aside-*r.css` file from `...aside-2r.css` to `...aside-3r.css` in lines 38 and 39.
+ * Now, in the *Theme* tab, open the *Default Template* file (`template.php`) and change the active `innovationgrid_grid_aside-*r.css` file from `...aside-2r.css` to `...aside-3r.css` in lines 38 and 39.
   * In the same file, comment in the code in line 98 by removing the two slashes: `<?php //include('aside_feue_userarea.inc.php'); ?>`.
  * Save the file.
 
  You will now have a third 'User Area' block, which at this stage will be empty apart froom the title.  This block will be positioned in the sidebar if you are using a wide browser window, or just above the page footer, if you are using a smaller device.
 
- You will, however, still be using the default navigation components for the *Navigation* block, which is shown in wider browser windows and the *Burger-Menu*, which is shown with smaller windoe widths. These components do not take account of user authorization and show all pages. To activate the authorization and only show menu links to pages that the user is authorized to see you need to replace the default navigation components with the custom navigation ones provided with the theme.
+ You will, however, still be using the default navigation components for the *Navigation* block, which is shown in wider browser windows, and the *Burger-Menu*, which is shown with smaller window widths. These components do not take account of user authorization and show all pages, including those a signed-on user is not authorized to access. To activate the authorization and only show menu links to pages that the user is authorized to see you need to replace the default navigation components with the custom navigation ones provided with the theme.
 
 **Note** that both the default and custom navigation components can be seen in the site *Admin* section, in the *Theme* tab, by clicking the *Edit components* link in the right hand menu. The default components are the *BurgerIcon*, *BurgerMenu* and *SidebarNav*, and the custom components are  *FEULE_MenuIcon*, *FEULE_MenuMobile* and *FEULE_MenuAside*, and *FEULE_UserArea*).
 
- Carry out the following steps in the *Admin* section, *Edit Theme* tab, :
+ Carry out the following steps in the *Admin* section, *Edit Theme* tab:
   * In the `navigation.inc.php` file, change the active menu component by commenting out the line containing `get_i18n_component('sidebarnav');` and commenting in the line containg `get_i18n_component('feule_menuaside', $language');`. Save the file.
   * In the *Page Header* file (`header.inc.php`), activate the custom *Burger Menu* components by commenting out the lines containing:
     * `get_component('burgericon');` and 
