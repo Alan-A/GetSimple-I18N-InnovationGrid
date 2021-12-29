@@ -6,8 +6,8 @@
 GetSimpleCMS-Copy
 
 # Ignore test instances:
-GetSimpleCMS-Test
-GetSimpleCMS-Test-FEULE
+GetSimpleCMS-Test-2r
+GetSimpleCMS-Test-3r-FEULE
 
 # Do not ignore folder:
 !GetSimpleCMS/

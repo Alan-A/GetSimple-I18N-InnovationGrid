@@ -104,14 +104,14 @@ I have found the following plugins to be useful and have included CSS style info
 ### Install the Theme
 
 This theme is installed in the GetSimple *Theme* folder: 
-* Copy the contents of the theme folder of this download to the *Theme* folder of your CMS installation.
+* Copy the contents of the theme folder from this download to the *Theme* folder of your CMS installation.
 * Overwrite the original `components.xml` file by copying the `data\other\components.xml` file provided in the download into your folder:
   * `Site_Installation_Folder\data\other\`
 * Copy the demonstration page files provided in the `pages` folder of the download into the following folder of your installation, overwriting the original `index.xml` file:
   * `Site_Installation_Folder\data\pages\`
 * Log into the *admin* section of the CMS using the user credentials you set when installing the CMS and select and activate the InnovationGrid theme in the admin *Theme* tab.
 * Still in the admin section, select the *Pages* tab and then *Edit Navigation Structure* from the menu on the right and click in the *Save Navigation Structure* button.
-* Stay in the *admin/Pages* tab, select *View All Pages* from the menu on the right and check that the *"Language of all pages ..."* box is showing *"en"*, which is the default language for the demonstration pages. Click the *Save* button if required.
+* Stay in the *admin/Pages* tab, select *View All Pages* from the menu on the right and check that the *"Language of all pages ..."* box is showing *"en"*, which is the default language for the demonstration pages. Click the *Save* button if if you have to change this.
 
 The default pages will now be replaced with a number of pages relevant to this theme.
 
@@ -120,6 +120,9 @@ You will find more information about themes in the GetSimple [Themes documentati
 ### Review the Site
 
 You should now have a web-site with two languages, the default being English and the second language German. 
+
+If the Tag Cloud in the page sidebar is either empty or showing tags in the wrong language, do the following:
+* In the the *Pages* tab of the admin section, select the index page, make a token change such as adding a space and then click *Save Updates*.
 
 Note that in the navigation menus you will see a page  named "*User Pages*" listed with three subpages. These pages are included to demonstrate the *Front End User Login Extended* plugin and come preconfigured with authorization settings for the plugin. At this stage of the installation procedure, they are all visible by default and can be deleted if the user authentication and authorization functions provided by the plugin are not required.
 
