@@ -667,7 +667,7 @@ $feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
 &lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;!-- Component called in aside_feule_userarea.inc.php --&gt;
 &lt;!--2021-12-21 12:40--&gt;
 
-&lt;h2&gt;feule User Area&lt;/h2&gt;
+&lt;h2&gt;User Area&lt;/h2&gt;
 
 &lt;script&gt;
     
