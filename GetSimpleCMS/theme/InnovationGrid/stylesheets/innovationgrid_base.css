@@ -513,11 +513,6 @@ a.tag {								/* Links in Tag Cloud */
 	cursor: auto;						/* Effectively sets cursor to 'no link', 
 	                                       as elements have no href attribute */
 }
-div.feule-login.inactive,
-div.feule-register.inactive,
-div.feule-welcome.inactive {
-/*    height: 20px;						/* Forms are not displayed by default - see 'div.show-form' (below) */
-}
 .feule-login br {
     display: none;						/* Suppress hard coded new line */
 }
@@ -667,9 +662,7 @@ footer .footer {
 }
 .feule-login form input:valid,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
 											as valid/invalid are not set by plugin for these forms */
-.feule-register form input:valid,
-/*#forgotpassform input:valid,*/
-/*#forgotuserform input:valid*/ {
+.feule-register form input:valid {
 	box-shadow: 2px 2px 3px #00640085;	/* darkgreen */
 }
 .feule-login form input[type="submit"],
