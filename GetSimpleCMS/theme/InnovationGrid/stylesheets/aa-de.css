@@ -1,9 +1,0 @@
-/******************************/
-/* INNOVATION GRID THEME      */
-/*                            */
-/* Site-Specific CSS          */
-/******************************/
-
-.header #logo span {		/* Span tag is dynamically inserted by custom aa-de.js */
-	font-size: 0.6em;
-}
