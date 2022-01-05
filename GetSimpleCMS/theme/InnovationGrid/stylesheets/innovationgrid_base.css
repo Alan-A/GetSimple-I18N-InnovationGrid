@@ -10,9 +10,7 @@ body {
 
 .page {
 	margin: 0px auto;
-/*	max-width: 981px;		/*  */
 	min-height: 100vh;
-/*	overflow: hidden;		/*  */
 }
 
 /* Set max width of contents (as opposed to backgrounds) */
@@ -23,7 +21,6 @@ body {
 	max-width: 981px;			/*  */
 	margin: 0 auto;
 	padding: 0 10px 0 10px;		/* See .main-container (below) */
-/*	background: #ddd;		/*  */
 }
 
 .main-container {
@@ -34,11 +31,9 @@ body {
 
 main, aside, footer{
 	padding: 10px;
-/*	background: #ddd;			/*  */
 }
 footer{
 	padding: 10px;
-/*	background: #ddd;			/*  */
 }
 
 
@@ -103,14 +98,12 @@ header .language-menu a:focus {
 	padding-top: 5px;
 	padding-left: 10px;
 	border: 0px solid silver;
-/*	background-color: pink;			/*  */
 }
 
 .header .right {
 	flex-grow: 2;					/*  */
 	text-align: right;				/* Overwritten for mobil-nav */
 	border: 0px solid gray;
-/*	background-color: skyblue;		/*  */
 }
 
 
@@ -149,7 +142,6 @@ header .main-nav li {
 	line-height: 2em;
 }
 header .main-nav li a {
-/*	display:block; */
 	font-size:13px;
 	padding:5px 15px;
 	text-transform:uppercase;
@@ -211,7 +203,6 @@ header div.section {		/* container for mobile burger nav */
 	background: -moz-linear-gradient(top, #EDEDED 0%, #D5D5D5 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDEDED), color-stop(100%,#D5D5D5));
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDEDED', endColorstr='#D5D5D5',GradientType=0 ); 
-/*border: 2px solid yellow;		/*  */
 }
 
 .breadcrumbs .container a:link, 
@@ -309,11 +300,9 @@ article section p {
 }
 article section p ~ ul {
 	margin-top: -23px;		/* AADE */
-/*background: #def;	*/
 }
 article section p ~ ul.search-results {
 	margin-top: 0px;		/* AADE: see also .search-results below*/
-/*background: #fed;	*/
 }
 article section ul, 
 article section ol {
@@ -570,7 +559,7 @@ div #socialmedia .icons {
 
 footer .footer {
 	align-items: top;					/* vertically center child items */
-	padding: 10px;
+	padding: 0 10px;
 	font-size:11px;
 	line-height:15px;
 	color:#666;
@@ -579,50 +568,25 @@ footer .footer {
 /*	border-top:#CCC 1px solid;			/* Now on .main-container */
 	border-bottom:#FFF 1px solid;
 /*overflow: hidden; 					/* hat nicht funktioniert */
-	background: #eee;
-/*	background: -moz-linear-gradient(top, #D5D5D5 100%, #EDEDED 0%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(100%,#D5D5D5), color-stop(0%,#EDEDED));
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#D5D5D5', endColorstr='#EDEDED',GradientType=0 ); */
-	background: linear-gradient(to top, #D5D5D5, #EEEEEE);
 }
 .footer .container {
 	display: flex;
 	flex-wrap: nowrap;			/*  */
 	box-sizing: border-box;		/*  */
 	align-items: top;			/* vertically center child items */
+	background: #eee;
 }
 .footer .left {
 	flex-grow: 1;				/*  */
 	text-align: left;
 	border: 0px solid grey;
-/*	background-color: pink;		/*  */
 }
 .footer .right {
 	flex-grow: 2;				/*  */
 	text-align: right;
 	border: 0px solid gray;
-/*	background-color: skyblue;	/*  */
 }
 
-/*.footer  div {
-	padding:20px 0;
-	text-shadow: 1px 1px 0px rgba(255,255,255,.8);
-	color:#888;
-	font-size:11px;
-	background-color:#ddd;
-}*/
-/*.footer .left {
-	float:left;
-	width:30%;
-	padding: 10px;
-	text-align:left;
-}
-.footer .right {
-	float:right;
-	width:70%;
-	padding: 10px;
-	text-align:right;
-}							*/
 
 .footer p {
 	padding: 5px 0;
