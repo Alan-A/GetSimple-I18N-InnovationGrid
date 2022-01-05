@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channel><item><title><![CDATA[BurgerIcon]]></title><slug>burgericon</slug><value><![CDATA[&lt;!-- Called in pageheader.inc.php --&gt;
+
 &lt;script&gt;
-    function myFunction(x) {
-        x.classList.toggle(&quot;show-menu&quot;);
-        document.querySelector(&quot;.mobile-nav&quot;).classList.toggle(&quot;hide-mobile-nav&quot;);
-        document.querySelector(&quot;.mobile-nav-menu&quot;).classList.toggle(&quot;hide-menu&quot;);
+    function toggleMenu(el) {
+        //console.log(&quot;this.className: &quot; +  el.className);
+        let outerContainer = document.querySelector(&quot;.mobile-nav&quot;);
+        let innerContainer = document.querySelector(&quot;.mobile-nav-menu&quot;);
+        //console.log(&quot;outerContainer.offsetHeight: &quot; +  outerContainer.offsetHeight);
+        //console.log(&quot;innerContainer.offsetHeight: &quot; +  innerContainer.offsetHeight);
+        outerContainer.style.height = parseInt(innerContainer.offsetHeight) + 10 + &#039;px&#039;;
+        //console.log(&quot;outerContainer.offsetWidth: &quot; +  outerContainer.offsetWidth);
+        //console.log(&quot;innerContainer.offsetWidth: &quot; +  innerContainer.offsetWidth);
+        outerContainer.style.width = parseInt(innerContainer.offsetWidth) + 20 + &#039;px&#039;;
+
+        el.classList.toggle(&quot;show-menu&quot;);
+        outerContainer.classList.toggle(&quot;hide-mobile-nav&quot;);
+        innerContainer.classList.toggle(&quot;hide-menu&quot;);
     }
 &lt;/script&gt;
 
-&lt;div class=&quot;mobile-nav-icon&quot; onclick=&quot;myFunction(this)&quot;&gt;
+&lt;div class=&quot;mobile-nav-icon&quot; onclick=&quot;toggleMenu(this)&quot;&gt;
     &lt;div class=&quot;bar1&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar2&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar3&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[BurgerMenu]]></title><slug>burgermenu</slug><value><![CDATA[&lt;!-- Called in pageheader.inc.php --&gt;
+
 &lt;div  class=&quot;mobile-nav hide-mobile-nav&quot; &gt;
     &lt;nav class=&quot;mobile-nav-menu hide-menu&quot; &gt;
         &lt;ul&gt;
@@ -20,12 +32,11 @@
         &lt;/ul&gt;
     &lt;/nav&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_MenuAside]]></title><slug>feule_menuaside</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
-
 &lt;h2&gt;Menu&lt;/h2&gt;
 
 &lt;?php
 
-class feule_menu_aside {
+class Feue_menu_aside {
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
@@ -190,7 +201,7 @@ class feule_menu_aside {
                     
                     //echo &quot;page[&#039;url&#039;]: &quot; . $x_value[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
                     
-                    // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
+                    // file_restrictions are comma-sep. strings (FEUE Group names wie &#039;Users&#039;)
                     $file_restrictions = $this-&gt;get_file_restrictions($x_value[&#039;url&#039;]);
                     
                     //echo &quot;155: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
@@ -295,7 +306,7 @@ class feule_menu_aside {
         
     }
     
-}    // END class feule_menu_aside
+}    // END class Feue_menu_aside
 
 
 $i18n_pages = return_i18n_pages();
@@ -331,23 +342,32 @@ foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
 }
 //echo &quot;langCode: &quot; . $langCode  . &quot;&lt;br&gt;&quot;;
 
-$feule_menu_aside = new feule_menu_aside();
+$feue_menu_aside = new Feue_menu_aside();
 
-$feule_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
+$feue_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
 
 ?&gt;
-]]></value></item><item><title><![CDATA[FEULE_MenuIcon]]></title><slug>feule_menuicon</slug><value><![CDATA[&lt;!-- Component called in header.inc.php --&gt;
+]]></value></item><item><title><![CDATA[FEULE_MenuIcon]]></title><slug>feule_menuicon</slug><value><![CDATA[&lt;!-- Called in pageheader.inc.php --&gt;
 
 &lt;script&gt;
-    function myFunction(x) {
-      //alert(&quot;this: &quot; + x);
-        x.classList.toggle(&quot;show-menu&quot;);
-        document.querySelector(&quot;.mobile-nav&quot;).classList.toggle(&quot;hide-mobile-nav&quot;);
-        document.querySelector(&quot;.mobile-nav-menu&quot;).classList.toggle(&quot;hide-menu&quot;);
+    function toggleMenu(el) {
+        //console.log(&quot;this.className: &quot; +  el.className);
+        let outerContainer = document.querySelector(&quot;.mobile-nav&quot;);
+        let innerContainer = document.querySelector(&quot;.mobile-nav-menu&quot;);
+        //console.log(&quot;outerContainer.offsetHeight: &quot; +  outerContainer.offsetHeight);
+        //console.log(&quot;innerContainer.offsetHeight: &quot; +  innerContainer.offsetHeight);
+        outerContainer.style.height = parseInt(innerContainer.offsetHeight) + 10 + &#039;px&#039;;
+        //console.log(&quot;outerContainer.offsetWidth: &quot; +  outerContainer.offsetWidth);
+        //console.log(&quot;innerContainer.offsetWidth: &quot; +  innerContainer.offsetWidth);
+        outerContainer.style.width = parseInt(innerContainer.offsetWidth) + 20 + &#039;px&#039;;
+
+        el.classList.toggle(&quot;show-menu&quot;);
+        outerContainer.classList.toggle(&quot;hide-mobile-nav&quot;);
+        innerContainer.classList.toggle(&quot;hide-menu&quot;);
     }
 &lt;/script&gt;
 
-&lt;div class=&quot;mobile-nav-icon&quot; onclick=&quot;myFunction(this)&quot;&gt;
+&lt;div class=&quot;mobile-nav-icon&quot; onclick=&quot;toggleMenu(this)&quot;&gt;
     &lt;div class=&quot;bar1&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar2&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar3&quot;&gt;&lt;/div&gt;
@@ -358,7 +378,7 @@ $feule_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
 
 &lt;?php
 
-class feule_menu_mobile {
+class Feue_menu_mobile {
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
@@ -491,7 +511,7 @@ class feule_menu_mobile {
     // Parse each top level page element
     public function parse_elements ($i18n_pages, $langCode){
         
-        //echo &quot;langCode: &quot; . $langCode . &quot;&lt;br&gt;&quot;;
+        echo &quot;langCode: &quot; . $langCode . &quot;&lt;br&gt;&quot;;
         
         echo &quot;&lt;ul&gt;&quot;;
         
@@ -517,7 +537,7 @@ class feule_menu_mobile {
                     
                     //echo &quot;page[&#039;url&#039;]: &quot; . $x_value[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
                     
-                    // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
+                    // file_restrictions are comma-sep. strings (FEUE Group names wie &#039;Users&#039;)
                     $file_restrictions = $this-&gt;get_file_restrictions($x_value[&#039;url&#039;]);
                     
                     //echo &quot;155: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
@@ -622,7 +642,7 @@ class feule_menu_mobile {
         
     }
     
-}    // END class feule_menu_aside
+}    // END class Feue_menu_aside
 
 
 $i18n_pages = return_i18n_pages();
@@ -657,17 +677,14 @@ foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
     }
 }
 
-$feule_menu_mobile = new feule_menu_mobile();
+$feue_menu_mobile = new Feue_menu_mobile();
 
-$feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
+$feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
 
 ?&gt;
 
     &lt;/nav&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;!-- Component called in aside_feule_userarea.inc.php --&gt;
-&lt;!--2021-12-21 12:40--&gt;
-
-&lt;h2&gt;User Area&lt;/h2&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;h2&gt;User Area&lt;/h2&gt;
 
 &lt;script&gt;
     
@@ -753,23 +770,23 @@ $feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
             }
         }
         
-        if(elementClass == &quot;feule-login&quot;){
+        if(elementClass == &quot;feue-login&quot;){
             //console.log(&quot;Clicked on: &quot; + elementClass);
             //let successCheck = checkSuccess(elementClass);
             //console.log(&quot;successCheck: &quot; + successCheck);
             toggleForm(elementClass);
         } else {
-            if(elementClass == &quot;feule-register&quot;){
+            if(elementClass == &quot;feue-register&quot;){
             //console.log(&quot;Clicked on: &quot; + elementClass);
             toggleForm(elementClass);
             } else {
                 //let pageAddress = location.origin + location.pathname;
                 //console.log(&quot;pageAddress: &quot; + pageAddress);
-                if(elementClass == &quot;feuleForgotPass&quot;){
+                if(elementClass == &quot;feueForgotPass&quot;){
                     //console.log(&quot;window.location: &quot; + window.location);
                     window.location.href = &quot;?lang=&quot; + language + &quot;&amp;forgotPass=1&amp;lang=&quot; + language;
                 } else {
-                    if (elementClass == &quot;feuleForgotUser&quot;){
+                    if (elementClass == &quot;feueForgotUser&quot;){
                         //console.log(&quot;window.location: &quot; + window.location);
                         window.location.href = &quot;?lang=&quot; + language + &quot;&amp;forgotUser=1&amp;lang=&quot; + language;
                     }
@@ -789,41 +806,41 @@ $feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
     //echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
     
     // No containing div for welcome container as presence/absense of welcome container
-    // is used to trigger css3 sibling combinator to hide &#039;feule-form-links&#039; container.
+    // is used to trigger css3 sibling combinator to hide &#039;feue-form-links&#039; container.
     welcome_message_login();
     
-    // div classes are same as classes of links set in function show_feule_forms()
-    echo &#039;&lt;div class=&quot;feule-login inactive&quot;&gt;&#039;;
+    // div classes are same as classes of links set in function show_feue_forms()
+    echo &#039;&lt;div class=&quot;feue-login inactive&quot;&gt;&#039;;
     show_login_box();
     echo &#039;&lt;/div&gt;&#039;;
     
-    echo &#039;&lt;div class=&quot;feule-register inactive&quot;&gt;&#039;;
+    echo &#039;&lt;div class=&quot;feue-register inactive&quot;&gt;&#039;;
     user_login_register();
     echo &#039;&lt;/div&gt;&#039;;
     
-    function show_feule_forms($lang) {
+    function show_feue_forms($lang) {
         
         //echo &quot;Language: &quot; . $lang . &quot;&lt;br&gt;&quot;;
         
-        echo &quot;&lt;div class=&#039;feule-form-links&#039;&gt;&quot;;
+        echo &quot;&lt;div class=&#039;feue-form-links&#039;&gt;&quot;;
         
             echo &quot;&lt;p&gt;&quot;;
             
-                echo &quot;&lt;a href=# class=&#039;feule-login&#039; onclick=&#039;toggleForms(\\&quot;feule-login\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Login&lt;/a&gt;&quot;;
-                //echo &#039;&lt;a class=&quot;feule-login&quot; onclick=&quot;toggleForms(\\&#039;feule-login\\&#039;)&quot;&gt;Login&lt;/a&gt;&#039;;
+                echo &quot;&lt;a href=# class=&#039;feue-login&#039; onclick=&#039;toggleForms(\\&quot;feue-login\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Login&lt;/a&gt;&quot;;
+                //echo &#039;&lt;a class=&quot;feue-login&quot; onclick=&quot;toggleForms(\\&#039;feue-login\\&#039;)&quot;&gt;Login&lt;/a&gt;&#039;;
                 
-                echo &quot;&lt;a href=# class=&#039;feule-register&#039; onclick=&#039;toggleForms(\\&quot;feule-register\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Register&lt;/a&gt;&quot;;
+                echo &quot;&lt;a href=# class=&#039;feue-register&#039; onclick=&#039;toggleForms(\\&quot;feue-register\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Register&lt;/a&gt;&quot;;
                 
-                echo &quot;&lt;a href=# class=&#039;feuleForgotPass&#039; onclick=&#039;toggleForms(\\&quot;feuleForgotPass\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Pass?&lt;/a&gt;&quot;;
+                echo &quot;&lt;a href=# class=&#039;feueForgotPass&#039; onclick=&#039;toggleForms(\\&quot;feueForgotPass\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Pass?&lt;/a&gt;&quot;;
                 
-                //$elementClass = &quot;feuleForgotPass&quot;;
-                //echo &quot;&lt;a href=# class=&#039;feuleForgotPass&#039; onclick=&#039;toggleForms(\\&quot;&quot; . $elementClass . &quot;\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt; Forgotten&amp;nbsp;Pass?&lt;/a&gt;&quot;;
+                //$elementClass = &quot;feueForgotPass&quot;;
+                //echo &quot;&lt;a href=# class=&#039;feueForgotPass&#039; onclick=&#039;toggleForms(\\&quot;&quot; . $elementClass . &quot;\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt; Forgotten&amp;nbsp;Pass?&lt;/a&gt;&quot;;
                 
-                echo &quot;&lt;a href=# class=&#039;feuleForgotUser&#039; onclick=&#039;toggleForms(\\&quot;feuleForgotUser\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Username?&lt;/a&gt;&quot;;
-                //echo &quot;&lt;a class=&#039;feuleForgotUser&#039; href=&#039;?lang=en&amp;forgotUser=1&amp;lang=en&#039;&gt;Forgotten&amp;nbsp;Username?&lt;/a&gt;&quot;;
+                echo &quot;&lt;a href=# class=&#039;feueForgotUser&#039; onclick=&#039;toggleForms(\\&quot;feueForgotUser\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Username?&lt;/a&gt;&quot;;
+                //echo &quot;&lt;a class=&#039;feueForgotUser&#039; href=&#039;?lang=en&amp;forgotUser=1&amp;lang=en&#039;&gt;Forgotten&amp;nbsp;Username?&lt;/a&gt;&quot;;
                 
                 //echo &#039;&lt;a href=# onclick=&quot;return ReAssign(\\&#039;&#039; + $valuationId + &#039;\\&#039;,\\&#039;&#039; + $user + &#039;\\&#039;)&quot;&gt;Re-Assign&lt;/a&gt;&#039;;
-                //echo &quot;&lt;a class=&#039;feuleForgotPass&#039; href=&#039;?lang=en&amp;forgotPass=1&amp;lang=en&#039;&gt;Forgotten&amp;nbsp;Password?&lt;/a&gt;&quot;;
+                //echo &quot;&lt;a class=&#039;feueForgotPass&#039; href=&#039;?lang=en&amp;forgotPass=1&amp;lang=en&#039;&gt;Forgotten&amp;nbsp;Password?&lt;/a&gt;&quot;;
                 
             echo &quot;&lt;/p&gt;&quot;;
             
@@ -831,7 +848,7 @@ $feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
         
     }    // END fcn. show_forms()
     
-    show_feule_forms($language);
+    show_feue_forms($language);
 
 ?&gt;
 
@@ -854,9 +871,9 @@ $feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
     
     // Check if login has been successful
     // If unsuccessful, an element with class=&#039;error&#039; is added to the login form 
-    // by the feule plugin. If checkSuccess() finds this error element, the 
+    // by the FEUE plugin. If checkSuccess() finds this error element, the 
     // login form will be toggled open.
-    checkSuccess(&quot;feule-login&quot;);
+    checkSuccess(&quot;feue-login&quot;);
     
 &lt;/script&gt;
 ]]></value></item><item><title><![CDATA[SearchQueryRenderer]]></title><slug>searchqueryrenderer</slug><value><![CDATA[&lt;ul&gt;
