@@ -457,7 +457,7 @@ div.section > ul > li {				/* Only top level elements */
 	list-style: disc;
 }
 div.section ul ul {					/* Submenus */
-	margin-bottom: 2px;
+	margin-bottom: 5px;
 }
 
 a.tag {								/* Links in Tag Cloud */

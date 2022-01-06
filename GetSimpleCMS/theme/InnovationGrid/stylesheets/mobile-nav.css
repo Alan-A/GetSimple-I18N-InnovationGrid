@@ -81,7 +81,7 @@ div.mobile-nav .hide-menu {
 /* BURGER MENU LISTS */
 
 div.mobile-nav ul ul {
-	padding-top: 5px;		/* For sub-menus, which are within parent li element */
+	padding-bottom: 5px;		/* For sub-menus, which are within parent li element */
 }
 div.mobile-nav li {
 	padding-bottom: 5px;	/*  */
