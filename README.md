@@ -16,7 +16,7 @@ I use this package as the basis for [my own web-site](http://www.alan-amos.de) w
 There are a number of reasons that I became interested in using GetSimple:
 * it is Open Source - so, if necessary I could update the code myself;
 * it is free - with a good selection of free themes and plugins;
-* it has an active communnity;
+* it has an active community;
 * a feature-rich set of plugins is available for creating multi-language sites; 
 * it uses flat-file storage instead of a database, simplifying installation and potentially speeding up response times.
 
@@ -168,6 +168,17 @@ The default sidebar contains two aside elements - that is, elements that are onl
     * `get_i18n_component('feule_menumobile', $language);` 
   * Save the file.
 
-#### Authorization Check
+In the *Admin* section, go to the newly=added *User Management* tab and click on the *Click Here* link to make the initial settings for the plugin:
+ * In the *General Settings* block, you can deactivate self-registration of users if required. 
+ * Enter a mail address in the *Email Settings* block.
 
-To be done ....
+##### Authorization Check
+ User authentication and authorization will now be active. This can be seen in the sidebar and 'burger' menus: you will only see the *Unauthorized Page* as a subpage of the *User Pages* page. The *Admin Page* and *User Page* pages that could be seen before the authorization was activated will only be visible once a user has been registered, they are assigned the necesary group membership and they have logged in.
+
+User authorization - i.e. access to pages - is implemented through membership of user group(s). 
+ * The user groups that can access a page are specified individually for each page in the *Page Options* section of the *Edit Page* form.
+ * New groups can be added  by the site administrator in the *Manage Groups* form of the *User Management* tab.
+ * Users can be added by the site administrator in the *Manage Users* form of the *User Management* tab.
+ * Users can also self-register using the forms provided in the *User Area* section in the page sidebar. 
+   * Note that self-registered users are allocated automatically membership of the *Users* group. The site administrator is then free to add membership of further user group(s) if required. 
+
