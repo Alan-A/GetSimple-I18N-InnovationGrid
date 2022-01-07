@@ -3,14 +3,9 @@
 
 &lt;script&gt;
     function toggleMenu(el) {
-        //console.log(&quot;this.className: &quot; +  el.className);
         let outerContainer = document.querySelector(&quot;.mobile-nav&quot;);
         let innerContainer = document.querySelector(&quot;.mobile-nav-menu&quot;);
-        //console.log(&quot;outerContainer.offsetHeight: &quot; +  outerContainer.offsetHeight);
-        //console.log(&quot;innerContainer.offsetHeight: &quot; +  innerContainer.offsetHeight);
         outerContainer.style.height = parseInt(innerContainer.offsetHeight) + 10 + &#039;px&#039;;
-        //console.log(&quot;outerContainer.offsetWidth: &quot; +  outerContainer.offsetWidth);
-        //console.log(&quot;innerContainer.offsetWidth: &quot; +  innerContainer.offsetWidth);
         outerContainer.style.width = parseInt(innerContainer.offsetWidth) + 20 + &#039;px&#039;;
 
         el.classList.toggle(&quot;show-menu&quot;);
@@ -32,11 +27,12 @@
         &lt;/ul&gt;
     &lt;/nav&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_MenuAside]]></title><slug>feule_menuaside</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
+
 &lt;h2&gt;Menu&lt;/h2&gt;
 
 &lt;?php
 
-class Feue_menu_aside {
+class feule_menu_aside {
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
@@ -47,16 +43,6 @@ class Feue_menu_aside {
     private function determine_user_groups(){
         
         $currentUserGroups = getCurrentUserGroups();
-        
-        //echo &quot;Current User Group(s): &quot;;
-        
-        //foreach($currentUserGroups as $userGroup) {
-            
-            //echo $userGroup . &quot;, &quot;;
-            
-        //}
-        
-        //echo &quot;&lt;br&gt;&quot;;
         
         return $currentUserGroups;
         
@@ -70,15 +56,9 @@ class Feue_menu_aside {
         
         if (function_exists(&#039;simplexml_load_file&#039;)) {
             
-            //echo &quot;simplexml functions are available.&lt;br /&gt;\\n&quot;;
-            
             if (file_exists(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;)) {
                 
-                //echo &quot;file &quot; . $page_url . &quot;.xml found&lt;br/&gt;&quot;;
-                
                 $xmldata = simplexml_load_file(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;) or die(&quot;Failed to load&quot;);
-                
-                //echo &quot;44: memberonly: &quot; . $xmldata-&gt;memberonly . &quot;&lt;br/&gt;&quot;;
                 
                 return $xmldata-&gt;memberonly;
                 
@@ -131,21 +111,15 @@ class Feue_menu_aside {
     //
     private function check_permissions($currentUserGroups, $file_restrictions) {
         
-        //echo &quot;Starting fcn check_permissions &lt;br&gt;&quot;;
-        
         $permission = false;
         
         if (strpos($file_restrictions, &quot;Unauthorized&quot;) !== false){
-            
-            //echo &quot;userGroup: Unauthorized found&lt;br&gt;&quot;;
             
             $permission = true;
             
         } else {
             
             foreach($currentUserGroups as $userGroup) {
-                
-                //echo &quot;Checking for userGroup: &quot; . $userGroup . &quot;&lt;br&gt;&quot;;
                 
                 if( $userGroup == &quot;Admin&quot;){     // Admin members can see all pages
                     
@@ -156,7 +130,6 @@ class Feue_menu_aside {
                     $pos = strpos($file_restrictions, $userGroup );
                     
                     if( $pos !== false){
-                        //echo &quot;Permission for userGroup: &quot; . $userGroup . &quot; found&lt;br&gt;&quot;;
                         $permission = true;
                     }
                     
@@ -181,11 +154,6 @@ class Feue_menu_aside {
         
         foreach($i18n_pages as $x =&gt; $x_value) {
             
-            //echo &quot;&lt;br&gt;&quot;;
-            //echo &quot;Key:&quot; . $x . &quot;&lt;br&gt;&quot;;
-            
-            //echo &quot;MenuStatus:&quot; . $x_value[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
-            
             if($x != &#039;&#039; &amp;&amp;  $x_value[&quot;menuStatus&quot;] == &quot;Y&quot; ){
             // Last element has key= &#039;&#039; and lists all top level pages
             // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
@@ -197,20 +165,12 @@ class Feue_menu_aside {
                 // If a page has a parent it will be called with the child pages of the parent
                 if ($x_value[&quot;parent&quot;] == &quot;&quot;){  // Is page top level?
                     
-                    //echo &quot;page has no parent&lt;br&gt;&quot;;
-                    
-                    //echo &quot;page[&#039;url&#039;]: &quot; . $x_value[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
-                    
-                    // file_restrictions are comma-sep. strings (FEUE Group names wie &#039;Users&#039;)
+                    // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
                     $file_restrictions = $this-&gt;get_file_restrictions($x_value[&#039;url&#039;]);
-                    
-                    //echo &quot;155: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
                     
                     if ($file_restrictions) { // File restrictions are set
                         
                         $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
-                        
-                        //echo &quot;161: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
                         
                     } else {
                         
@@ -224,26 +184,16 @@ class Feue_menu_aside {
                         // &#039;children&#039; key only exists if child pages are present
                         if (array_key_exists(&#039;children&#039;, $x_value)){
                             
-                           // echo &quot;page has children&lt;br&gt;&quot;;
-                            
                             $showChildList = false;
                             $childListSet = false;  // Required to know if ul tag has to be closed
                             
                             foreach($x_value[&#039;children&#039;] as $z =&gt; $z_value) {
                                 
-                                //echo &quot;page[&#039;url&#039;]: &quot; . $z_value . &quot;&lt;br&gt;&quot;;
-                                
                                 $file_restrictions = $this-&gt;get_file_restrictions($z_value);
-                                
-                                //echo &quot;198: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
                                 
                                 if ($file_restrictions) { // File restrictions are set
                                     
-                                    //echo &quot;File restrictons are set&lt;br&gt;&quot;;
-                                    
                                     $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
-                                    
-                                    //echo &quot;permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
                                     
                                     if ($permission_check || $file_restrictions == &#039;&#039;){
                                         
@@ -255,8 +205,6 @@ class Feue_menu_aside {
                                     }
                                     
                                 } else {    // No file restrictions so link is displayed
-                                    
-                                    //echo &quot;No file restrictons set&lt;br&gt;&quot;;
                                     
                                     if($childListSet == false){
                                         echo &quot;&lt;ul&gt;&quot;;
@@ -275,11 +223,7 @@ class Feue_menu_aside {
                             
                         } else {
                         
-                           //echo &quot;page has no children&lt;br&gt;&quot;;
-                            
                         }   // END if (has children)
-                        
-                        //$this-&gt;echo_link($i18n_pages[$x_value[&#039;url&#039;]], $this-&gt;css_class_page_link, $langCode);
                         
                     }   // END if ($permission_check)
                     
@@ -306,14 +250,10 @@ class Feue_menu_aside {
         
     }
     
-}    // END class Feue_menu_aside
+}    // END class feule_menu_aside
 
 
 $i18n_pages = return_i18n_pages();
-
-//echo &quot;&lt;pre&gt;&quot;;
-//print_r($i18n_pages);
-//echo &quot;&lt;/pre&gt;&quot;;
 
 echo &#039;&lt;script&gt;&#039;;
 echo &#039;console.log(&#039;. json_encode( $i18n_pages) .&#039;)&#039;;
@@ -323,16 +263,13 @@ echo &#039;&lt;/script&gt;&#039;;
 // (args is set by i18n call in navigation.inc.php)
 global $args;
 $language = $args[0];
-//echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
 
 // Determine if language code is default
 // (Required as default language elements are specified 
 //  in $i18n_pages arrays without a code
 //  e.g. &#039;title&#039; instead of &#039;title_de&#039;.)
 foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
-    //echo &quot;Test: &quot; . $x . &quot;: &quot; . $x_value . &quot;&lt;br&gt;&quot;;
     if ( substr( $x, 0, 6 )== &quot;title_&quot; ){
-        //echo &quot;title_ found&lt;br&gt;&quot;;
         if ( substr( $x, -2 ) ==  $language ) {
             $langCode = $language;
         } else {
@@ -340,25 +277,19 @@ foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
         }
     }
 }
-//echo &quot;langCode: &quot; . $langCode  . &quot;&lt;br&gt;&quot;;
 
-$feue_menu_aside = new Feue_menu_aside();
+$feule_menu_aside = new feule_menu_aside();
 
-$feue_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
+$feule_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
 
 ?&gt;
 ]]></value></item><item><title><![CDATA[FEULE_MenuIcon]]></title><slug>feule_menuicon</slug><value><![CDATA[&lt;!-- Called in pageheader.inc.php --&gt;
 
 &lt;script&gt;
     function toggleMenu(el) {
-        //console.log(&quot;this.className: &quot; +  el.className);
         let outerContainer = document.querySelector(&quot;.mobile-nav&quot;);
         let innerContainer = document.querySelector(&quot;.mobile-nav-menu&quot;);
-        //console.log(&quot;outerContainer.offsetHeight: &quot; +  outerContainer.offsetHeight);
-        //console.log(&quot;innerContainer.offsetHeight: &quot; +  innerContainer.offsetHeight);
         outerContainer.style.height = parseInt(innerContainer.offsetHeight) + 10 + &#039;px&#039;;
-        //console.log(&quot;outerContainer.offsetWidth: &quot; +  outerContainer.offsetWidth);
-        //console.log(&quot;innerContainer.offsetWidth: &quot; +  innerContainer.offsetWidth);
         outerContainer.style.width = parseInt(innerContainer.offsetWidth) + 20 + &#039;px&#039;;
 
         el.classList.toggle(&quot;show-menu&quot;);
@@ -378,7 +309,7 @@ $feue_menu_aside -&gt; parse_elements($i18n_pages, $langCode);
 
 &lt;?php
 
-class Feue_menu_mobile {
+class feule_menu_mobile {
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
@@ -389,16 +320,6 @@ class Feue_menu_mobile {
     private function determine_user_groups(){
         
         $currentUserGroups = getCurrentUserGroups();
-        
-        //echo &quot;Current User Group(s): &quot;;
-        
-        //foreach($currentUserGroups as $userGroup) {
-            
-            //echo $userGroup . &quot;, &quot;;
-            
-        //}
-        
-        //echo &quot;&lt;br&gt;&quot;;
         
         return $currentUserGroups;
         
@@ -412,15 +333,9 @@ class Feue_menu_mobile {
         
         if (function_exists(&#039;simplexml_load_file&#039;)) {
             
-            //echo &quot;simplexml functions are available.&lt;br /&gt;\\n&quot;;
-            
             if (file_exists(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;)) {
                 
-                //echo &quot;file &quot; . $page_url . &quot;.xml found&lt;br/&gt;&quot;;
-                
                 $xmldata = simplexml_load_file(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;) or die(&quot;Failed to load&quot;);
-                
-                //echo &quot;44: memberonly: &quot; . $xmldata-&gt;memberonly . &quot;&lt;br/&gt;&quot;;
                 
                 return $xmldata-&gt;memberonly;
                 
@@ -473,13 +388,9 @@ class Feue_menu_mobile {
     //
     private function check_permissions($currentUserGroups, $file_restrictions) {
         
-        //echo &quot;Starting fcn check_permissions &lt;br&gt;&quot;;
-        
         $permission = false;
         
         if (strpos($file_restrictions, &quot;Unauthorized&quot;) !== false){
-            
-            //echo &quot;userGroup: Unauthorized found&lt;br&gt;&quot;;
             
             $permission = true;
             
@@ -487,12 +398,9 @@ class Feue_menu_mobile {
             
             foreach($currentUserGroups as $userGroup) {
                 
-                //echo &quot;Checking for userGroup: &quot; . $userGroup . &quot;&lt;br&gt;&quot;;
-                
                 $pos = strpos($file_restrictions, $userGroup );
                 
                 if( $pos !== false){
-                    //echo &quot;Permission for userGroup: &quot; . $userGroup . &quot; found&lt;br&gt;&quot;;
                     $permission = true;
                 }
                 
@@ -511,16 +419,9 @@ class Feue_menu_mobile {
     // Parse each top level page element
     public function parse_elements ($i18n_pages, $langCode){
         
-        echo &quot;langCode: &quot; . $langCode . &quot;&lt;br&gt;&quot;;
-        
         echo &quot;&lt;ul&gt;&quot;;
         
         foreach($i18n_pages as $x =&gt; $x_value) {
-            
-            //echo &quot;&lt;br&gt;&quot;;
-            //echo &quot;Key:&quot; . $x . &quot;&lt;br&gt;&quot;;
-            
-            //echo &quot;MenuStatus:&quot; . $x_value[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
             
             if($x != &#039;&#039; &amp;&amp;  $x_value[&quot;menuStatus&quot;] == &quot;Y&quot; ){
             // Last element has key= &#039;&#039; and lists all top level pages
@@ -533,20 +434,12 @@ class Feue_menu_mobile {
                 // If a page has a parent it will be called with the child pages of the parent
                 if ($x_value[&quot;parent&quot;] == &quot;&quot;){  // Is page top level?
                     
-                    //echo &quot;page has no parent&lt;br&gt;&quot;;
-                    
-                    //echo &quot;page[&#039;url&#039;]: &quot; . $x_value[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
-                    
-                    // file_restrictions are comma-sep. strings (FEUE Group names wie &#039;Users&#039;)
+                    // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
                     $file_restrictions = $this-&gt;get_file_restrictions($x_value[&#039;url&#039;]);
-                    
-                    //echo &quot;155: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
                     
                     if ($file_restrictions) { // File restrictions are set
                         
                         $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
-                        
-                        //echo &quot;161: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
                         
                     } else {
                         
@@ -560,26 +453,16 @@ class Feue_menu_mobile {
                         // &#039;children&#039; key only exists if child pages are present
                         if (array_key_exists(&#039;children&#039;, $x_value)){
                             
-                           // echo &quot;page has children&lt;br&gt;&quot;;
-                            
                             $showChildList = false;
                             $childListSet = false;  // Required to know if ul tag has to be closed
                             
                             foreach($x_value[&#039;children&#039;] as $z =&gt; $z_value) {
                                 
-                                //echo &quot;page[&#039;url&#039;]: &quot; . $z_value . &quot;&lt;br&gt;&quot;;
-                                
                                 $file_restrictions = $this-&gt;get_file_restrictions($z_value);
-                                
-                                //echo &quot;198: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
                                 
                                 if ($file_restrictions) { // File restrictions are set
                                     
-                                    //echo &quot;File restrictons are set&lt;br&gt;&quot;;
-                                    
                                     $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
-                                    
-                                    //echo &quot;permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
                                     
                                     if ($permission_check || $file_restrictions == &#039;&#039;){
                                         
@@ -591,8 +474,6 @@ class Feue_menu_mobile {
                                     }
                                     
                                 } else {    // No file restrictions so link is displayed
-                                    
-                                    //echo &quot;No file restrictons set&lt;br&gt;&quot;;
                                     
                                     if($childListSet == false){
                                         echo &quot;&lt;ul&gt;&quot;;
@@ -611,12 +492,9 @@ class Feue_menu_mobile {
                             
                         } else {
                         
-                           //echo &quot;page has no children&lt;br&gt;&quot;;
-                            
                         }   // END if (has children)
                         
-                        //$this-&gt;echo_link($i18n_pages[$x_value[&#039;url&#039;]], $this-&gt;css_class_page_link, $langCode);
-                        
+
                     }   // END if ($permission_check)
                     
                 } else {    // Page is a sub-page, so will be displayed as such
@@ -642,14 +520,10 @@ class Feue_menu_mobile {
         
     }
     
-}    // END class Feue_menu_aside
+}    // END class feule_menu_aside
 
 
 $i18n_pages = return_i18n_pages();
-
-//echo &quot;&lt;pre&gt;&quot;;
-//print_r($i18n_pages);
-//echo &quot;&lt;/pre&gt;&quot;;
 
 echo &#039;&lt;script&gt;&#039;;
 echo &#039;console.log(&#039;. json_encode( $i18n_pages) .&#039;)&#039;;
@@ -666,9 +540,7 @@ $language = $args[0];
 //  in $i18n_pages arrays without a code
 //  e.g. &#039;title&#039; instead of &#039;title_de&#039;.)
 foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
-    //echo &quot;Test: &quot; . $x . &quot;: &quot; . $x_value . &quot;&lt;br&gt;&quot;;
     if ( substr( $x, 0, 6 )== &quot;title_&quot; ){
-        //echo &quot;title_ found&lt;br&gt;&quot;;
         if ( substr( $x, -2 ) ==  $language ) {
             $langCode = $language;
         } else {
@@ -677,38 +549,34 @@ foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
     }
 }
 
-$feue_menu_mobile = new Feue_menu_mobile();
+$feule_menu_mobile = new feule_menu_mobile();
 
-$feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
+$feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
 
 ?&gt;
 
     &lt;/nav&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;h2&gt;User Area&lt;/h2&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;!-- Component called in aside_feule_userarea.inc.php --&gt;
+&lt;!--2022-01-06 14:50--&gt;
+
+&lt;h2&gt;User Area&lt;/h2&gt;
 
 &lt;script&gt;
     
     function closeForm(elementClass) {
-        //console.log(&quot;closeForm: &quot; + elementClass);
         document.querySelector(elementClass).classList.toggle(&quot;show-form&quot;);
     }
     
     function toggleForm(elementClass) {
         
-        //console.log(&quot;toggleForm: &quot; + elementClass);
-        
         let selector = &quot;div.&quot; + elementClass;
         let activeFormElement = document.querySelector(selector);
-        //console.log(&quot;activeFormElement.nodeName: &quot; + activeFormElement.nodeName);
         
         // Toggle active link and sibling links
         let formParentElement = activeFormElement.parentElement;
-        //console.log(&quot;formParentElement.nodeName: &quot; + linkParentElement.nodeName);
         let childFormElements = formParentElement.children;
-        //console.log(&quot;childFormElementCount: &quot; + childFormElements.length);
+       
         for (let i=0; i &lt; childFormElements.length; i++) {
-            
-            //console.log(&quot;childFormElement&quot; + i + &quot;: &quot; + childFormElements[i].className);
             
             // Is current active form?
             if(childFormElements[i].classList.contains(elementClass)){
@@ -721,7 +589,6 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
             } else {
                 // Is another form still being shown?
                 if (childFormElements[i].classList.contains(&#039;show-form&#039;)) {
-                    //console.log(&quot;show-form found for: &quot; . elementClass);
                     childFormElements[i].classList.toggle(&#039;show-form&#039;);
                 }
             }
@@ -731,10 +598,8 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
         } else {
             //console.log(&quot;show-form not found &quot;);
         }
-        //document.querySelector(selector).classList.toggle(&quot;show-form&quot;);
         
         let el = document.querySelector(selector + &quot; h2&quot;);
-        //el.style.color = &quot;green&quot;;
         el.addEventListener(&quot;click&quot;, function() { closeForm(selector) }, false)
     }
     
@@ -743,16 +608,12 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
         console.log(&quot;Fcn toggleForms: &quot; + elementClass + &quot;, lang: &quot; + language);
         let selector = &quot;a.&quot; + elementClass;
         let activeElement = document.querySelector(selector);
-        //console.log(&quot;activeElement.nodeName: &quot; + activeElement.nodeName);
         
         // Toggle active link and sibling links
         let linkParentElement = activeElement.parentElement;
-        //console.log(&quot;linkParentElement.nodeName: &quot; + linkParentElement.nodeName);
         let childElements = linkParentElement.children;
-        //console.log(&quot;childElementCount: &quot; + childElements.length);
+        
         for (let i=0; i &lt; childElements.length; i++) {
-            
-            //console.log(&quot;childElement&quot; + i + &quot;: &quot; + childElements[i].className);
             
             // Is current active link?
             if(childElements[i].classList.contains(elementClass)){
@@ -770,24 +631,17 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
             }
         }
         
-        if(elementClass == &quot;feue-login&quot;){
-            //console.log(&quot;Clicked on: &quot; + elementClass);
-            //let successCheck = checkSuccess(elementClass);
-            //console.log(&quot;successCheck: &quot; + successCheck);
+        if(elementClass == &quot;feule-login&quot;){
             toggleForm(elementClass);
         } else {
-            if(elementClass == &quot;feue-register&quot;){
-            //console.log(&quot;Clicked on: &quot; + elementClass);
-            toggleForm(elementClass);
+            if(elementClass == &quot;feule-register&quot;){
+                toggleForm(elementClass);
             } else {
-                //let pageAddress = location.origin + location.pathname;
-                //console.log(&quot;pageAddress: &quot; + pageAddress);
-                if(elementClass == &quot;feueForgotPass&quot;){
-                    //console.log(&quot;window.location: &quot; + window.location);
+                
+                if(elementClass == &quot;feuleForgotPass&quot;){
                     window.location.href = &quot;?lang=&quot; + language + &quot;&amp;forgotPass=1&amp;lang=&quot; + language;
                 } else {
-                    if (elementClass == &quot;feueForgotUser&quot;){
-                        //console.log(&quot;window.location: &quot; + window.location);
+                    if (elementClass == &quot;feuleForgotUser&quot;){
                         window.location.href = &quot;?lang=&quot; + language + &quot;&amp;forgotUser=1&amp;lang=&quot; + language;
                     }
                 }
@@ -803,52 +657,41 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
     // (args is set by i18n call in navigation.inc.php)
     global $args;
     $language = $args[0];
-    //echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
     
     // No containing div for welcome container as presence/absense of welcome container
-    // is used to trigger css3 sibling combinator to hide &#039;feue-form-links&#039; container.
+    // is used to trigger css3 sibling combinator to hide &#039;feule-form-links&#039; container.
     welcome_message_login();
     
-    // div classes are same as classes of links set in function show_feue_forms()
-    echo &#039;&lt;div class=&quot;feue-login inactive&quot;&gt;&#039;;
+    // div classes are same as classes of links set in function show_feule_forms()
+    echo &#039;&lt;div class=&quot;feule-login inactive&quot;&gt;&#039;;
     show_login_box();
     echo &#039;&lt;/div&gt;&#039;;
     
-    echo &#039;&lt;div class=&quot;feue-register inactive&quot;&gt;&#039;;
+    echo &#039;&lt;div class=&quot;feule-register inactive&quot;&gt;&#039;;
     user_login_register();
     echo &#039;&lt;/div&gt;&#039;;
     
-    function show_feue_forms($lang) {
+    function show_feule_forms($lang) {
         
-        //echo &quot;Language: &quot; . $lang . &quot;&lt;br&gt;&quot;;
-        
-        echo &quot;&lt;div class=&#039;feue-form-links&#039;&gt;&quot;;
+        echo &quot;&lt;div class=&#039;feule-form-links&#039;&gt;&quot;;
         
             echo &quot;&lt;p&gt;&quot;;
             
-                echo &quot;&lt;a href=# class=&#039;feue-login&#039; onclick=&#039;toggleForms(\\&quot;feue-login\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Login&lt;/a&gt;&quot;;
-                //echo &#039;&lt;a class=&quot;feue-login&quot; onclick=&quot;toggleForms(\\&#039;feue-login\\&#039;)&quot;&gt;Login&lt;/a&gt;&#039;;
+                echo &quot;&lt;a href=# class=&#039;feule-login&#039; onclick=&#039;toggleForms(\\&quot;feule-login\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Login&lt;/a&gt;&quot;;
                 
-                echo &quot;&lt;a href=# class=&#039;feue-register&#039; onclick=&#039;toggleForms(\\&quot;feue-register\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Register&lt;/a&gt;&quot;;
+                echo &quot;&lt;a href=# class=&#039;feule-register&#039; onclick=&#039;toggleForms(\\&quot;feule-register\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Register&lt;/a&gt;&quot;;
                 
-                echo &quot;&lt;a href=# class=&#039;feueForgotPass&#039; onclick=&#039;toggleForms(\\&quot;feueForgotPass\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Pass?&lt;/a&gt;&quot;;
+                echo &quot;&lt;a href=# class=&#039;feuleForgotPass&#039; onclick=&#039;toggleForms(\\&quot;feuleForgotPass\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Pass?&lt;/a&gt;&quot;;
                 
-                //$elementClass = &quot;feueForgotPass&quot;;
-                //echo &quot;&lt;a href=# class=&#039;feueForgotPass&#039; onclick=&#039;toggleForms(\\&quot;&quot; . $elementClass . &quot;\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt; Forgotten&amp;nbsp;Pass?&lt;/a&gt;&quot;;
-                
-                echo &quot;&lt;a href=# class=&#039;feueForgotUser&#039; onclick=&#039;toggleForms(\\&quot;feueForgotUser\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Username?&lt;/a&gt;&quot;;
-                //echo &quot;&lt;a class=&#039;feueForgotUser&#039; href=&#039;?lang=en&amp;forgotUser=1&amp;lang=en&#039;&gt;Forgotten&amp;nbsp;Username?&lt;/a&gt;&quot;;
-                
-                //echo &#039;&lt;a href=# onclick=&quot;return ReAssign(\\&#039;&#039; + $valuationId + &#039;\\&#039;,\\&#039;&#039; + $user + &#039;\\&#039;)&quot;&gt;Re-Assign&lt;/a&gt;&#039;;
-                //echo &quot;&lt;a class=&#039;feueForgotPass&#039; href=&#039;?lang=en&amp;forgotPass=1&amp;lang=en&#039;&gt;Forgotten&amp;nbsp;Password?&lt;/a&gt;&quot;;
-                
+                echo &quot;&lt;a href=# class=&#039;feuleForgotUser&#039; onclick=&#039;toggleForms(\\&quot;feuleForgotUser\\&quot;,\\&quot;&quot; . $lang . &quot;\\&quot;)&#039;&gt;Forgot&amp;nbsp;Username?&lt;/a&gt;&quot;;
+               
             echo &quot;&lt;/p&gt;&quot;;
             
         echo &quot;&lt;/div&gt;&quot;;
         
     }    // END fcn. show_forms()
     
-    show_feue_forms($language);
+    show_feule_forms($language);
 
 ?&gt;
 
@@ -856,13 +699,12 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
     
     // Function is described below
     function checkSuccess(elementClass) {
-        //console.log(&quot;Fcn. checkSuccess: &quot; + elementClass);
+
         let selector = &quot;div.&quot; + elementClass;
         let activeFormElement = document.querySelector(selector);
-        // console.log(&quot;activeFormElement.nodeName: &quot; + activeFormElement.nodeName);
+        
         if (activeFormElement.getElementsByClassName(&#039;error&#039;)[0]){
             let errorElement = document.getElementsByClassName(&#039;error&#039;)[0];
-            //console.log(&#039;Error Element: &#039; + errorElement.textContent);
             toggleForm(elementClass);
         } else {
             //console.log(&#039;No Error Element &#039;);
@@ -871,9 +713,9 @@ $feue_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
     
     // Check if login has been successful
     // If unsuccessful, an element with class=&#039;error&#039; is added to the login form 
-    // by the FEUE plugin. If checkSuccess() finds this error element, the 
+    // by the feule plugin. If checkSuccess() finds this error element, the 
     // login form will be toggled open.
-    checkSuccess(&quot;feue-login&quot;);
+    checkSuccess(&quot;feule-login&quot;);
     
 &lt;/script&gt;
 ]]></value></item><item><title><![CDATA[SearchQueryRenderer]]></title><slug>searchqueryrenderer</slug><value><![CDATA[&lt;ul&gt;
