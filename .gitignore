@@ -10,6 +10,8 @@ GetSimpleCMS-Dev
 GetSimpleCMS-Test-2r
 GetSimpleCMS-Test-3r-FEULE
 
+# ------------------------------------
+
 # Do not ignore folder:
 !GetSimpleCMS/
 
@@ -30,7 +32,6 @@ GetSimpleCMS/data/other/*
 !GetSimpleCMS/data/pages/
 # ... but ignore this folder:
 GetSimpleCMS/data/other/autosave/
-
 
 # However do not ignore folder: 
 !GetSimpleCMS/theme/

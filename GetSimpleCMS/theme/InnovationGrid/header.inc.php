@@ -56,10 +56,12 @@
 					<!-- burger navigation -->
 					<div class="section">
 					<!--<h3>nav</h3>-->
-						<?php get_component('burgericon'); ?>	<!-- 'Standard' version -->
-						<?php get_component('burgermenu'); ?>	<!-- 'Standard' version -->
+						<?php //get_component('burgericon'); ?>	<!-- 'Standard' version -->
+						<?php //get_component('burgermenu'); ?>	<!-- 'Standard' version -->
 						<?php //get_component('feule_menuicon'); ?>					<!-- 'FEUE' version -->
 						<?php //get_i18n_component('feule_menumobile', $language); ?>	<!-- 'FEUE' version -->
+						<?php get_component('slidericon'); ?>					<!-- 'FEUE' version -->
+						<?php get_i18n_component('slidermenu', $language); ?>	<!-- 'FEUE' version -->
 
 					</div>
 										

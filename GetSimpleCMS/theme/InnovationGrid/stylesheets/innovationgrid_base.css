@@ -384,7 +384,7 @@ article .float-left {
 div.section {
 	margin:40px 0 20px 0;
 	padding:0 10px 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
-	font-size:11px;
+	font-size:0.8rem;
 	line-height:16px;				/* AADE - sehe unten  */
 	color:#555;
 	text-shadow: 1px 1px 0px #fff;
@@ -410,8 +410,8 @@ div.section h2 {					/* See also Media Query (below) */
 	-webkit-border-radius:4px 4px 4px 4px;
 }
 div.section h3,						/* See also Media Query in innovationgrid_grid_aside-* files */
-div.section .feule-login h2,			/* So that the hard-coded h2 tags al least look like h3 */
-div.section .feule-register h2 {		/* ditto */
+div.section .feule-login h2,		/* So that the hard-coded h2 tags al least look like h3 */
+div.section .feule-register h2 {	/* ditto */
 	background:#666;
 	border-top:1px solid rgba(255,255,255,.4);
 	text-shadow: 1px 1px 0px rgba(0,0,0,.5);
@@ -422,8 +422,8 @@ div.section .feule-register h2 {		/* ditto */
 	font-family: 'Yanone Kaffeesatz', arial, helvetica, sans-serif;
 	font-weight:100;
 	color:#fff;
-	font-size:15px;
-	line-height:15px;
+	font-size:15px;				/*  */
+/*	line-height:15px;			/*  */
 	margin:0 0 15px -21px;		/* Compare with padding on div.section */
 	padding:6px 0 5px 25px;
 	border-radius:4px 4px 4px 4px;
@@ -437,45 +437,58 @@ div.page:nth-child(2) {
 	background-color: pink;
 }
 
+div.section ul, 
+div.section ol {
+	margin-left: 10px;
+}
 div.section p {
 	margin:0 0 15px 0;
 }
-div.section ul, 
-div.section ol {
-	margin:0 0 15px 20px;
+
+/* Slider Elements - are all defined in mobile-nav.css file */
+
+/* Nav Elements */
+/* Apply for both nav in sirebar and nav in slider (see mobile-nav.css file) */
+
+nav ul {						/* See */
+	margin-left: 20px;			/* See 'div.section ul' (above) */
 }
-div.section > ul, 
-div.section > ol {
-	margin-left: 10px;
+nav ul li {						/* All list elements */
+	list-style: disc;
+	padding: 2px 0;				/*  */
+/*	font-size: 0.8rem;			/* Is overwritten for smaller devices (see mobile-nav.css file)*/
 }
-div.section ul, 
-div.section li {					/* All list elements */
+nav ul li.no-bullet {			/* Submenus */
+	list-style-type: none;
+}
+nav ul li li {					/* Only sub level elements */
 	list-style: circle;
 }
-div.section > ul, 
-div.section > ul > li {				/* Only top level elements */
-	list-style: disc;
-}
-div.section ul ul {					/* Submenus */
-	margin-bottom: 5px;
+nav ul li a {
+	text-decoration: none;		/* Remove underline */
 }
 
+
+/* Tag Cloud Elements */
+
 a.tag {								/* Links in Tag Cloud */
-	padding: 5px 5px 5px 0px;
+	padding: 7px 7px 7px 0px;
 }
 
 
 /* Form Elements */
+/* See also div.section .feule-* h2 above */
 
 #feu .section {
     padding-left: 0px;				/* Reduced as child elements have overflow hidden (see below) */
 }
-.feule-login,
-.feule-register {
-    height: 0px;						/* Forms are not displayed by default */
-	margin-left: 20px;					/* Parent '#feu .section' element has no padding-left (see above) */
-	overflow: hidden;					/* Required because of animation */
-	transition: all 1s ease-in-out;		/* see also '.show-form' below */
+div.feule-login,
+div.feule-register {
+    height: 0px;					/* Forms are not displayed by default */
+	margin-left: 20px;				/* Parent '#feu .section' element has no padding-left (see above) */
+	padding-left: 20px;				/*  */
+	overflow: hidden;				/* Required because of animation */
+	transition: all 1s ease-in-out;	/* see also '.show-form' below */
 }
 .feule-login h2,
 .feule-register h2 {
@@ -483,39 +496,39 @@ a.tag {								/* Links in Tag Cloud */
     padding-left: 10px;				/*  */
 }
 .feule-login > p {
-	display: none;						/*  */
+	display: none;					/*  */
 }
 .feule-login .user_login_welcome_box_container + p {
-	display: block;						/* For the Logout link - see '.feule-login > p' (above) */
+	display: block;					/* For the Logout link - see '.feule-login > p' (above) */
 	margin-top: 10px;
 }
 .feule-register {
-    margin: 0 0 10px 0;					/* Reduce spacing compared with 'div.section p' (above) */
+    margin: 0 0 10px 0;				/* Reduce spacing compared with 'div.section p' (above) */
 }
 .feule-login a,
 .feule-form-links a {
-/*  display: inline-block;				/* Hides links??? */
-    padding-right: 15px;
-	text-decoration: underline;			/* 'onclick' links are not automatically underlined */
+/*  display: inline-block;			/* Hides links??? */
+	padding-left: 15px;
+	text-decoration: underline;		/* 'onclick' links are not automatically underlined */
 	cursor: pointer;
 }
 .feule-form-links p .active {
-	text-decoration: none;				/* links are shown as inactive once clicked and form has opened */
-	cursor: auto;						/* Effectively sets cursor to 'no link', 
-	                                       as elements have no href attribute */
+	text-decoration: none;			/* links are shown as inactive once clicked and form has opened */
+	cursor: auto;					/* Effectively sets cursor to 'no link', 
+	                                   as elements have no href attribute */
 }
 .feule-login br {
-    display: none;						/* Suppress hard coded new line */
+    display: none;					/* Suppress hard coded new line */
 }
 div.show-form {
-    height: 300px;						/* see also '.feule-login, .feule-register' above */
+    height: 300px;					/* see also '.feule-login, .feule-register' above */
 	padding-right: 10px;
-/*	transition: all 1s ease-in-out;		/*  */
+/*	transition: all 1s ease-in-out;	/*  */
 }
 .feule-login h2::after,
 .feule-register h2::after {
     content: 'X'; 
-	float:right;						/*  */
+	float:right;					/*  */
 	padding-right: 1em;
 }
 .feule-register input {
@@ -525,6 +538,68 @@ div.show-form {
 .user_login_welcome_box_container ~ .feule-form-links {	/* Presence/absense of welcome container
     // is used to trigger css3 sibling combinator to hide 'feule-form-links' container */
 	display: none;
+}
+
+/* SONSTIGES - FEULE Form Elements */
+
+.feule-login #loginform,
+.feule-register #registerform {
+    width:90%;
+}
+/* Login Submit Button */
+.user_login_submit {
+	float:none;    						/* Default 'float:left' is not necessary, only reduces spacing */
+    padding:3px;
+}
+
+.feule-login form input,
+.feule-register form input {
+	border-color: lightgrey;
+} 
+.feule-login form input:invalid,
+.feule-register form input:invalid,
+#forgotpassform input,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
+									as valid/invalid are not set by plugin for these forms */
+#forgotuserform input {
+	box-shadow: 2px 2px 3px #d3d3d380;	/* lightgrey */
+}
+.feule-login form input:valid,	/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
+									as valid/invalid are not set by plugin for these forms */
+.feule-register form input:valid {
+	box-shadow: 2px 2px 3px #00640085;	/* darkgreen */
+}
+.feule-login form input[type="submit"],
+.feule-register form input[type="submit"] {
+	box-shadow: 0px 3px 3px grey;
+}
+.feule-login form input[type="submit"]:active,
+.feule-register form input[type="submit"]:active {
+	box-shadow: 0px 0px 5px green;
+}
+/* Register Form Labels */
+.feule-register #registerform label{
+    display: inline-block; 
+    width: 30%;
+}
+.feule-register #registerform input{
+    width:65%;
+    float:right;
+}
+
+/* SONSTIGES - FEULE In-Main  Form Elements */
+
+section .register_h2 {
+	padding-top: 20px;
+	border-top: 1px solid grey;
+}
+#forgotpassform,
+#forgotuserform {
+	margin-bottom: 20px;
+	border-bottom: 1px solid grey;
+}
+#forgotpassform p:last-child, 
+#forgotuserform p:last-child {
+	margin-bottom: 20px;
 }
 
 
@@ -600,69 +675,5 @@ footer .footer {
 .footer a:hover, .footer a:focus {
 	color:#555;
 	text-decoration:underline;
-}
-
-
-/* SONSTIGES - FEULE Form Elements */
-
-.feule-login #loginform,
-.feule-register #registerform {
-    width:90%;
-}
-/* Login Submit Button */
-.user_login_submit {
-	float:none;    						/* Default 'float:left' is not necessary, only reduces spacing */
-    padding:3px;
-}
-
-.feule-login form input,
-.feule-register form input {
-	border-color: lightgrey;
-} 
-.feule-login form input:invalid,
-.feule-register form input:invalid,
-#forgotpassform input,					/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
-											as valid/invalid are not set by plugin for these forms */
-#forgotuserform input {
-	box-shadow: 2px 2px 3px #d3d3d380;	/* lightgrey */
-}
-.feule-login form input:valid,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
-											as valid/invalid are not set by plugin for these forms */
-.feule-register form input:valid {
-	box-shadow: 2px 2px 3px #00640085;	/* darkgreen */
-}
-.feule-login form input[type="submit"],
-.feule-register form input[type="submit"] {
-	box-shadow: 0px 3px 3px grey;
-}
-.feule-login form input[type="submit"]:active,
-.feule-register form input[type="submit"]:active {
-	box-shadow: 0px 0px 5px green;
-}
-/* Register Form Labels */
-.feule-register #registerform label{
-    display: inline-block; 
-    width: 33%;
-}
-.feule-register #registerform input{
-    width:66%;
-    float:right;
-}
-
-
-/* SONSTIGES - FEULE In-Main  Form Elements */
-
-section .register_h2 {
-	padding-top: 20px;
-	border-top: 1px solid grey;
-}
-#forgotpassform,
-#forgotuserform {
-	margin-bottom: 20px;
-	border-bottom: 1px solid grey;
-}
-#forgotpassform p:last-child, 
-#forgotuserform p:last-child {
-	margin-bottom: 20px;
 }
 

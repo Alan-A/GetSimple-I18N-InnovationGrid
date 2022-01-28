@@ -78,8 +78,8 @@ div #socialmedia .icons {
 	header div.section {
 		padding: 0;	
 	}
-	div.mobile-nav-icon,
-	div.mobile-nav {
+	div.slider-icon,
+	div.slider-r nav.mobile-menu {	/* Overwrite 'div.slider-r nav' in mobil-nav.css file */
 		display: none;				/* Do not show 'Burger Menu' */
 	}
 	div.section h2,

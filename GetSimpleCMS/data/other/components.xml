@@ -752,7 +752,348 @@ $feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
 &lt;ul&gt;
 &lt;!-- Only show pages in menu, not all pages --&gt;
 &lt;?php get_i18n_navigation(&#039;index&#039;,0,99,I18N_SHOW_MENU); ?&gt;
-&lt;/ul&gt;]]></value></item><item><title><![CDATA[SocialMedia]]></title><slug>socialmedia</slug><value><![CDATA[&lt;div id=&quot;socialmedia&quot; &gt;
+&lt;/ul&gt;]]></value></item><item><title><![CDATA[SliderIcon]]></title><slug>slidericon</slug><value><![CDATA[&lt;!-- Called in pageheader.inc.php --&gt;
+
+&lt;script&gt;
+    function toggleSlider(el) {
+        let sliderContainer = document.querySelector(&quot;.slider-r&quot;);
+        let sliderContent= document.querySelector(&quot;.mobile-menu&quot;);
+        sliderContainer .style.height = parseInt(sliderContent.offsetHeight) + 10 + &#039;px&#039;;
+        sliderContainer .style.width = parseInt(sliderContent.offsetWidth) + 20 + &#039;px&#039;;
+
+        el.classList.toggle(&quot;slider-icon-active&quot;);
+        sliderContainer.classList.toggle(&quot;show-slider-r&quot;);
+    }
+&lt;/script&gt;
+
+&lt;div class=&quot;slider-icon&quot; onclick=&quot;toggleSlider(this)&quot;&gt;
+    &lt;div class=&quot;bar1&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar2&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;bar3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[SliderMenu]]></title><slug>slidermenu</slug><value><![CDATA[&lt;!-- Component called in header.inc.php --&gt;
+
+&lt;div  class=&quot;slider-r show-slider-r&quot; &gt;
+    &lt;nav class=&quot;mobile-menu&quot; &gt;
+        &lt;h3&gt;Menu&lt;/h3&gt;
+
+&lt;?php
+
+class feule_menu_mobile {
+    
+    private $css_class_page_link = &quot;page-link&quot;;
+    private $css_class_subpage_link = &quot;subpage-link&quot;;
+    
+//
+//  Determine which user group(s) any logged on user is a member of.
+//
+    private function determine_user_groups(){
+        
+        $currentUserGroups = getCurrentUserGroups();
+        
+        //echo &quot;Current User Group(s): &quot;;
+        
+        //foreach($currentUserGroups as $userGroup) {
+            
+            //echo $userGroup . &quot;, &quot;;
+            
+        //}
+        
+        //echo &quot;&lt;br&gt;&quot;;
+        
+        return $currentUserGroups;
+        
+    }
+    
+//
+//
+//  &#039;simplexml&#039; is PHP Extension used to determine the viewing restrictions
+//
+    private function get_file_restrictions($page_url) {
+        
+        if (function_exists(&#039;simplexml_load_file&#039;)) {
+            
+            //echo &quot;simplexml functions are available.&lt;br /&gt;\\n&quot;;
+            
+            if (file_exists(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;)) {
+                
+                //echo &quot;file &quot; . $page_url . &quot;.xml found&lt;br/&gt;&quot;;
+                
+                $xmldata = simplexml_load_file(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;) or die(&quot;Failed to load&quot;);
+                
+                //echo &quot;44: memberonly: &quot; . $xmldata-&gt;memberonly . &quot;&lt;br/&gt;&quot;;
+                
+                return $xmldata-&gt;memberonly;
+                
+            } else {
+                
+                //echo &quot;file &quot; . $page_url . &quot;.xml not found&lt;br/&gt;&quot;;
+                
+            }
+            
+        } else {
+            
+            //echo &quot;simplexml functions are not available.&lt;br/&gt;&quot;;
+            
+        }
+        
+        return false;
+        
+    }
+    
+    
+//  
+//  Create the menu
+//  
+    // Add a link to the page html
+    private function echo_link($page_array, $css_class, $langCode) {
+        
+        echo &quot;&lt;li&gt;&quot;;
+        if ( $langCode == &#039;default&#039; ) {
+            echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+        } else {
+            // Check if page for non-default language exists
+            if ( array_key_exists( &quot;title_&quot;.$langCode, $page_array )) {
+                echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title_&quot;.$langCode] . &quot;&lt;/a&gt;&quot;;
+            } else {
+                // Fall back to default language page
+                echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+            }
+        }
+        
+        echo &quot;&lt;/li&gt;&quot;;
+
+        return true;
+        
+    }
+    
+    
+//
+// Check permissions for user groups and file restrictions.
+//
+    //
+    private function check_permissions($currentUserGroups, $file_restrictions) {
+        
+        //echo &quot;Starting fcn check_permissions &lt;br&gt;&quot;;
+        
+        $permission = false;
+        
+        if (strpos($file_restrictions, &quot;Unauthorized&quot;) !== false){
+            
+            //echo &quot;userGroup: Unauthorized found&lt;br&gt;&quot;;
+            
+            $permission = true;
+            
+        } else {
+            
+            foreach($currentUserGroups as $userGroup) {
+                
+                //echo &quot;Checking for userGroup: &quot; . $userGroup . &quot;&lt;br&gt;&quot;;
+                
+                if( $userGroup == &quot;Admin&quot;){     // Admin members can see all pages
+                    
+                    return true;
+                    
+                } else {
+                
+                    $pos = strpos($file_restrictions, $userGroup );
+                    
+                    if( $pos !== false){
+                        //echo &quot;Permission for userGroup: &quot; . $userGroup . &quot; found&lt;br&gt;&quot;;
+                        $permission = true;
+                    }
+                    
+                }
+                
+            }   //END foreach()
+            
+        }
+        
+        return $permission;
+        
+    }   //END fcn check_permissions()
+    
+    
+//
+// Parse each top level page element
+//
+    // Parse each top level page element
+    public function parse_elements ($i18n_pages, $langCode){
+        
+        echo &quot;&lt;ul&gt;&quot;;
+        
+        foreach($i18n_pages as $x =&gt; $x_value) {
+            
+            //echo &quot;&lt;br&gt;&quot;;
+            //echo &quot;Key:&quot; . $x . &quot;&lt;br&gt;&quot;;
+            
+            //echo &quot;MenuStatus:&quot; . $x_value[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
+            
+            if($x != &#039;&#039; &amp;&amp;  $x_value[&quot;menuStatus&quot;] == &quot;Y&quot; ){
+            // Last element has key= &#039;&#039; and lists all top level pages
+            // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
+            // (unlike, for example, the search results page)
+                
+                $currentUserGroups = $this-&gt;determine_user_groups();    // Is array
+                
+                // &#039;parent&#039; key always exists, value can be empty
+                // If a page has a parent it will be called with the child pages of the parent
+                if ($x_value[&quot;parent&quot;] == &quot;&quot;){  // Is page top level?
+                    
+                    //echo &quot;page has no parent&lt;br&gt;&quot;;
+                    
+                    //echo &quot;page[&#039;url&#039;]: &quot; . $x_value[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
+                    
+                    // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
+                    $file_restrictions = $this-&gt;get_file_restrictions($x_value[&#039;url&#039;]);
+                    
+                    //echo &quot;155: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
+                    
+                    if ($file_restrictions) { // File restrictions are set
+                        
+                        $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
+                        
+                        //echo &quot;161: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+                        
+                    } else {
+                        
+                        $permission_check = 0;
+                    }
+                    
+                    if ($permission_check || $file_restrictions == &#039;&#039;){
+                        
+                        $this-&gt;echo_link($i18n_pages[$x_value[&#039;url&#039;]], $this-&gt;css_class_page_link, $langCode);
+                        
+                        // &#039;children&#039; key only exists if child pages are present
+                        if (array_key_exists(&#039;children&#039;, $x_value)){
+                            
+                           // echo &quot;page has children&lt;br&gt;&quot;;
+                            
+                            $showChildList = false;
+                            $childListSet = false;  // Required to know if ul tag has to be closed
+                            
+                            foreach($x_value[&#039;children&#039;] as $z =&gt; $z_value) {
+                                
+                                //echo &quot;page[&#039;url&#039;]: &quot; . $z_value . &quot;&lt;br&gt;&quot;;
+                                
+                                $file_restrictions = $this-&gt;get_file_restrictions($z_value);
+                                
+                                //echo &quot;198: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
+                                
+                                if ($file_restrictions) { // File restrictions are set
+                                    
+                                    //echo &quot;File restrictons are set&lt;br&gt;&quot;;
+                                    
+                                    $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
+                                    
+                                    //echo &quot;permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+                                    
+                                    if ($permission_check || $file_restrictions == &#039;&#039;){
+                                        
+                                        if($childListSet == false){
+                                            echo &quot;&lt;li class=&#039;no-bullet&#039;&gt;&quot;; 
+                                            echo &quot;&lt;ul&gt;&quot;;
+                                            $childListSet = true;
+                                        }
+                                        $this-&gt;echo_link($i18n_pages[$z_value], $this-&gt;css_class_subpage_link, $langCode);
+                                    }
+                                    
+                                } else {    // No file restrictions so link is displayed
+                                    
+                                    //echo &quot;No file restrictons set&lt;br&gt;&quot;;
+                                    
+                                    if($childListSet == false){
+                                        echo &quot;&lt;li class=&#039;no-bullet&#039;&gt;&quot;;
+                                        echo &quot;&lt;ul&gt;&quot;;
+                                        $childListSet = true;
+                                    }
+                                    $this-&gt;echo_link($i18n_pages[$z_value], $this-&gt;css_class_subpage_link, $langCode);
+                                    
+                                }   // END if ($file_restrictions){}
+                                
+                            }   // END foreach($x_value[&#039;children&#039;]...{}
+                            
+                            if($childListSet == true){
+                                echo &quot;&lt;/ul&gt;&quot;;
+                                echo &quot;&lt;/li&gt;&quot;;
+                                $childListSet = false;
+                            }
+                            
+                        } else {
+                        
+                           //echo &quot;page has no children&lt;br&gt;&quot;;
+                            
+                        }   // END if (has children)
+                        
+                        //$this-&gt;echo_link($i18n_pages[$x_value[&#039;url&#039;]], $this-&gt;css_class_page_link, $langCode);
+                        
+                    }   // END if ($permission_check)
+                    
+                } else {    // Page is a sub-page, so will be displayed as such
+                    
+                  //echo &quot;page has parent&lt;br&gt;&quot;;
+                    
+                }
+                
+           }
+            
+        }    // END foreach($i18n_pages ...)
+        
+        echo &quot;&lt;/ul&gt;&quot;;
+        
+    }    // END fcn. parse_elements()
+    
+    
+    public function debug(){
+        
+        foreach(debug_backtrace() as $t) {
+            echo $t[&#039;file&#039;] . &#039; line &#039; . $t[&#039;line&#039;] . &#039; calls &#039; . $t[&#039;function&#039;] . &quot;()&lt;br/&gt;&quot;;
+        }
+        
+    }
+    
+}    // END class feule_menu_aside
+
+
+$i18n_pages = return_i18n_pages();
+
+//echo &quot;&lt;pre&gt;&quot;;
+//print_r($i18n_pages);
+//echo &quot;&lt;/pre&gt;&quot;;
+
+echo &#039;&lt;script&gt;&#039;;
+echo &#039;console.log(&#039;. json_encode( $i18n_pages) .&#039;)&#039;;
+echo &#039;&lt;/script&gt;&#039;;
+
+// Determine code for current language 
+// (args is set by i18n call in navigation.inc.php)
+global $args;
+$language = $args[0];
+//echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
+
+// Determine if language code is default
+// (Required as default language elements are specified 
+//  in $i18n_pages arrays without a code
+//  e.g. &#039;title&#039; instead of &#039;title_de&#039;.)
+foreach($i18n_pages[&#039;index&#039;] as $x =&gt; $x_value) {
+    //echo &quot;Test: &quot; . $x . &quot;: &quot; . $x_value . &quot;&lt;br&gt;&quot;;
+    if ( substr( $x, 0, 6 )== &quot;title_&quot; ){
+        //echo &quot;title_ found&lt;br&gt;&quot;;
+        if ( substr( $x, -2 ) ==  $language ) {
+            $langCode = $language;
+        } else {
+            $langCode = &#039;default&#039;;
+        }
+    }
+}
+
+$feule_menu_mobile = new feule_menu_mobile();
+
+$feule_menu_mobile -&gt; parse_elements($i18n_pages, $langCode);
+
+?&gt;
+
+    &lt;/nav&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[SocialMedia]]></title><slug>socialmedia</slug><value><![CDATA[&lt;div id=&quot;socialmedia&quot; &gt;
 	&lt;h2&gt;Connect&lt;/h2&gt;
 	&lt;div class=&quot;icons&quot;&gt;
 	&lt;?php
