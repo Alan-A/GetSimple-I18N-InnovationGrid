@@ -381,8 +381,8 @@ article .float-left {
 .sidebar {
 	margin:40px 0 0 0;
 }
-div.section {
-	margin:40px 0 20px 0;
+div.section {					/* See also 'div.main-container nav' below */
+	margin:20px 0 20px 0;
 	padding:0 10px 0 20px;			/* Compare with margin on child h elments and padding in breadcrumbs*/
 	font-size:0.8rem;
 	line-height:16px;				/* AADE - sehe unten  */
@@ -432,9 +432,9 @@ div.section .feule-register h2 {	/* ditto */
 	-webkit-border-radius:4px 4px 4px 4px;
 }
 
-div.page:nth-child(2) {
-	border: 2px solid green;
-	background-color: pink;
+div.main-container nav {    /* '... :first-child' does not work */
+	margin-top: 30px;       /* To align the title with the title in the main element */
+                            /* See also 'div.section' above */
 }
 
 div.section ul, 
@@ -484,7 +484,7 @@ a.tag {								/* Links in Tag Cloud */
 }
 div.feule-login,
 div.feule-register {
-    height: 0px;					/* Forms are not displayed by default */
+    max-height: 0px;					/* Forms are not displayed by default */
 	margin-left: 20px;				/* Parent '#feu .section' element has no padding-left (see above) */
 	padding-left: 20px;				/*  */
 	overflow: hidden;				/* Required because of animation */
@@ -494,6 +494,10 @@ div.feule-register {
 .feule-register h2 {
     margin-right: 11px;				/*  */
     padding-left: 10px;				/*  */
+}
+.feule-login .error,
+.feule-register .error {
+    margin-bottom: 10px;			/*  */
 }
 .feule-login > p {
 	display: none;					/*  */
@@ -518,23 +522,23 @@ div.feule-register {
 	                                   as elements have no href attribute */
 }
 .feule-login br {
-    display: none;					/* Suppress hard coded new line */
+	display: none;					/* Suppress hard coded new line */
 }
 div.show-form {
-    height: 300px;					/* see also '.feule-login, .feule-register' above */
+	max-height: 300px;					/* see also '.feule-login, .feule-register' above */
+/*	height: auto;					/* see also '.feule-login, .feule-register' above */
 	padding-right: 10px;
 /*	transition: all 1s ease-in-out;	/*  */
 }
 .feule-login h2::after,
 .feule-register h2::after {
-    content: 'X'; 
+	content: 'X'; 
 	float:right;					/*  */
 	padding-right: 1em;
 }
 .feule-register input {
 	width: 66%;
 }
-
 .user_login_welcome_box_container ~ .feule-form-links {	/* Presence/absense of welcome container
     // is used to trigger css3 sibling combinator to hide 'feule-form-links' container */
 	display: none;
@@ -549,7 +553,7 @@ div.show-form {
 /* Login Submit Button */
 .user_login_submit {
 	float:none;    						/* Default 'float:left' is not necessary, only reduces spacing */
-    padding:3px;
+	padding:3px;
 }
 
 .feule-login form input,
@@ -561,20 +565,22 @@ div.show-form {
 #forgotpassform input,			/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
 									as valid/invalid are not set by plugin for these forms */
 #forgotuserform input {
-	box-shadow: 2px 2px 3px #d3d3d380;	/* lightgrey */
+	box-shadow: 2px 2px 5px #d3d3d380;	/* lightgrey */
 }
 .feule-login form input:valid,	/* #forgotpassform input:valid and #forgotuserform input:valid are not set 
 									as valid/invalid are not set by plugin for these forms */
 .feule-register form input:valid {
-	box-shadow: 2px 2px 3px #00640085;	/* darkgreen */
+	box-shadow: 2px 2px 5px #00640085;	/* darkgreen */
 }
 .feule-login form input[type="submit"],
-.feule-register form input[type="submit"] {
-	box-shadow: 0px 3px 3px grey;
+.feule-register form input[type="submit"],
+a.user-login-logout-link {
+	box-shadow: 2px 2px 5px #d3d3d380;	/* lightgrey */
 }
 .feule-login form input[type="submit"]:active,
-.feule-register form input[type="submit"]:active {
-	box-shadow: 0px 0px 5px green;
+.feule-register form input[type="submit"]:active,
+a.user-login-logout-link {
+	box-shadow: 2px 2px 5px #d3d3d380;	/* lightgrey */
 }
 /* Register Form Labels */
 .feule-register #registerform label{
@@ -584,6 +590,18 @@ div.show-form {
 .feule-register #registerform input{
     width:65%;
     float:right;
+}
+
+div.user_login_welcome_box_container {
+	width: auto;							/* Overwrite fixed width from plugin */
+	margin: 0 10px 10px 20px;
+/*	padding-left: 0;						/*  */
+/*	border: 1px solid blue;					/*  */
+}
+a.user-login-logout-link {
+	margin: 15px 0 0 20px;
+	padding: 3px 5px;
+	border: 1px solid grey;					/*  */
 }
 
 /* SONSTIGES - FEULE In-Main  Form Elements */

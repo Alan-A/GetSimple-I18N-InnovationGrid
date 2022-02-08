@@ -63,11 +63,14 @@ div #socialmedia .icons {
 /* Large screens (notebooks, desktops) */
 /***************************************/
 
-@media only screen and (min-width: 60em) {				/* ~960px */
+@media only screen and (min-width: 60em) {					/* ~960px */
 	.main-container {
 		grid:	" main nav" 		minmax(100px, auto) 
 				" main tagcloud"	minmax(100px, auto) 
 				" main feu"			minmax(100px, auto) 
+				" main ."			minmax(  0px, auto) 	/* Required to get nav & aside */
+															/* elements to go to top */
+															/* 'align-items: flex-start;' does not work */
 				/ 2fr  1fr;
 	}
 	nav.menu-tree {					/* is no longer replaced by 'burger-menu' */
