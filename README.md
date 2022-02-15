@@ -57,7 +57,7 @@ The i18n Custom Fields plugin is used to provide custom page Text Headers in the
 
 #### Tag Cloud
 
-LAnguage-specific tag clouds provided, which are searched by the i18n Search Plugin along with page content.
+Language-specific tag clouds are provided, which are searched by the i18n Search Plugin along with page content.
 
 #### Language-Specific Search
 
