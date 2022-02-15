@@ -389,6 +389,9 @@ div.section {					/* See also 'div.main-container nav' below */
 	color:#555;
 	text-shadow: 1px 1px 0px #fff;
 }
+aside:last-child > div.section {	/* Last aside in sidebar */
+	padding-bottom: 10px;
+}
 div.section h2 {					/* See also Media Query (below) */
 	background:#444;
 	border-top:1px solid rgba(255,255,255,.4);
@@ -463,6 +466,9 @@ nav ul li.no-bullet {			/* Submenus */
 }
 nav ul li li {					/* Only sub level elements */
 	list-style: circle;
+}
+nav ul li li li {					/* Only sub sub level elements */
+	list-style: square;
 }
 nav ul li a {
 	text-decoration: none;		/* Remove underline */

@@ -13,8 +13,9 @@
 	<!-- wrap each sidebar section like this -->
 	<div class="section">
 		
-		<?php get_i18n_component('sidebarnav'); ?>				<!-- 'Standard' version -->
-		<?php //get_i18n_component('feule_menuaside', $language); ?>	<!-- 'FEUE' version -->
+		<?php //get_i18n_component('sidebarnav'); ?>					<!-- 'Standard' version -->
+		<?php get_i18n_component('feule_menuaside', $language, 2); ?>	<!-- 'FEULE' version -->
+											<!-- Number is the max number of levels to be shown -->
 		
 	</div>
 	

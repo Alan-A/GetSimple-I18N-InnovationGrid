@@ -77,16 +77,14 @@ div #socialmedia .icons {
 	.main-container {
 		grid:	" main nav" 	minmax(100px, auto) 
 				" main feu"		minmax(100px, auto) 
-				" main ."			minmax(  0px, auto) 	/* Required to get nav & aside */
-															/* elements to go to top */
-															/* 'align-items: flex-start;' does not work */
-/ 2fr  1fr;
+				/ 2fr  1fr;
 	}
 	
 	nav.menu-tree,
 	aside {
 		display: inline-block;			/* is no longer replaced by 'burger-menu' */	
 		vertical-align: top;			/*  */
+		/*background-color: skyblue;	/*  */
 	}
 
 	nav.menu-tree .section,

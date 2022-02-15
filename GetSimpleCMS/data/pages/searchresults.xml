@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Wed, 28 Jul 2021 16:44:06 +0200</pubDate><title><![CDATA[Search Results]]></title><url><![CDATA[searchresults]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Search Results]]></menu><menuStatus><![CDATA[]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;p&gt;This is the search results page for search queries placed in the Search field in the page header and queries coming from the Tag Cloud element,&lt;/p&gt;
+<item><pubDate>Wed, 28 Jul 2021 16:44:06 +0200</pubDate><creDate>Fri, 23 Jul 2021 10:34:47 +0200</creDate><title><![CDATA[Search Results]]></title><url><![CDATA[searchresults]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;This is the search results page for search queries placed in the Search field in the page header and queries coming from the Tag Cloud element,&lt;/p&gt;
 
 &lt;p&gt;This page uses code directly embedded in the page (within the curly brackets) to show the original search qery and the results. Embedding code in this way requires the &lt;a href=&quot;http://get-simple.info/extend/plugin/dynpages/81/&quot;&gt;DynPages&lt;/a&gt; plugin.&lt;/p&gt;
 
@@ -10,4 +10,4 @@
 &lt;p&gt;your results are:&lt;/p&gt;
 
 &lt;p&gt;(% searchresults numWords:15 showLanguage:0 HEADER:&#039;&#039; component:searchresultrenderer lang:en %)&lt;/p&gt;
-]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><creDate>Fri, 23 Jul 2021 10:34:47 +0200</creDate><user><![CDATA[admin]]></user><menuOrder><![CDATA[4]]></menuOrder></item>
+]]></content><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><user><![CDATA[admin]]></user><parent><![CDATA[]]></parent><menuOrder><![CDATA[4]]></menuOrder><menu><![CDATA[]]></menu><menuStatus><![CDATA[]]></menuStatus><private><![CDATA[]]></private></item>
