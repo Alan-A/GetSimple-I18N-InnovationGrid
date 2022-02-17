@@ -28,11 +28,12 @@
     &lt;/nav&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_MenuAside]]></title><slug>feule_menuaside</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
 
-&lt;h2&gt;Menu&lt;/h2&gt;
+&lt;h2&gt;FEULE Menu&lt;/h2&gt;
 
 &lt;?php
 
 class feule_menu_aside {
+    
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
@@ -46,10 +47,21 @@ class feule_menu_aside {
             
             $currentUserGroups = getCurrentUserGroups();
             
+            //echo &quot;Current User Group(s): &quot;;
+            
+            //foreach($currentUserGroups as $userGroup) {
+                
+                //echo $userGroup . &quot;, &quot;;
+                
+            //}
+            
+            //echo &quot;&lt;br&gt;&quot;;
+            
             return $currentUserGroups;
             
         } else {
         
+            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
@@ -61,6 +73,8 @@ class feule_menu_aside {
 //  
     // Add a link to the page html
     private function echo_link($page_array, $css_class, $langCode) {
+        
+        //console_log(&#039;Text 147: &#039;, $page_array);
         
         echo &quot;&lt;li&gt;&quot;;
         if ( $langCode == &#039;default&#039; ) {
@@ -88,15 +102,21 @@ class feule_menu_aside {
     //
     private function check_permissions($currentUserGroups, $file_restrictions) {
         
+        //echo &quot;Starting fcn check_permissions &lt;br&gt;&quot;;
+        
         $permission = false;
         
         if (strpos($file_restrictions, &quot;Unauthorized&quot;) !== false){
+            
+            //echo &quot;userGroup: Unauthorized found&lt;br&gt;&quot;;
             
             $permission = true;
             
         } else {
             
             foreach($currentUserGroups as $userGroup) {
+                
+                //echo &quot;Checking for userGroup: &quot; . $userGroup . &quot;&lt;br&gt;&quot;;
                 
                 if( $userGroup == &quot;Admin&quot;){     // Admin members can see all pages
                     
@@ -107,7 +127,7 @@ class feule_menu_aside {
                     $pos = strpos($file_restrictions, $userGroup );
                     
                     if( $pos !== false){
-                        
+                        //echo &quot;Permission for userGroup: &quot; . $userGroup . &quot; found&lt;br&gt;&quot;;
                         $permission = true;
                     }
                     
@@ -130,20 +150,28 @@ class feule_menu_aside {
         
         if (function_exists(&#039;simplexml_load_file&#039;)) {
             
+            //echo &quot;simplexml functions are available.&lt;br /&gt;\\n&quot;;
+            
             if (file_exists(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;)) {
                 
+                //echo &quot;129: file &quot; . $page_url . &quot;.xml found&lt;br/&gt;&quot;;
+                
                 $xmldata = simplexml_load_file(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;) or die(&quot;Failed to load&quot;);
+                
+                //echo &quot;132: memberonly: &quot; . $xmldata-&gt;memberonly . &quot;&lt;br/&gt;&quot;;
                 
                 return $xmldata-&gt;memberonly;
                 
             } else {
                 
+                //echo &quot;138: file &quot; . $page_url . &quot;.xml not found&lt;br/&gt;&quot;;
                 return false;
                 
             }
             
         } else {
             
+            //echo &quot;simplexml functions are not available.&lt;br/&gt;&quot;;
             return false;
             
         }
@@ -157,24 +185,37 @@ class feule_menu_aside {
 //  Create the menu
 //  
     // 
-    private function process_page($pagesArray, $pageKey, $langCode, $currentLevel, $endLevel) {
+    private function process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels) {
         
         $pageArray = $pagesArray[$pageKey];
+        
+        //echo &quot;164: pageKey: &quot; . $pageKey . &quot;, Parent: &quot; . $pageArray[&quot;parent&quot;] . &quot;, levelCount: &quot; . $levelCount . &quot;&lt;br&gt;&quot;;
+        
+        //console_log(&#039;Text 76: &#039;, &#039;Text 76: &#039;);
+        //console_log(&#039;Text 76: &#039;, $pageArray);
         
         // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
         $file_restrictions = $this-&gt;get_file_restrictions($pageArray[&#039;url&#039;]);
         
+        //echo &quot;172: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
+        
         // Either no file restrictions for current page (&#039;&#039;) or FEULE not active (false)
         if ($file_restrictions == false || $file_restrictions == &#039;&#039;){
+            
+            //echo &quot;177: file_restrictions not found&quot; . &quot;&lt;br&gt;&quot;;
             
         } else {
             
             // Is array
             $currentUserGroups = $this-&gt;determine_user_groups();
             
+            //echo &quot;184: currentUserGroups: &quot; . $currentUserGroups;
+            
             if ($currentUserGroups !== false) { // FEULE is active
                 
                 $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
+                
+                //echo &quot;190: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
                 
             } else {
                 
@@ -184,16 +225,29 @@ class feule_menu_aside {
             
         }
         
+        //echo &quot;200: file_restrictions: &quot; . $file_restrictions . &quot;, permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+        
         if ( $file_restrictions == &#039;&#039; || $file_restrictions == false || $permission_check){
             
-            $this-&gt;echo_link($pageArray, $this-&gt;css_class_page_link, $langCode);
+//            echo &quot;&lt;ul&gt;&quot;;
+            
+            //echo &quot;204: levelCount: &quot; . $levelCount . &quot;, pageArray[&#039;parent&#039;]: &quot; . $pageArray[&quot;parent&quot;] . &quot;&lt;br&gt;&quot;;
+            
+            if ($levelCount !== 0 || $pageArray[&quot;parent&quot;] == &#039;&#039;){
+                
+                $this-&gt;echo_link($pageArray, $this-&gt;css_class_page_link, $langCode);
+                
+            }
             
             // &#039;children&#039; key only exists if child pages are present
             if (array_key_exists(&#039;children&#039;, $pageArray)){
                 
-                if ($currentLevel &lt; $endLevel) {
+              //echo &quot;207: levelCount: &quot; . $levelCount . &quot;&lt;br&gt;&quot;;
+              //echo &quot;208: page has children&lt;br&gt;&quot;;
+                
+                if ($levelCount &lt; $numberLevels) {
                     
-                    $currentLevel = $currentLevel +1;
+                    $levelCount = $levelCount +1;
                     
                     echo &quot;&lt;li class=&#039;no-bullet&#039;&gt;&quot;;
                     echo &quot;&lt;ul&gt;&quot;;
@@ -202,20 +256,28 @@ class feule_menu_aside {
                     
                     foreach ($childArray as $childKey) {
                     
-$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $currentLevel, $endLevel);
+                        //echo &quot;221: Child: &quot; . $childKey . &quot;&lt;br&gt;&quot;;
+                    
+$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $levelCount, $numberLevels);
                     
                     }
                     
                     echo &quot;&lt;/ul&gt;&quot;;
                     echo &quot;&lt;/li&gt;&quot;;
                     
-                    $currentLevel = $currentLevel -1;
+                    $levelCount = $levelCount -1;
                     
                 }
                 
             } else {
             
+               //echo &quot;page has no children&lt;br&gt;&quot;;
+                
             }   // END if (has children)
+            
+            //$this-&gt;echo_link($i18n_pages[$pageArray], $this-&gt;css_class_page_link, $langCode);
+            
+//            echo &quot;&lt;/ul&gt;&quot;;
             
         }   // END if ($permission_check)
         
@@ -228,41 +290,83 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
 // Parse each page element in the i18n_pages array.
 //
     // Parse each top level page element
-    public function parse_elements ($pagesArray, $langCode, $currentLevel, $endLevel){
-
-        //echo &quot;langCode: &quot; . $langCode . &quot;, currentLevel: &quot; . $currentLevel  . &quot;, endLevel: &quot; . $endLevel;
+    public function parse_elements ($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels){
+        
+        //console_log(&#039;Text 221:&#039;, $langCode);
+        
+        //echo &quot;265: langCode: &quot; . $langCode . &quot;, parentPage: &quot; . $parentPage  . &quot;, levelCount: &quot; . $levelCount  . &quot;, numberLevels: &quot; . $numberLevels . &quot;&lt;br&gt;&quot;;
         
         echo &quot;&lt;ul&gt;&quot;;
         
-        // loops through all pages
-        foreach($pagesArray as $pageKey =&gt; $pageArray) {
+        // Should menu be generated from the top level down or from a specific (parent) page?
+        if ($parentPage == &quot;&quot;) {
             
-            // Ignore last element in array
-            // Last element lists all top level pages
-            if($pageKey != &#039;&#039; ){
+            // Loop through all pages
+            foreach($pagesArray as $pageKey =&gt; $pageArray) {
                 
-                // Do page settings allow display?
-                // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
-                // (unlike, for example, the search results page)
-                if($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot; ){
-                    
-                    // Is page not a subpage?
-                    // &#039;parent&#039; key always exists, value can be empty
-                    // If a page has a parent it will be called with the child pages of the parent
-                    if ($pageArray[&quot;parent&quot;] == &quot;&quot;){
-                        
-                        $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $currentLevel, $endLevel);
-                        // Is array
-                        
-                    } else {    // Page is a sub-page, so will be displayed as such
-                        
-                    }   // END if ($pageArray[&quot;parent&quot;])
-                    
-               }    // END if($pageArray[&quot;menuStatus&quot;])
+    //          echo &quot;&lt;br&gt;&quot;;
+    //          echo &quot;Key:&quot; . $pageKey . &quot;&lt;br&gt;&quot;;
                 
-           }    // END if($pageKey != &#039;&#039;)
+                //echo &quot;MenuStatus:&quot; . $pageArray[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
+                
+                // Ignore last element in array
+                // Last element lists all top level pages
+                if($pageKey != &#039;&#039; ){
+                    
+                    // Do page settings allow display?
+                    // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
+                    // (unlike, for example, the search results page)
+                    if($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot; ){
+                        
+                        // Is page not a subpage?
+                        // &#039;parent&#039; key always exists, value can be empty
+                        // If a page has a parent it will be called with the child pages of the parent
+                        if ($pageArray[&quot;parent&quot;] == &quot;&quot;){
+                            
+    //                      echo &quot;Ready to process page[&#039;url&#039;]: &quot; . $pageArray[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
+                            
+                            //echo &quot;page has no parent&lt;br&gt;&quot;;
+                            
+                            //console_log(&#039;Text 253:&#039;, $pageArray);
+                            
+                            $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels);
+                            // Is array
+                            
+                        } else {    // Page is a sub-page, so will be displayed as such
+                            
+                          //echo &quot;page has parent&lt;br&gt;&quot;;
+                            
+                        }   // END if ($pageArray[&quot;parent&quot;])
+                        
+                   }    // END if($pageArray[&quot;menuStatus&quot;])
+                    
+               }// END if($pageKey != &#039;&#039;)
+                
+            }    // END foreach($pagesArray ...)
             
-        }    // END foreach($pagesArray ...)
+       // Generate menu from a specific (parent) page
+       } else {
+            
+            //echo &quot;322: parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
+            
+            $pageArray = $pagesArray[$parentPage];
+            
+            if ($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot;) {
+                
+                //echo &quot;menuStatus: Y&lt;br&gt;&quot;;
+                
+                $levelCount = $levelCount + 1;
+                
+                foreach($pageArray[&quot;children&quot;] as $pageKey =&gt; $pageName) {
+                
+                    //echo &quot;334: pageKey: &quot; . $pageKey . &quot;, pageName: &quot; . $pageName . &quot;&lt;br&gt;&quot;;
+                    
+                    $pageProcessor = $this-&gt;process_page($pagesArray, $pageName, $langCode, $levelCount, $numberLevels);
+                }
+                
+            }
+            
+        }   // END if ($parentPage ...)
         
         echo &quot;&lt;/ul&gt;&quot;;
         
@@ -285,6 +389,11 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
 $pagesArray = return_i18n_pages();
 
 
+//echo &quot;&lt;pre&gt;&quot;;
+//print_r($pagesArray);
+//echo &quot;&lt;/pre&gt;&quot;;
+
+
 // CAUTION! DO NOT ACTIVATE FUNCTION N MOBILE AND ASIDE VERSIONS WITH THE SAME NAME
 //
 //function console_log( $text, $data ){
@@ -300,8 +409,11 @@ $pagesArray = return_i18n_pages();
 // (args is set by i18n call in navigation.inc.php)
 global $args;
 $language = $args[0];
-$endLevel = $args[1];
-$currentLevel = 0;
+//echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
+$parentPage = $args[1];
+//echo &quot;parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
+$numberLevels = $args[2];
+$levelCount = 0;
 
 
 // Determine if language code is default
@@ -309,7 +421,9 @@ $currentLevel = 0;
 //  in $i18n_pages arrays without a code
 //  e.g. &#039;title&#039; instead of &#039;title_de&#039;.)
 foreach($pagesArray[&#039;index&#039;] as $pageKey =&gt; $pageArray) {
+    //echo &quot;Test: &quot; . $x . &quot;: &quot; . $x_value . &quot;&lt;br&gt;&quot;;
     if ( substr( $pageKey, 0, 6 )== &quot;title_&quot; ){
+        //echo &quot;title_ found&lt;br&gt;&quot;;
         if ( substr( $pageKey, -2 ) ==  $language ) {
             $langCode = $language;
         } else {
@@ -317,10 +431,11 @@ foreach($pagesArray[&#039;index&#039;] as $pageKey =&gt; $pageArray) {
         }
     }
 }
+//echo &quot;langCode: &quot; . $langCode  . &quot;&lt;br&gt;&quot;;
 
 $feule_menu_aside = new feule_menu_aside();
 
-$feule_menu_aside -&gt; parse_elements($pagesArray, $langCode, $currentLevel, $endLevel);
+$feule_menu_aside -&gt; parse_elements($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels);
 
 ?&gt;
 ]]></value></item><item><title><![CDATA[FEULE_MenuIcon]]></title><slug>feule_menuicon</slug><value><![CDATA[&lt;!-- Called in pageheader.inc.php --&gt;
@@ -707,7 +822,419 @@ $feule_menu_mobil -&gt; parse_elements($pagesArray, $langCode, $currentLevel, $e
 ?&gt;
 
     &lt;/nav&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;!-- Component called in aside_feule_userarea.inc.php --&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_SubMenu]]></title><slug>feule_submenu</slug><value><![CDATA[&lt;!-- Component is called in main congtent block --&gt;
+
+&lt;h3&gt;FEULE SubMenu&lt;/h3&gt;
+
+&lt;?php
+
+class feule_submenu {
+    
+    
+    private $css_class_page_link = &quot;page-link&quot;;
+    private $css_class_subpage_link = &quot;subpage-link&quot;;
+    
+//
+//  Determine which user group(s) any logged on user is a member of.
+//
+    private function determine_user_groups(){
+        
+        if (function_exists(&#039;getCurrentUserGroups&#039;)){
+            
+            $currentUserGroups = getCurrentUserGroups();
+            
+            //echo &quot;Current User Group(s): &quot;;
+            
+            //foreach($currentUserGroups as $userGroup) {
+                
+                //echo $userGroup . &quot;, &quot;;
+                
+            //}
+            
+            //echo &quot;&lt;br&gt;&quot;;
+            
+            return $currentUserGroups;
+            
+        } else {
+        
+            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
+            return false;
+        
+        }
+        
+    }
+    
+//  
+//  Create the menu
+//  
+    // Add a link to the page html
+    private function echo_link($page_array, $css_class, $langCode) {
+        
+        //console_log(&#039;Text 147: &#039;, $page_array);
+        
+        echo &quot;&lt;li&gt;&quot;;
+        if ( $langCode == &#039;default&#039; ) {
+            echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+        } else {
+            // Check if page for non-default language exists
+            if ( array_key_exists( &quot;title_&quot;.$langCode, $page_array )) {
+                echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title_&quot;.$langCode] . &quot;&lt;/a&gt;&quot;;
+            } else {
+                // Fall back to default language page
+                echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+            }
+        }
+        
+        echo &quot;&lt;/li&gt;&quot;;
+
+        return true;
+        
+    }
+    
+    
+//
+// Check permissions for user groups and file restrictions.
+//
+    //
+    private function check_permissions($currentUserGroups, $file_restrictions) {
+        
+        //echo &quot;Starting fcn check_permissions &lt;br&gt;&quot;;
+        
+        $permission = false;
+        
+        if (strpos($file_restrictions, &quot;Unauthorized&quot;) !== false){
+            
+            //echo &quot;userGroup: Unauthorized found&lt;br&gt;&quot;;
+            
+            $permission = true;
+            
+        } else {
+            
+            foreach($currentUserGroups as $userGroup) {
+                
+                //echo &quot;Checking for userGroup: &quot; . $userGroup . &quot;&lt;br&gt;&quot;;
+                
+                if( $userGroup == &quot;Admin&quot;){     // Admin members can see all pages
+                    
+                    return true;
+                    
+                } else {
+                
+                    $pos = strpos($file_restrictions, $userGroup );
+                    
+                    if( $pos !== false){
+                        //echo &quot;Permission for userGroup: &quot; . $userGroup . &quot; found&lt;br&gt;&quot;;
+                        $permission = true;
+                    }
+                    
+                }
+                
+            }   //END foreach()
+            
+        }
+        
+        return $permission;
+        
+    }   //END fcn check_permissions()
+    
+    
+//
+//
+//  &#039;simplexml&#039; is PHP Extension used to determine the viewing restrictions
+//
+    private function get_file_restrictions($page_url) {
+        
+        if (function_exists(&#039;simplexml_load_file&#039;)) {
+            
+            //echo &quot;simplexml functions are available.&lt;br /&gt;\\n&quot;;
+            
+            if (file_exists(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;)) {
+                
+                //echo &quot;129: file &quot; . $page_url . &quot;.xml found&lt;br/&gt;&quot;;
+                
+                $xmldata = simplexml_load_file(&quot;./data/pages/&quot; . $page_url . &quot;.xml&quot;) or die(&quot;Failed to load&quot;);
+                
+                //echo &quot;132: memberonly: &quot; . $xmldata-&gt;memberonly . &quot;&lt;br/&gt;&quot;;
+                
+                return $xmldata-&gt;memberonly;
+                
+            } else {
+                
+                //echo &quot;138: file &quot; . $page_url . &quot;.xml not found&lt;br/&gt;&quot;;
+                return false;
+                
+            }
+            
+        } else {
+            
+            //echo &quot;simplexml functions are not available.&lt;br/&gt;&quot;;
+            return false;
+            
+        }
+        
+        return false;
+        
+    }   // END Fucntion get_file_restrictions()
+    
+    
+//  
+//  Create the menu
+//  
+    // 
+    private function process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels) {
+        
+        $pageArray = $pagesArray[$pageKey];
+        
+        //echo &quot;164: pageKey: &quot; . $pageKey . &quot;, Parent: &quot; . $pageArray[&quot;parent&quot;] . &quot;, levelCount: &quot; . $levelCount . &quot;&lt;br&gt;&quot;;
+        
+        //console_log(&#039;Text 76: &#039;, &#039;Text 76: &#039;);
+        //console_log(&#039;Text 76: &#039;, $pageArray);
+        
+        // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
+        $file_restrictions = $this-&gt;get_file_restrictions($pageArray[&#039;url&#039;]);
+        
+        //echo &quot;172: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
+        
+        // Either no file restrictions for current page (&#039;&#039;) or FEULE not active (false)
+        if ($file_restrictions == false || $file_restrictions == &#039;&#039;){
+            
+            //echo &quot;177: file_restrictions not found&quot; . &quot;&lt;br&gt;&quot;;
+            
+        } else {
+            
+            // Is array
+            $currentUserGroups = $this-&gt;determine_user_groups();
+            
+            //echo &quot;184: currentUserGroups: &quot; . $currentUserGroups;
+            
+            if ($currentUserGroups !== false) { // FEULE is active
+                
+                $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
+                
+                //echo &quot;190: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+                
+            } else {
+                
+                $permission_check = 1;
+                
+            }
+            
+        }
+        
+        //echo &quot;200: file_restrictions: &quot; . $file_restrictions . &quot;, permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+        
+        if ( $file_restrictions == &#039;&#039; || $file_restrictions == false || $permission_check){
+            
+//            echo &quot;&lt;ul&gt;&quot;;
+            
+            //echo &quot;204: levelCount: &quot; . $levelCount . &quot;, pageArray[&#039;parent&#039;]: &quot; . $pageArray[&quot;parent&quot;] . &quot;&lt;br&gt;&quot;;
+            
+            if ($levelCount !== 0 || $pageArray[&quot;parent&quot;] == &#039;&#039;){
+                
+                $this-&gt;echo_link($pageArray, $this-&gt;css_class_page_link, $langCode);
+                
+            }
+            
+            // &#039;children&#039; key only exists if child pages are present
+            if (array_key_exists(&#039;children&#039;, $pageArray)){
+                
+              //echo &quot;217: levelCount: &quot; . $levelCount . &quot;&lt;br&gt;&quot;;
+              //echo &quot;218: page has children&lt;br&gt;&quot;;
+                
+                if ($levelCount &lt; $numberLevels) {
+                    
+                    $levelCount = $levelCount +1;
+                    
+                    echo &quot;&lt;li class=&#039;no-bullet&#039;&gt;&quot;;
+                    echo &quot;&lt;ul&gt;&quot;;
+                    
+                    $childArray = $pageArray[&#039;children&#039;];
+                    
+                    foreach ($childArray as $childKey) {
+                    
+                        //echo &quot;221: Child: &quot; . $childKey . &quot;&lt;br&gt;&quot;;
+                    
+$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $levelCount, $numberLevels);
+                    
+                    }
+                    
+                    echo &quot;&lt;/ul&gt;&quot;;
+                    echo &quot;&lt;/li&gt;&quot;;
+                    
+                    $levelCount = $levelCount -1;
+                    
+                }
+                
+            } else {
+            
+               //echo &quot;page has no children&lt;br&gt;&quot;;
+                
+            }   // END if (has children)
+            
+            //$this-&gt;echo_link($i18n_pages[$pageArray], $this-&gt;css_class_page_link, $langCode);
+            
+//            echo &quot;&lt;/ul&gt;&quot;;
+            
+        }   // END if ($permission_check)
+        
+        return true;
+        
+    }       // END Function process_page()
+    
+    
+//
+// Parse each page element in the i18n_pages array.
+//
+    // Parse each top level page element
+    public function parse_elements ($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels){
+        
+        //console_log(&#039;Text 221:&#039;, $langCode);
+        
+        //echo &quot;265: langCode: &quot; . $langCode . &quot;, parentPage: &quot; . $parentPage  . &quot;, levelCount: &quot; . $levelCount  . &quot;, numberLevels: &quot; . $numberLevels . &quot;&lt;br&gt;&quot;;
+        
+        echo &quot;&lt;ul&gt;&quot;;
+        
+        // Should menu be generated from the top level down or from a specific (parent) page?
+        if ($parentPage == &quot;&quot;) {
+            
+            // Loop through all pages
+            foreach($pagesArray as $pageKey =&gt; $pageArray) {
+                
+    //          echo &quot;&lt;br&gt;&quot;;
+    //          echo &quot;Key:&quot; . $pageKey . &quot;&lt;br&gt;&quot;;
+                
+                //echo &quot;MenuStatus:&quot; . $pageArray[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
+                
+                // Ignore last element in array
+                // Last element lists all top level pages
+                if($pageKey != &#039;&#039; ){
+                    
+                    // Do page settings allow display?
+                    // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
+                    // (unlike, for example, the search results page)
+                    if($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot; ){
+                        
+                        // Is page not a subpage?
+                        // &#039;parent&#039; key always exists, value can be empty
+                        // If a page has a parent it will be called with the child pages of the parent
+                        if ($pageArray[&quot;parent&quot;] == &quot;&quot;){
+                            
+    //                      echo &quot;Ready to process page[&#039;url&#039;]: &quot; . $pageArray[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
+                            
+                            //echo &quot;page has no parent&lt;br&gt;&quot;;
+                            
+                            //console_log(&#039;Text 253:&#039;, $pageArray);
+                            
+                            $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels);
+                            // Is array
+                            
+                        } else {    // Page is a sub-page, so will be displayed as such
+                            
+                          //echo &quot;page has parent&lt;br&gt;&quot;;
+                            
+                        }   // END if ($pageArray[&quot;parent&quot;])
+                        
+                   }    // END if($pageArray[&quot;menuStatus&quot;])
+                    
+               }// END if($pageKey != &#039;&#039;)
+                
+            }    // END foreach($pagesArray ...)
+            
+       // Generate menu from a specific (parent) page
+       } else {
+            
+            //echo &quot;322: parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
+            
+            $pageArray = $pagesArray[$parentPage];
+            
+            if ($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot;) {
+                
+                //echo &quot;menuStatus: Y&lt;br&gt;&quot;;
+                
+                $levelCount = $levelCount + 1;
+                
+                foreach($pageArray[&quot;children&quot;] as $pageKey =&gt; $pageName) {
+                
+                    //echo &quot;334: pageKey: &quot; . $pageKey . &quot;, pageName: &quot; . $pageName . &quot;&lt;br&gt;&quot;;
+                    
+                    $pageProcessor = $this-&gt;process_page($pagesArray, $pageName, $langCode, $levelCount, $numberLevels);
+                }
+                
+            }
+            
+        }   // END if ($parentPage ...)
+        
+        echo &quot;&lt;/ul&gt;&quot;;
+        
+    }    // END fcn. parse_elements()
+    
+    
+    public function debug(){
+        
+        foreach(debug_backtrace() as $t) {
+            echo $t[&#039;file&#039;] . &#039; line &#039; . $t[&#039;line&#039;] . &#039; calls &#039; . $t[&#039;function&#039;] . &quot;()&lt;br/&gt;&quot;;
+        }
+        
+    }
+    
+}    // END class feule_submenu
+
+// - - - - - - - - - - - - - - - - - - - - -
+// START - Get the list of pages
+// Is a flat array - can be listed using &#039;print_r($pagesArray)&#039; below
+$pagesArray = return_i18n_pages();
+
+
+//echo &quot;&lt;pre&gt;&quot;;
+//print_r($pagesArray);
+//echo &quot;&lt;/pre&gt;&quot;;
+
+
+// CAUTION! DO NOT ACTIVATE FUNCTION N MOBILE AND ASIDE VERSIONS WITH THE SAME NAME
+//
+//function console_log( $text, $data ){
+//  echo $text;
+//  echo &#039;&lt;script&gt;&#039;;
+//echo &#039;console.log(&#039;.$text.&#039;)&#039;;
+//  echo &#039;console.log(&#039;. json_encode( $data ) .&#039;)&#039;;
+//  echo &#039;&lt;/script&gt;&#039;;
+//}
+
+
+// Determine code for current language 
+// (args is set by i18n call in navigation.inc.php)
+global $args;
+$language = $args[0];
+//echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
+$parentPage = $args[1];
+//echo &quot;parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
+$numberLevels = $args[2];
+$levelCount = 0;
+
+
+// Determine if language code is default
+// (Required as default language elements are specified 
+//  in $i18n_pages arrays without a code
+//  e.g. &#039;title&#039; instead of &#039;title_de&#039;.)
+foreach($pagesArray[&#039;index&#039;] as $pageKey =&gt; $pageArray) {
+    //echo &quot;Test: &quot; . $x . &quot;: &quot; . $x_value . &quot;&lt;br&gt;&quot;;
+    if ( substr( $pageKey, 0, 6 )== &quot;title_&quot; ){
+        //echo &quot;title_ found&lt;br&gt;&quot;;
+        if ( substr( $pageKey, -2 ) ==  $language ) {
+            $langCode = $language;
+        } else {
+            $langCode = &#039;default&#039;;
+        }
+    }
+}
+//echo &quot;langCode: &quot; . $langCode  . &quot;&lt;br&gt;&quot;;
+
+$feule_submenu = new feule_submenu();
+
+$feule_submenu -&gt; parse_elements($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels);
+
+?&gt;
+]]></value></item><item><title><![CDATA[FEULE_UserArea]]></title><slug>feule_userarea</slug><value><![CDATA[&lt;!-- Component called in aside_feule_userarea.inc.php --&gt;
 &lt;!--2021-12-21 12:40--&gt;
 
 &lt;h2&gt;User Area&lt;/h2&gt;
@@ -972,17 +1499,18 @@ $feule_menu_mobil -&gt; parse_elements($pagesArray, $langCode, $currentLevel, $e
     &lt;div class=&quot;bar1&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar2&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;bar3&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;]]></value></item><item><title><![CDATA[SliderMenu]]></title><slug>slidermenu</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
+&lt;/div&gt;]]></value></item><item><title><![CDATA[SliderMenu]]></title><slug>slidermenu</slug><value><![CDATA[&lt;!-- Component is called in header.inc.php --&gt;
 
 
 &lt;div  class=&quot;slider-r show-slider-r&quot; &gt;
     &lt;nav class=&quot;mobile-menu&quot; &gt;
 
-&lt;h2&gt;Menu&lt;/h2&gt;
+&lt;h2&gt;Slider Menu&lt;/h2&gt;
 
 &lt;?php
 
 class slider_menu {
+    
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
@@ -1010,7 +1538,7 @@ class slider_menu {
             
         } else {
         
-            //echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
+            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
@@ -1134,36 +1662,37 @@ class slider_menu {
 //  Create the menu
 //  
     // 
-    private function process_page($pagesArray, $pageKey, $langCode, $currentLevel, $endLevel) {
+    private function process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels) {
         
         $pageArray = $pagesArray[$pageKey];
+        
+        //echo &quot;164: pageKey: &quot; . $pageKey . &quot;, Parent: &quot; . $pageArray[&quot;parent&quot;] . &quot;, levelCount: &quot; . $levelCount . &quot;&lt;br&gt;&quot;;
         
         //console_log(&#039;Text 76: &#039;, &#039;Text 76: &#039;);
         //console_log(&#039;Text 76: &#039;, $pageArray);
         
-        
         // file_restrictions are comma-sep. strings (feule Group names wie &#039;Users&#039;)
         $file_restrictions = $this-&gt;get_file_restrictions($pageArray[&#039;url&#039;]);
         
-        //echo &quot;170: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
+        //echo &quot;172: file_restrictions: &quot; . $file_restrictions . &quot;&lt;br&gt;&quot;;
         
         // Either no file restrictions for current page (&#039;&#039;) or FEULE not active (false)
         if ($file_restrictions == false || $file_restrictions == &#039;&#039;){
             
-            //echo &quot;175: file_restrictions not found&quot; . &quot;&lt;br&gt;&quot;;
+            //echo &quot;177: file_restrictions not found&quot; . &quot;&lt;br&gt;&quot;;
             
         } else {
             
             // Is array
             $currentUserGroups = $this-&gt;determine_user_groups();
             
-            //echo &quot;182: currentUserGroups: &quot; . $currentUserGroups;
+            //echo &quot;184: currentUserGroups: &quot; . $currentUserGroups;
             
             if ($currentUserGroups !== false) { // FEULE is active
                 
                 $permission_check = $this-&gt;check_permissions($currentUserGroups, $file_restrictions);
                 
-                //echo &quot;188: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+                //echo &quot;190: permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
                 
             } else {
                 
@@ -1173,21 +1702,29 @@ class slider_menu {
             
         }
         
+        //echo &quot;200: file_restrictions: &quot; . $file_restrictions . &quot;, permission_check: &quot; . $permission_check . &quot;&lt;br&gt;&quot;;
+        
         if ( $file_restrictions == &#039;&#039; || $file_restrictions == false || $permission_check){
             
 //            echo &quot;&lt;ul&gt;&quot;;
             
-            $this-&gt;echo_link($pageArray, $this-&gt;css_class_page_link, $langCode);
+            //echo &quot;204: levelCount: &quot; . $levelCount . &quot;, pageArray[&#039;parent&#039;]: &quot; . $pageArray[&quot;parent&quot;] . &quot;&lt;br&gt;&quot;;
+            
+            if ($levelCount !== 0 || $pageArray[&quot;parent&quot;] == &#039;&#039;){
+                
+                $this-&gt;echo_link($pageArray, $this-&gt;css_class_page_link, $langCode);
+                
+            }
             
             // &#039;children&#039; key only exists if child pages are present
             if (array_key_exists(&#039;children&#039;, $pageArray)){
                 
-              //echo &quot;207: currentLevel: &quot; . $currentLevel . &quot;&lt;br&gt;&quot;;
+              //echo &quot;207: levelCount: &quot; . $levelCount . &quot;&lt;br&gt;&quot;;
               //echo &quot;208: page has children&lt;br&gt;&quot;;
                 
-                if ($currentLevel &lt; $endLevel) {
+                if ($levelCount &lt; $numberLevels) {
                     
-                    $currentLevel = $currentLevel +1;
+                    $levelCount = $levelCount +1;
                     
                     echo &quot;&lt;li class=&#039;no-bullet&#039;&gt;&quot;;
                     echo &quot;&lt;ul&gt;&quot;;
@@ -1198,14 +1735,14 @@ class slider_menu {
                     
                         //echo &quot;221: Child: &quot; . $childKey . &quot;&lt;br&gt;&quot;;
                     
-$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $currentLevel, $endLevel);
+$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $levelCount, $numberLevels);
                     
                     }
                     
                     echo &quot;&lt;/ul&gt;&quot;;
                     echo &quot;&lt;/li&gt;&quot;;
                     
-                    $currentLevel = $currentLevel -1;
+                    $levelCount = $levelCount -1;
                     
                 }
                 
@@ -1230,58 +1767,83 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
 // Parse each page element in the i18n_pages array.
 //
     // Parse each top level page element
-    public function parse_elements ($pagesArray, $langCode, $currentLevel, $endLevel){
+    public function parse_elements ($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels){
         
-        //echo &quot;langCode: &quot; . $langCode . &quot;, currentLevel: &quot; . $currentLevel  . &quot;, endLevel: &quot; . $endLevel;
-
         //console_log(&#039;Text 221:&#039;, $langCode);
         
-//      echo $langCode . $currentLevel . $endLevel;
+        //echo &quot;265: langCode: &quot; . $langCode . &quot;, parentPage: &quot; . $parentPage  . &quot;, levelCount: &quot; . $levelCount  . &quot;, numberLevels: &quot; . $numberLevels . &quot;&lt;br&gt;&quot;;
         
         echo &quot;&lt;ul&gt;&quot;;
         
-        // loops through all pages
-        foreach($pagesArray as $pageKey =&gt; $pageArray) {
+        // Should menu be generated from the top level down or from a specific (parent) page?
+        if ($parentPage == &quot;&quot;) {
             
-//          echo &quot;&lt;br&gt;&quot;;
-//          echo &quot;Key:&quot; . $pageKey . &quot;&lt;br&gt;&quot;;
-            
-            //echo &quot;MenuStatus:&quot; . $pageArray[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
-            
-            // Ignore last element in array
-            // Last element lists all top level pages
-            if($pageKey != &#039;&#039; ){
+            // Loop through all pages
+            foreach($pagesArray as $pageKey =&gt; $pageArray) {
                 
-                // Do page settings allow display?
-                // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
-                // (unlike, for example, the search results page)
-                if($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot; ){
-                    
-                    // Is page not a subpage?
-                    // &#039;parent&#039; key always exists, value can be empty
-                    // If a page has a parent it will be called with the child pages of the parent
-                    if ($pageArray[&quot;parent&quot;] == &quot;&quot;){
-                        
-//                      echo &quot;Ready to process page[&#039;url&#039;]: &quot; . $pageArray[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
-                        
-                        //echo &quot;page has no parent&lt;br&gt;&quot;;
-                        
-                        //console_log(&#039;Text 253:&#039;, $pageArray);
-                        
-                        $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $currentLevel, $endLevel);
-                        // Is array
-                        
-                    } else {    // Page is a sub-page, so will be displayed as such
-                        
-                      //echo &quot;page has parent&lt;br&gt;&quot;;
-                        
-                    }   // END if ($pageArray[&quot;parent&quot;])
-                    
-               }    // END if($pageArray[&quot;menuStatus&quot;])
+    //          echo &quot;&lt;br&gt;&quot;;
+    //          echo &quot;Key:&quot; . $pageKey . &quot;&lt;br&gt;&quot;;
                 
-           }    // END if($pageKey != &#039;&#039;)
+                //echo &quot;MenuStatus:&quot; . $pageArray[&quot;menuStatus&quot;] . &quot;&lt;br&gt;&quot;;
+                
+                // Ignore last element in array
+                // Last element lists all top level pages
+                if($pageKey != &#039;&#039; ){
+                    
+                    // Do page settings allow display?
+                    // menuStatus &#039;Y&#039; means page is to be shown in menu(s)
+                    // (unlike, for example, the search results page)
+                    if($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot; ){
+                        
+                        // Is page not a subpage?
+                        // &#039;parent&#039; key always exists, value can be empty
+                        // If a page has a parent it will be called with the child pages of the parent
+                        if ($pageArray[&quot;parent&quot;] == &quot;&quot;){
+                            
+    //                      echo &quot;Ready to process page[&#039;url&#039;]: &quot; . $pageArray[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
+                            
+                            //echo &quot;page has no parent&lt;br&gt;&quot;;
+                            
+                            //console_log(&#039;Text 253:&#039;, $pageArray);
+                            
+                            $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels);
+                            // Is array
+                            
+                        } else {    // Page is a sub-page, so will be displayed as such
+                            
+                          //echo &quot;page has parent&lt;br&gt;&quot;;
+                            
+                        }   // END if ($pageArray[&quot;parent&quot;])
+                        
+                   }    // END if($pageArray[&quot;menuStatus&quot;])
+                    
+               }// END if($pageKey != &#039;&#039;)
+                
+            }    // END foreach($pagesArray ...)
             
-        }    // END foreach($pagesArray ...)
+       // Generate menu from a specific (parent) page
+       } else {
+            
+            //echo &quot;322: parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
+            
+            $pageArray = $pagesArray[$parentPage];
+            
+            if ($pageArray[&quot;menuStatus&quot;] == &quot;Y&quot;) {
+                
+                //echo &quot;menuStatus: Y&lt;br&gt;&quot;;
+                
+                $levelCount = $levelCount + 1;
+                
+                foreach($pageArray[&quot;children&quot;] as $pageKey =&gt; $pageName) {
+                
+                    //echo &quot;334: pageKey: &quot; . $pageKey . &quot;, pageName: &quot; . $pageName . &quot;&lt;br&gt;&quot;;
+                    
+                    $pageProcessor = $this-&gt;process_page($pagesArray, $pageName, $langCode, $levelCount, $numberLevels);
+                }
+                
+            }
+            
+        }   // END if ($parentPage ...)
         
         echo &quot;&lt;/ul&gt;&quot;;
         
@@ -1296,7 +1858,7 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
         
     }
     
-}    // END class feule_menu_aside
+}    // END class feule_menu_mobil
 
 // - - - - - - - - - - - - - - - - - - - - -
 // START - Get the list of pages
@@ -1325,8 +1887,10 @@ $pagesArray = return_i18n_pages();
 global $args;
 $language = $args[0];
 //echo &quot;Language: &quot; . $language . &quot;&lt;br&gt;&quot;;
-$endLevel = $args[1];
-$currentLevel = 0;
+$parentPage = $args[1];
+//echo &quot;parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
+$numberLevels = $args[2];
+$levelCount = 0;
 
 
 // Determine if language code is default
@@ -1348,7 +1912,7 @@ foreach($pagesArray[&#039;index&#039;] as $pageKey =&gt; $pageArray) {
 
 $slider_menu = new slider_menu();
 
-$slider_menu -&gt; parse_elements($pagesArray, $langCode, $currentLevel, $endLevel);
+$slider_menu -&gt; parse_elements($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels);
 
 ?&gt;
     &lt;/nav&gt;
