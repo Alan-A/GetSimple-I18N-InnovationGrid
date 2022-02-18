@@ -300,7 +300,7 @@ article section {
 article section p {
 	margin:0 0 25px 0;
 }
-article section p ~ ul {
+article section p + ul {
 	margin-top: -23px;		/* AADE */
 }
 article section p ~ ul.search-results {
@@ -451,26 +451,27 @@ div.section p {
 /* Slider Elements - are all defined in mobile-nav.css file */
 
 /* Nav Elements */
-/* Apply for both nav in sirebar and nav in slider (see mobile-nav.css file) */
+/* Apply for both nav in sidebar and nav in slider (see mobile-nav.css file) */
 
 nav ul {						/* See */
 	margin-left: 20px;			/* See 'div.section ul' (above) */
 }
-nav ul li {						/* All list elements */
+nav ul li {						/* All list elements. */
+								/* 'nav' required as 'nav li list-style: none' is set in 'reset.css' */
 	list-style: disc;
 	padding: 2px 0;				/*  */
 /*	font-size: 0.8rem;			/* Is overwritten for smaller devices (see mobile-nav.css file)*/
 }
-nav ul li.no-bullet {			/* Submenus */
+ul li.no-bullet {			/* Submenus */
 	list-style-type: none;
 }
-nav ul li li {					/* Only sub level elements */
+ul li li {					/* Only sub level elements */
 	list-style: circle;
 }
-nav ul li li li {					/* Only sub sub level elements */
+ul li li li {					/* Only sub sub level elements */
 	list-style: square;
 }
-nav ul li a {
+ul li a {
 	text-decoration: none;		/* Remove underline */
 }
 

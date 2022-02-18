@@ -28,7 +28,7 @@
     &lt;/nav&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_MenuAside]]></title><slug>feule_menuaside</slug><value><![CDATA[&lt;!-- Component is called in navigation.inc.php --&gt;
 
-&lt;h2&gt;FEULE Menu&lt;/h2&gt;
+&lt;h2&gt;Menu&lt;/h2&gt;
 
 &lt;?php
 
@@ -824,8 +824,6 @@ $feule_menu_mobil -&gt; parse_elements($pagesArray, $langCode, $currentLevel, $e
     &lt;/nav&gt;
 &lt;/div&gt;]]></value></item><item><title><![CDATA[FEULE_SubMenu]]></title><slug>feule_submenu</slug><value><![CDATA[&lt;!-- Component is called in main congtent block --&gt;
 
-&lt;h3&gt;FEULE SubMenu&lt;/h3&gt;
-
 &lt;?php
 
 class feule_submenu {
@@ -1505,7 +1503,7 @@ $feule_submenu -&gt; parse_elements($pagesArray, $langCode, $parentPage, $levelC
 &lt;div  class=&quot;slider-r show-slider-r&quot; &gt;
     &lt;nav class=&quot;mobile-menu&quot; &gt;
 
-&lt;h2&gt;Slider Menu&lt;/h2&gt;
+&lt;h2&gt;Menu&lt;/h2&gt;
 
 &lt;?php
 
