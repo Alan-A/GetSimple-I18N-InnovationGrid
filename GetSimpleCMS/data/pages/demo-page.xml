@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Thu, 17 Feb 2022 13:18:43 +0100</pubDate><title><![CDATA[Demo Pages]]></title><url><![CDATA[demo-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Demo Pages]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;h2&gt;Demo Pages ...&lt;/h2&gt;
+<item><pubDate>Thu, 17 Feb 2022 14:43:06 +0100</pubDate><title><![CDATA[Demo Pages]]></title><url><![CDATA[demo-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Demo Pages]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;p&gt;This page and its sub-pages show the working of the FEULE SubMenu component, which is used to show the child pages of any given page - not necessarily the current page. The maxumum number of levels to be displayed can be restricted: in the example menu shown on this page the number of levels is restricted to 2, in the menu shown in the sidebar or in the slider it is set to 3, which allows the &#039;3rd Level Sub-Page&#039; is shown..&lt;/p&gt;
+
+&lt;h2&gt;Demonstration Sub-Menu&lt;/h2&gt;
 
 &lt;p&gt;{% feule_submenu &#039;en&#039; &#039;demo-page&#039; &#039;2&#039; %}&lt;/p&gt;
 ]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><creDate>Fri, 30 Jul 2021 13:14:48 +0200</creDate><user><![CDATA[admin]]></user><menuOrder><![CDATA[1]]></menuOrder></item>
