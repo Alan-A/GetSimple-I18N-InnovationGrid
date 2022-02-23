@@ -13,9 +13,9 @@
 .main-container {
 	
 	display: grid;
-	grid:	"nav"		minmax(0px, auto)		/* 0px to allow nav to be hidden  */
+	grid:	"nav"			minmax(0px, auto)		/* 0px to allow nav to be hidden  */
 			"main"  		minmax(100px, auto)
-			"feu"  	minmax(100px, auto)
+			"tagcloud"  	minmax(100px, auto)
 			/ 1fr ;
 }
 
@@ -43,7 +43,7 @@ div #socialmedia .icons {
 	.main-container {
 		
 		grid:	"main"  		minmax(100px, auto)
-				"feu"		minmax(100px, auto)
+				"tagcloud"		minmax(100px, auto)
 				/ 1fr;
 	}
 	
@@ -62,7 +62,7 @@ div #socialmedia .icons {
 	.main-container {
 		
 		grid:	"main " 		minmax(100px, auto)
-				"feu "  	minmax(100px, auto)
+				"tagcloud "  	minmax(100px, auto)
 				/ 1fr ;
 	}
 	
@@ -75,8 +75,10 @@ div #socialmedia .icons {
 @media only screen and (min-width: 60em) {				/* ~960px */
 	
 	.main-container {
-		grid:	" main nav" 	minmax(100px, auto) 
-				" main feu"		minmax(100px, auto) 
+		grid:	" main nav" 		minmax(100px, auto) 
+				" main tagcloud"	minmax(100px, auto) 
+				" main ."			minmax(  0px, auto) /* Required to align 'sidebar' */
+														/* elements to the top */
 				/ 2fr  1fr;
 	}
 	
@@ -121,7 +123,11 @@ nav { grid-area: nav; }
 
 main { grid-area: main; }
 
+#news { grid-area: news; }
+
 #feu { grid-area: feu; }
+
+#tagcloud { grid-area: tagcloud; }
 
 footer { grid-area: foot; }
 

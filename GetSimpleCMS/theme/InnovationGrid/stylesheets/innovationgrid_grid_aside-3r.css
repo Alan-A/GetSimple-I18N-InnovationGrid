@@ -68,7 +68,8 @@ div #socialmedia .icons {
 		grid:	" main nav" 		minmax(100px, auto) 
 				" main tagcloud"	minmax(100px, auto) 
 				" main feu"			minmax(100px, auto) 
-				" main ."			minmax(  0px, auto) 
+				" main ."			minmax(  0px, auto) /* Required to align 'sidebar' */
+														/* elements to the top */
 				/ 2fr  1fr;
 	}
 	nav.menu-tree {					/* is no longer replaced by 'burger-menu' */
