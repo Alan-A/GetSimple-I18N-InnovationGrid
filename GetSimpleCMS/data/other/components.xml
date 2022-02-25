@@ -61,7 +61,7 @@ class feule_menu_aside {
             
         } else {
         
-            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
+            //echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
@@ -855,7 +855,7 @@ class feule_submenu {
             
         } else {
         
-            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
+            //echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
@@ -1536,7 +1536,7 @@ class slider_menu {
             
         } else {
         
-            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
+            //echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
