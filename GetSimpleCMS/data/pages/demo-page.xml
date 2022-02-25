@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Thu, 17 Feb 2022 14:43:06 +0100</pubDate><title><![CDATA[Demo Pages]]></title><url><![CDATA[demo-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Demo Pages]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;p&gt;This page and its sub-pages show the working of the FEULE SubMenu component, which is used to show the child pages of any given page - not necessarily the current page. The maxumum number of levels to be displayed can be restricted: in the example menu shown on this page the number of levels is restricted to 2, in the menu shown in the sidebar or in the slider it is set to 3, which allows the &#039;3rd Level Sub-Page&#039; is shown..&lt;/p&gt;
+<item><pubDate>Thu, 24 Feb 2022 15:06:10 +0100</pubDate><title><![CDATA[Demo Pages]]></title><url><![CDATA[demo-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Demo Pages]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;p&gt;This page and its sub-pages show the working of the FEULE SubMenu component, which is used to show the child pages of any given page - not necessarily the current page. The maxumum number of levels to be displayed can be restricted: in the example menu shown on this page the number of levels is restricted to 2, in the menu shown in the sidebar or in the slider it is set to 3, which allows the &#039;3rd Level Sub-Page&#039; to be shown..&lt;/p&gt;
 
 &lt;h2&gt;Demonstration Sub-Menu&lt;/h2&gt;
 
 &lt;p&gt;{% feule_submenu &#039;en&#039; &#039;demo-page&#039; &#039;2&#039; %}&lt;/p&gt;
+
+&lt;h2&gt;Menu &amp;amp; Sub-Menu Configuration&lt;/h2&gt;
+
+&lt;h3&gt;Sub-Menus&lt;/h3&gt;
+
+&lt;p&gt;The &#039;Demonstartion Sub-Menu&#039; shown above is configured with the following code, which can be directly copied into the page editor:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&lt;span class=&quot;bracket&quot;&gt;{&lt;/span&gt;% feule_submenu &#039;en&#039; &#039;demo-page&#039; &#039;2&#039; %&lt;span class=&quot;bracket&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The brackets and &#039;%&#039; characters which enclose the code are required by the DynPages plugin.&lt;/p&gt;
+
+&lt;p&gt;The individual parameters are:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;The component used to write the sub-menu.&lt;/li&gt;
+	&lt;li&gt;The language code for the pages in the sub-menu.&lt;/li&gt;
+	&lt;li&gt;The parent page.&lt;/li&gt;
+	&lt;li&gt;The maximum number of levels to be shown.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that as provided only one sub-menu instance can be included on a page. However, one or more additional sub-menus can be shown when the original &#039;FEULE_SubMenu&#039; component is cloned and:new values given to:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;the name of the component&lt;/li&gt;
+	&lt;li&gt;the name of the PHP class in the componnet given a new, unique value. For example, the current &#039;f&lt;code&gt;eule_submenu&lt;/code&gt;&#039; changed to &#039;f&lt;code&gt;eule_submenu_1&lt;/code&gt;&#039; in lines 7, 408 and 410.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Menus&lt;/h3&gt;
+
+&lt;p&gt;The sidebar menu (shown on wide screens) and the slider menu (shown for smaller screens) are configured in the &lt;code&gt;header.ini.php&lt;/code&gt; and &lt;code&gt;header.ini.php&lt;/code&gt; files respectively.&lt;/p&gt;
+
+&lt;p&gt;Both menus use similar parameters to those used for the sub-menus. For example, for the sidebar menu:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;php get_i18n_component(&#039;feule_menuaside&#039;, $language, &#039;&#039;, 3);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;With the parameters being:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;The name of the component used to generate the menu.&lt;/li&gt;
+	&lt;li&gt;The variable specifing the currnet language.&lt;/li&gt;
+	&lt;li&gt;The parent element is left blank so that top level menu items will be shown.&lt;/li&gt;
+	&lt;li&gt;The maximum number of levels to be shown.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 ]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><creDate>Fri, 30 Jul 2021 13:14:48 +0200</creDate><user><![CDATA[admin]]></user><menuOrder><![CDATA[1]]></menuOrder></item>
