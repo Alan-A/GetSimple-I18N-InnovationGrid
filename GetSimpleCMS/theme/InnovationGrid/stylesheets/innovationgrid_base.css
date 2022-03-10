@@ -461,6 +461,7 @@ nav ul li {						/* All list elements. */
 	list-style: disc;
 	padding: 2px 0;				/*  */
 /*	font-size: 0.8rem;			/* Is overwritten for smaller devices (see mobile-nav.css file)*/
+	font-style: italic;			/* For the current/active link list item - see 'ul li a' (below) */
 }
 ul li.no-bullet {			/* Submenus */
 	list-style-type: none;
@@ -468,11 +469,12 @@ ul li.no-bullet {			/* Submenus */
 ul li li {					/* Only sub level elements */
 	list-style: circle;
 }
-ul li li li {					/* Only sub sub level elements */
+li li li {					/* Sub sub level elements and lower */
 	list-style: square;
 }
 ul li a {
 	text-decoration: none;		/* Remove underline */
+	font-style: normal;			/* For non-active link list items - see 'nav ul li' (above) */
 }
 
 
