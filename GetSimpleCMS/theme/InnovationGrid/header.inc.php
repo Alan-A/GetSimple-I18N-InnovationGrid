@@ -80,8 +80,8 @@
 
 				<div class="wrapper">
 				
-					<a href="<?php get_site_url(); ?>">Home</a> &nbsp;&nbsp;&#149;&nbsp;&nbsp; 
-					<?php Innovation_Parent_Link(get_parent(FALSE)); ?> <b><?php get_page_clean_title(); ?></b>
+					<a href="<?php get_site_url(); ?>">Home</a>  
+					<?php get_i18n_breadcrumbs(return_page_slug()); ?>
 				
 				</div><!-- End .wrapper -->
 			

@@ -210,25 +210,41 @@ header div.section {		/* container for mobile burger nav */
 .breadcrumbs .container a:link, 
 .breadcrumbs a:visited {
 	color:#666;
-	text-decoration:underline;
+/*	text-decoration:underline;			/* Commented out as also underlines a::before content - see below */
 }
 .breadcrumbs a:focus, 
 .breadcrumbs a:hover {
 	color:#316594;
-	text-decoration:underline;
+/*	text-decoration:underline;			/* Commented out as also underlines a::before content - see below */
 }
 
-/*	For home/index page - Suppress first 'home' element and separator */
+/*	For the home/index page only - Suppress first 'home' element and separator */
 #index .breadcrumbs .wrapper {
-	visibility: hidden;	
+/*	visibility: hidden;			/*  */
 } 
 #index header .breadcrumbs .wrapper>:first-child {
-	display:none;			/*  */
+/*	display:none;				/*  */
 } 
 #index header .breadcrumbs .wrapper>:nth-child(2) {
 	margin-left:-0.7em;
-	visibility: visible; 	/*  */
+	visibility: visible; 		/*  */
 }
+/*  For the 'standard' pages  */
+.breadcrumbs .wrapper {
+	visibility: hidden; 		/* Goal: to suppress the original hard-coded chevron/right quotes (&raquo;) symbols */	
+} 
+.breadcrumbs .wrapper>:nth-child(1),
+.breadcrumbs .wrapper .breadcrumb {
+	visibility: visible; 		/* Unsuppress the home link and the breadcrumb links */	
+} 
+.breadcrumbs .wrapper .breadcrumb::before {
+	content: '\00BB \00A0'; 	/* Add the &raquo; and &nbsp; symbols */
+/*	text-decoration: none; 		/*  */
+} 
+.breadcrumbs .wrapper>:nth-child(2)::before {	/* before the first of the breadcrumb links (not the 'home' link) */
+/*	background-color: goldenrod;				/*  */	
+	content: '\007C \00A0 \00A0 \00A0'; 		/* Insert a 'pipe' and &nbsp; instead of the &raquo; symbol */	
+} 
 
 
 /* BODY CONTENT */
