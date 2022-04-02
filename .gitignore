@@ -7,6 +7,7 @@ GetSimpleCMS-Copy
 GetSimpleCMS-Dev
 
 # Ignore test instances:
+GetSimpleCMS-Test-1lang
 GetSimpleCMS-Test-2r
 GetSimpleCMS-Test-3r-FEULE
 
@@ -28,6 +29,7 @@ GetSimpleCMS/data/*
 GetSimpleCMS/data/other/*
 #... except:
 !GetSimpleCMS/data/other/components.xml
+!GetSimpleCMS/data/other/customfields.xml
 # In addition, do not ignore
 !GetSimpleCMS/data/pages/
 # ... but ignore this folder:
