@@ -935,6 +935,7 @@ class feule_submenu {
             
         } else {
         
+            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
@@ -1591,6 +1592,7 @@ class slider_menu {
     
     private $css_class_page_link = &quot;page-link&quot;;
     private $css_class_subpage_link = &quot;subpage-link&quot;;
+    private $css_class_page_link_active = &quot;current&quot;;    // Already used in main nav
     
 //
 //  Determine which user group(s) any logged on user is a member of.
@@ -1615,7 +1617,7 @@ class slider_menu {
             
         } else {
         
-            echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
+            //echo &quot;36: function getCurrentUserGroups() does not exist&quot; . &quot;&lt;br&gt;&quot;;
             return false;
         
         }
@@ -1626,21 +1628,32 @@ class slider_menu {
 //  Create the menu
 //  
     // Add a link to the page html
-    private function echo_link($page_array, $css_class, $langCode) {
+    private function echo_link($page_array, $css_classes, $langCode, $pageSlug) {
         
-        //console_log(&#039;Text 147: &#039;, $page_array);
+        //console_log(&#039;Text 50: &#039;, $page_array);
         
         echo &quot;&lt;li&gt;&quot;;
-        if ( $langCode == &#039;default&#039; ) {
-            echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+        
+        $pageUrl = $page_array[&quot;url&quot;];
+        
+        if ($pageSlug == $pageUrl) {
+            
+            echo $page_array[&quot;title&quot;];
+            
         } else {
-            // Check if page for non-default language exists
-            if ( array_key_exists( &quot;title_&quot;.$langCode, $page_array )) {
-                echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title_&quot;.$langCode] . &quot;&lt;/a&gt;&quot;;
+            
+            if ( $langCode == &#039;default&#039; ) {
+                echo &quot;&lt;a href=&#039;&quot; . $pageUrl . &quot;&#039; class=&#039;&quot; . $css_classes . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
             } else {
-                // Fall back to default language page
-                echo &quot;&lt;a href=&#039;&quot; . $page_array[&quot;url&quot;] . &quot;&#039; class=&#039;&quot; . $css_class . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+                // Check if page for non-default language exists
+                if ( array_key_exists( &quot;title_&quot;.$langCode, $page_array )) {
+                    echo &quot;&lt;a href=&#039;&quot; . $pageUrl . &quot;&#039; class=&#039;&quot; . $css_classes . &quot;&#039;&gt;&quot; . $page_array[&quot;title_&quot;.$langCode] . &quot;&lt;/a&gt;&quot;;
+                } else {
+                    // Fall back to default language page
+                    echo &quot;&lt;a href=&#039;&quot; . $pageUrl . &quot;&#039; class=&#039;&quot; . $css_classes . &quot;&#039;&gt;&quot; . $page_array[&quot;title&quot;] . &quot;&lt;/a&gt;&quot;;
+                }
             }
+            
         }
         
         echo &quot;&lt;/li&gt;&quot;;
@@ -1739,7 +1752,7 @@ class slider_menu {
 //  Create the menu
 //  
     // 
-    private function process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels) {
+    private function process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels, $pageSlug) {
         
         $pageArray = $pagesArray[$pageKey];
         
@@ -1785,11 +1798,22 @@ class slider_menu {
             
 //            echo &quot;&lt;ul&gt;&quot;;
             
-            //echo &quot;204: levelCount: &quot; . $levelCount . &quot;, pageArray[&#039;parent&#039;]: &quot; . $pageArray[&quot;parent&quot;] . &quot;&lt;br&gt;&quot;;
+            //echo &quot;210: levelCount: &quot; . $levelCount . &quot;, pageArray[&#039;parent&#039;]: &quot; . $pageArray[&quot;parent&quot;] . &quot;&lt;br&gt;&quot;;
+            
+//            echo &quot;pageSlug: &quot; . $pageSlug . &quot;&lt;br&gt;&quot;;
+//            echo &quot;pageArray.url: &quot; . $pageArray[&#039;url&#039;] . &quot;&lt;br&gt;&quot;;
             
             if ($levelCount !== 0 || $pageArray[&quot;parent&quot;] == &#039;&#039;){
                 
-                $this-&gt;echo_link($pageArray, $this-&gt;css_class_page_link, $langCode);
+                // Is page currently being processed the current page?
+                if($pageSlug == $pageArray[&#039;url&#039;]) {
+                    //echo &quot;page is active - css_class: &quot; . $this-&gt;css_class_page_link_active . &quot; &lt;br&gt;&quot;;
+                    $css_classes = $this-&gt;css_class_page_link . &quot; &quot; . $this-&gt;css_class_page_link_active;
+                } else {
+                    $css_classes = $this-&gt;css_class_page_link;
+                }
+                
+                $this-&gt;echo_link($pageArray, $css_classes, $langCode, $pageSlug);
                 
             }
             
@@ -1812,7 +1836,7 @@ class slider_menu {
                     
                         //echo &quot;221: Child: &quot; . $childKey . &quot;&lt;br&gt;&quot;;
                     
-$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $levelCount, $numberLevels);
+$parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode, $levelCount, $numberLevels, $pageSlug);
                     
                     }
                     
@@ -1829,7 +1853,7 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
                 
             }   // END if (has children)
             
-            //$this-&gt;echo_link($i18n_pages[$pageArray], $this-&gt;css_class_page_link, $langCode);
+            //$this-&gt;echo_link($i18n_pages[$pageArray], $this-&gt;css_class_page_link, $langCode, $pageSlug);
             
 //            echo &quot;&lt;/ul&gt;&quot;;
             
@@ -1844,7 +1868,7 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
 // Parse each page element in the i18n_pages array.
 //
     // Parse each top level page element
-    public function parse_elements ($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels){
+    public function parse_elements ($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels, $pageSlug ){
         
         //console_log(&#039;Text 221:&#039;, $langCode);
         
@@ -1883,7 +1907,7 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
                             
                             //console_log(&#039;Text 253:&#039;, $pageArray);
                             
-                            $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels);
+                            $pageProcessor = $this-&gt;process_page($pagesArray, $pageKey, $langCode, $levelCount, $numberLevels, $pageSlug);
                             // Is array
                             
                         } else {    // Page is a sub-page, so will be displayed as such
@@ -1915,7 +1939,7 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
                 
                     //echo &quot;334: pageKey: &quot; . $pageKey . &quot;, pageName: &quot; . $pageName . &quot;&lt;br&gt;&quot;;
                     
-                    $pageProcessor = $this-&gt;process_page($pagesArray, $pageName, $langCode, $levelCount, $numberLevels);
+                    $pageProcessor = $this-&gt;process_page($pagesArray, $pageName, $langCode, $levelCount, $numberLevels, $pageSlug);
                 }
                 
             }
@@ -1935,20 +1959,20 @@ $parse_child_elements = $this-&gt;process_page($pagesArray, $childKey, $langCode
         
     }
     
-}    // END class feule_menu_mobil
+}    // END class feule_menu_aside
 
-// - - - - - - - - - - - - - - - - - - - - -
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//
 // START - Get the list of pages
-// Is a flat array - can be listed using &#039;print_r($pagesArray)&#039; below
+// List is a flat array - can be listed using &#039;print_r($pagesArray)&#039; below
 $pagesArray = return_i18n_pages();
-
 
 //echo &quot;&lt;pre&gt;&quot;;
 //print_r($pagesArray);
 //echo &quot;&lt;/pre&gt;&quot;;
 
 
-// CAUTION! DO NOT ACTIVATE FUNCTION N MOBILE AND ASIDE VERSIONS WITH THE SAME NAME
+// CAUTION! DO NOT ACTIVATE FUNCTION IN MOBILE AND ASIDE VERSIONS WITH THE SAME NAME
 //
 //function console_log( $text, $data ){
 //  echo $text;
@@ -1967,6 +1991,10 @@ $language = $args[0];
 $parentPage = $args[1];
 //echo &quot;parentPage: &quot; . $parentPage . &quot;&lt;br&gt;&quot;;
 $numberLevels = $args[2];
+//echo &quot;numberLevels: &quot; . $numberLevels . &quot;&lt;br&gt;&quot;;
+$pageSlug = $args[3];
+//echo &quot;pageSlug: &quot; . $pageSlug . &quot;&lt;br&gt;&quot;;
+
 $levelCount = 0;
 
 
@@ -1989,7 +2017,7 @@ foreach($pagesArray[&#039;index&#039;] as $pageKey =&gt; $pageArray) {
 
 $slider_menu = new slider_menu();
 
-$slider_menu -&gt; parse_elements($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels);
+$slider_menu -&gt; parse_elements($pagesArray, $langCode, $parentPage, $levelCount, $numberLevels, $pageSlug);
 
 ?&gt;
     &lt;/nav&gt;
