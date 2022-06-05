@@ -219,12 +219,7 @@ header div.section {		/* container for mobile burger nav */
 }
 
 /*	For the home/index page only - Suppress first 'home' element and separator */
-#index .breadcrumbs .wrapper {
-/*	visibility: hidden;			/*  */
-} 
-#index header .breadcrumbs .wrapper>:first-child {
-/*	display:none;				/*  */
-} 
+ 
 #index header .breadcrumbs .wrapper>:nth-child(2) {
 	margin-left:-0.7em;
 	visibility: visible; 		/*  */

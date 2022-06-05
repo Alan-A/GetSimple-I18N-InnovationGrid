@@ -28,8 +28,8 @@
 					
 					<!-- logo/sitename -->
 					<div class="sitename">
-						<a href="<?php get_site_url(); ?>" id="logo" ><?php get_custom_field('logo_text'); ?></a>
-					<!--<a href="<?php //get_site_url(); ?>" id="logo" ><?php //get_site_name(); ?></a>-->
+						<!--<a href="<?php //get_site_url(); ?>" id="logo" ><?php //get_custom_field('logo_text'); ?></a>-->
+					<a href="<?php get_site_url(); ?>" id="logo" ><?php get_site_name(); ?></a>
 					</div><!-- End .sitename -->
 					
 				</div><!-- End .left -->
