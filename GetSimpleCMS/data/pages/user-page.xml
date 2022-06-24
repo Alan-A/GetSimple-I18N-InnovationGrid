@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Wed, 08 Dec 2021 11:11:48 +0100</pubDate><creDate>Tue, 07 Dec 2021 15:54:06 +0100</creDate><title><![CDATA[User Page]]></title><url><![CDATA[user-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;User Pages - shown by default to registered and authorized users.&lt;/p&gt;
-]]></content><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><user><![CDATA[admin]]></user><memberonly><![CDATA[Users]]></memberonly><parent><![CDATA[user-pages]]></parent><menuOrder><![CDATA[1]]></menuOrder><menu><![CDATA[]]></menu><menuStatus><![CDATA[Y]]></menuStatus><private><![CDATA[]]></private></item>
+<item><pubDate>Fri, 24 Jun 2022 09:04:01 +0200</pubDate><title><![CDATA[User Page]]></title><url><![CDATA[user-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[User Page]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[user-pages]]></parent><content><![CDATA[&lt;h2&gt;Page with Restricted Access&lt;/h2&gt;
+
+&lt;p&gt;This page has the Front end access control setting &#039;Users&#039; - i.e. when the Front End User Enhanced (FEULE) plugin is &lt;em&gt;installed and active&lt;/em&gt;, this page will only be shown in the InnovationGrid menus and will only be directly accessible for site users that have been authenticated - i.e. users that have logged in - and that have membership of the FEULE &#039;Users&#039; group.&lt;/p&gt;
+
+&lt;h3&gt;Display with Inactive FEULE Plugin&lt;/h3&gt;
+
+&lt;p&gt;When the FEULE plugin is &lt;em&gt;inactive&lt;/em&gt;, &lt;em&gt;all&lt;/em&gt; site visitors will see the link to this page in the Innovation Grid menus and be ble to access this page directly.&lt;/p&gt;
+
+&lt;h3&gt;Display with Active FEULE Plugin&lt;/h3&gt;
+
+&lt;p&gt;When the FEULE plugin is first installed and activated, site visitors that &lt;a href=&quot;https://localhost/_projects/getsimple/GetSimple-I18N-InnovationGrid/GetSimpleCMS/user-pages/#selfregistration&quot;&gt;self-register&lt;/a&gt; are made automatically members of the &#039;Users&#039; group. Self-registered visitors will then be able see this page displayed in the InnovationGrid menus&amp;nbsp;after logging on and able to access this page directly.&lt;/p&gt;
+
+&lt;p&gt;Self-registered users can be given membership of additional goups by a site administrator.&lt;/p&gt;
+
+&lt;h3&gt;Configuration of Page Access&lt;/h3&gt;
+
+&lt;p&gt;The &#039;Front end access control setting&#039; used to specify which user groups can access a page is found in the &#039;Page Options&#039; section when this page is opened in the &#039;Edit Pages&#039; area of the site backend.&lt;/p&gt;
+]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><menuOrder><![CDATA[1]]></menuOrder><creDate>Tue, 07 Dec 2021 15:54:06 +0100</creDate><user><![CDATA[admin]]></user></item>

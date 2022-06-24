@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Wed, 08 Dec 2021 11:13:46 +0100</pubDate><creDate>Tue, 07 Dec 2021 16:06:01 +0100</creDate><title><![CDATA[Unauthorized Page]]></title><url><![CDATA[unauthorized-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;Unauthorized Page - shown to all - unregistered users and registered users that are only authorized to see these pages.&lt;/p&gt;
-]]></content><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><user><![CDATA[admin]]></user><memberonly><![CDATA[Unauthorized]]></memberonly><parent><![CDATA[user-pages]]></parent><menuOrder><![CDATA[2]]></menuOrder><menu><![CDATA[]]></menu><menuStatus><![CDATA[Y]]></menuStatus><private><![CDATA[]]></private></item>
+<item><pubDate>Fri, 24 Jun 2022 09:46:38 +0200</pubDate><title><![CDATA[Unauthorized Page]]></title><url><![CDATA[unauthorized-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Unauthorized Page]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[user-pages]]></parent><content><![CDATA[&lt;p&gt;This page shown to all site visitors - to unregistered and to registered users.&lt;/p&gt;
+
+&lt;p&gt;Page with Restricted Access&lt;/p&gt;
+
+&lt;p&gt;This page has the Front end access control setting &#039;Users&#039; - i.e. when the Front End User Enhanced (FEULE) plugin is installed and active, this page will only be shown in the InnovationGrid menus and will only be directly accessible for site users that have been authenticated - i.e. users that have logged in - and that have membership of the FEULE &#039;Users&#039; group.&lt;/p&gt;
+
+&lt;p&gt;Display with Inactive FEULE Plugin&lt;/p&gt;
+
+&lt;p&gt;When the FEULE plugin is inactive, all site visitors will see the link to this page in the Innovation Grid menus and be ble to access this page directly.&lt;/p&gt;
+
+&lt;p&gt;Display with Active FEULE Plugin&lt;/p&gt;
+
+&lt;p&gt;When the FEULE plugin is first installed and activated, site visitors that self-register are made automatically members of the &#039;Users&#039; group. Self-registered visitors will then be able see this page displayed in the InnovationGrid menus&amp;nbsp;after logging on and able to access this page directly.&lt;/p&gt;
+
+&lt;p&gt;Self-registered users can be given membership of additional goups by a site administrator.&lt;/p&gt;
+
+&lt;p&gt;Configuration of Page Access&lt;/p&gt;
+
+&lt;p&gt;The &#039;Front end access control setting&#039; used to specify which user groups can access a page is found in the &#039;Page Options&#039; section when this page is opened in the &#039;Edit Pages&#039; area of the site backend.&lt;/p&gt;
+]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><menuOrder><![CDATA[2]]></menuOrder><creDate>Tue, 07 Dec 2021 16:06:01 +0100</creDate><user><![CDATA[admin]]></user></item>

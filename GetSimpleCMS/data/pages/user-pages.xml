@@ -1,3 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Tue, 07 Dec 2021 15:07:48 +0100</pubDate><creDate>Tue, 07 Dec 2021 14:52:29 +0100</creDate><title><![CDATA[User Pages]]></title><url><![CDATA[user-pages]]></url><meta><![CDATA[User Administration]]></meta><metad><![CDATA[]]></metad><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;In order to be able to access the user content, you first need to use the link above to register and then to confirm your e-mail address. You will then be able to log in with your user name and password and access the default user pages. You may be also be authorised to access other user content. You will remain logged in until you either log out or you close the browser tab.&lt;/p&gt;
-]]></content><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><user><![CDATA[admin]]></user><parent><![CDATA[]]></parent><menu><![CDATA[]]></menu><menuStatus><![CDATA[Y]]></menuStatus><private><![CDATA[]]></private><menuOrder><![CDATA[2]]></menuOrder></item>
+<item><pubDate>Wed, 22 Jun 2022 13:50:30 +0200</pubDate><title><![CDATA[User Pages]]></title><url><![CDATA[user-pages]]></url><meta><![CDATA[User Administration]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[User Pages]]></menu><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[]]></parent><content><![CDATA[&lt;h2&gt;User Authentication and Authorization&lt;/h2&gt;
+
+&lt;h3&gt;Display of Menu Items&lt;/h3&gt;
+
+&lt;p&gt;The menus provided with the InnovationGrid package can take account of the user authentication and authorization provided by the GetSimple &lt;a href=&quot;http://get-simple.info/extend/plugin/front-end-user-login-enhanced/809/&quot;&gt;Front End User Login Enhanced&lt;/a&gt; (FEULE) plugin. This means that site visitors only get to see menu items for the pages they are authorized to see.&lt;/p&gt;
+
+&lt;p&gt;Three sub-pages are provided with this page to demonstrate the functioning of the menus and the FEULE plugin: the &#039;Admin Page&#039;, User Page&#039; and &#039;Unauthorized Page&#039;. These pages are configured with permissions corresponding to the three default user groups provided with the FEULE plugin.&lt;/p&gt;
+
+&lt;h4&gt;Display With Inactive Authentication and Authorization&lt;/h4&gt;
+
+&lt;p&gt;When thie Front End User Login Enhanced (FEULE) plugin is either is inactive or has not been configured, users will be able to see all three User sub-page items in the menus, the Admin, User and Unauthorized pages.&lt;/p&gt;
+
+&lt;h4&gt;Display With Active Authentication and Authorization&lt;/h4&gt;
+
+&lt;p&gt;Once the FEULE plugin has been installed and configured, the default set of permissions will be active. Access / viewing of the User sub-pages will be as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;All site visitors will be able to see the &#039;Unauthorized Page&#039; menu item and the page itself.&lt;/li&gt;
+	&lt;li&gt;Visitors that have been registered and authorized (i.e. that have logged in) and are automatically assigned membership of the default &lt;em&gt;&#039;Users&#039;&lt;/em&gt; group will be able to see the &#039;Unauthorized Page&#039; and &#039;User Page&#039; menu items and pages.&lt;/li&gt;
+	&lt;li&gt;Logged-in visitors that have been assigned membership of the &#039;&lt;em&gt;Admin&lt;/em&gt;&#039; user group will be able to see the &#039;Admin Page&#039; menu item and access the page itself in addition to the other two pages.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;User Registration&lt;/h3&gt;
+
+&lt;h4 id=&quot;selfregistration&quot;&gt;Self-Registration with Email Validation&lt;/h4&gt;
+
+&lt;p&gt;Users can be allowed to self-register using a form provided in the &#039;User Area&#039; page section. This section is not shown when this package is first installed. The &#039;Default Template&#039; file has to be modified to show the &#039;User Area&#039; page section. This is described in the README.md file provided in this package and in the &lt;a href=&quot;https://github.com/Alan-A/GetSimple-I18N-InnovationGrid#installing-and-activating-user-authentication-and-authorization--&quot;&gt;documentation on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Self registration is active by default and can be deactivated in the&amp;nbsp;FEULE &#039;User Management&#039; tab in the backend,&lt;/p&gt;
+
+&lt;p&gt;Once registered, users are assigned by default the User Group permissions. Regiistered users may be manually assigned membership of additional user groups by an administrator in the &#039;User Management&#039; tab in the backend,&lt;/p&gt;
+
+&lt;p&gt;In order to be able to access the restricted content, you first need to use the link above to register and then to confirm your e-mail address. You will then be able to log in with your user name and password and access the default user page(s). You may be also be authorised to access other user content.&lt;/p&gt;
+
+&lt;h4&gt;User Profiles&lt;/h4&gt;
+
+&lt;p&gt;Preconfigured user profiles are not provided as part of this package. They can be easily configured, either in the site backend by an administrator, as described in the next section or in the frontend &#039;User Area&#039; as described in the&amp;nbsp; previous &#039;Self-Registration ...&#039; section.&lt;/p&gt;
+
+&lt;h4&gt;Central Registration in the GetSimple backend.&lt;/h4&gt;
+
+&lt;p&gt;A site administrator can create user profiles in the &#039;User Management&#039; tab of the site backend and allocate and modify group membership.&lt;/p&gt;
+
+&lt;h3&gt;Page Permission Settings&lt;/h3&gt;
+
+&lt;p&gt;The three User sub-pages are the only pages provided with this package that have been configured with permission settings for the FEULE plugin.&lt;/p&gt;
+
+&lt;p&gt;Permission settings for the FEULE plugin are made in the &#039;Page Options&#039; section of the &#039;Edit Pages&#039; area in the GetSimple backend.&lt;/p&gt;
+
+&lt;h3&gt;General Behavior of the FEULE Plugin&lt;/h3&gt;
+
+&lt;h4&gt;Display in Conjunction with the &#039;Page Visibility&#039; Setting&lt;/h4&gt;
+
+&lt;p&gt;The FEULE permissions are seperate from and can be overwritten by the &#039;Page Visibility&#039; setting, which is also taken account of by the menus. The &#039;Page Visibility&#039; setting is also made in the &#039;Page Options&#039; section when a page is opened in the &#039;Edit Pages&#039; area of the site backend.&lt;/p&gt;
+
+&lt;h4&gt;Logging Out&lt;/h4&gt;
+
+&lt;p&gt;Users remain logged in until they either log out or they close the browser tab. The FEULE plugin does not automatically log users out after a certain length of time.&lt;/p&gt;
+
+&lt;h4&gt;Access Probition&lt;/h4&gt;
+
+&lt;p&gt;When a user attempts to access a page which they do not have the necessary permissions for, they will be presented with an &#039;Access denied ...&#039; message.&lt;/p&gt;
+
+&lt;p&gt;The content of the access denied message can be changed in the &#039;User Management&#039; tab of the site backend. This message is not language-specific.&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><menuOrder><![CDATA[2]]></menuOrder><creDate>Tue, 07 Dec 2021 14:52:29 +0100</creDate><user><![CDATA[admin]]></user></item>

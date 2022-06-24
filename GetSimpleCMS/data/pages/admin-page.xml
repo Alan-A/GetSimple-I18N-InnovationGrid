@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<item><pubDate>Wed, 08 Dec 2021 11:10:50 +0100</pubDate><creDate>Tue, 07 Dec 2021 14:58:49 +0100</creDate><title><![CDATA[Admin Page]]></title><url><![CDATA[admin-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><template><![CDATA[template.php]]></template><content><![CDATA[&lt;p&gt;Administrators only ...&lt;/p&gt;
-]]></content><author><![CDATA[admin]]></author><logo_text><![CDATA[GetSimple-I18N-InnovationGrid ]]></logo_text><user><![CDATA[admin]]></user><memberonly><![CDATA[Admin]]></memberonly><parent><![CDATA[user-pages]]></parent><menuOrder><![CDATA[0]]></menuOrder><menu><![CDATA[]]></menu><menuStatus><![CDATA[Y]]></menuStatus><private><![CDATA[]]></private></item>
+<item><pubDate>Fri, 24 Jun 2022 09:04:30 +0200</pubDate><title><![CDATA[Admin Page]]></title><url><![CDATA[admin-page]]></url><meta><![CDATA[]]></meta><metad><![CDATA[]]></metad><menu><![CDATA[Admin Page]]></menu><menuOrder><![CDATA[0]]></menuOrder><menuStatus><![CDATA[Y]]></menuStatus><template><![CDATA[template.php]]></template><parent><![CDATA[user-pages]]></parent><content><![CDATA[&lt;h2&gt;Page with Restricted Access&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;T&lt;/u&gt;&lt;/strong&gt;his page has the Front end access control setting &#039;Admin&#039; - i.e. when the Front End User Enhanced (FEULE) plugin is &lt;em&gt;installed and active&lt;/em&gt;, this page will only be shown in the InnovationGrid menus and will only be directly accessible for site users that have been authenticated - i.e. users that have logged in - and that have membership of the FEULE &#039;Admin&#039; group.&lt;/p&gt;
+
+&lt;h3&gt;Display with Inactive FEULE Plugin&lt;/h3&gt;
+
+&lt;p&gt;When the FEULE plugin is &lt;em&gt;inactive&lt;/em&gt;, &lt;em&gt;all&lt;/em&gt; site visitors will see the link to this page in the Innovation Grid menus and be ble to access this page directly.&lt;/p&gt;
+
+&lt;h3&gt;Display with Active FEULE Plugin&lt;/h3&gt;
+
+&lt;p&gt;When the FEULE plugin is installed and activated, only authenticated (i.e. logged-on) site visitors that have been assigned membership of the &#039;Admin&#039; group, will be able to see links to this page in the Innovation Grid menus and to access this page directly. Membership of the &#039;Admin&#039; group can only be assigned to users by a site administrator.&lt;/p&gt;
+
+&lt;p&gt;Membership of the &#039;Admin&#039; goup allows a site visitor to see &lt;em&gt;all&lt;/em&gt; pages.&lt;/p&gt;
+
+&lt;h3&gt;Configuration of Page Access&lt;/h3&gt;
+
+&lt;p&gt;The &#039;Front end access control setting&#039; used to specify which user groups can access a page is found in the &#039;Page Options&#039; section when this page is opened in the &#039;Edit Pages&#039; area of the site backend.&lt;/p&gt;
+]]></content><private><![CDATA[]]></private><author><![CDATA[admin]]></author><creDate>Tue, 07 Dec 2021 14:58:49 +0100</creDate><user><![CDATA[admin]]></user></item>
