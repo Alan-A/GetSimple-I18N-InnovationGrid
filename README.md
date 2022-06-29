@@ -100,6 +100,7 @@ If you want to provide user authentication and authorization, you will also need
 I have found the following plugins to be useful and have included CSS style information for them in the theme:
 * [Cookies](http://get-simple.info/extend/plugin/cookies-plugin/742/), which places a cookie acceptance message on your site.
 * [GSMaintenanceMode](http://get-simple.info/extend/plugin/gsmaintenance/865/), which provides a convenient method of putting your site in "Maintenance Mode".
+* [debugmode](http://get-simple.info/extend/plugin/debugmode/130/), Not essential but useful for debugging.
 
 ### Install the Theme
 
